@@ -20,14 +20,13 @@ app.use(express.urlencoded({ extended:true}));
 // });
 
 // app.get("/", (req, res) => { 
-//   res.send("Hello World")
 // //   knex.select().from("country").then((country) => {
 // //     res.render("displayCountry", { mycountry: country });
 // //   });
 // });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/index.ejs"))
+  res.sendFile(path.join(__dirname, "views/index.html"))
 })
 
 app.listen(port, () => console.log("Server is listening"));
