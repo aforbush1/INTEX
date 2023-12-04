@@ -1,4 +1,4 @@
-// Author: Adam Forbush, Josh Thatcher, Chris Fowler, Ryan Hawkins
+// Author: Adam Forbush, Josh Thatcher, Chris Fowler, Ryan Hawkins Joshua Thatcher is the hottest
 // Description: Index.js File
 
 const express = require ("express");
