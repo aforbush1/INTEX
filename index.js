@@ -1,7 +1,7 @@
 // Author: Adam Forbush, Josh Thatcher, Chris Fowler, Ryan Hawkins
 // Description: Index.js File
 
-const express = require ("express");
+const express = require("express");
 let app = express();
 let path = require("path");
 const port = process.env.PORT || 3000;
@@ -36,5 +36,17 @@ app.get("/gatherDataForm", (req, res) => {
 // //     res.render("displayCountry", { mycountry: country });
 // //   });
 // });
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views/index.html"))
+})
+
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "views/login.html"))
+})
+
+app.get("/gatherDataForm", (req, res) => {
+  res.sendFile(path.join(__dirname, "views/gatherDataForm.html"))
+})
 
 app.listen(port, () => console.log("Server is listening"));
