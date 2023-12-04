@@ -1,7 +1,7 @@
 // Author: Adam Forbush, Josh Thatcher, Chris Fowler, Ryan Hawkins
 // Description: Index.js File
 
-const express = require ("express");
+const express = require("express");
 let app = express();
 let path = require("path");
 const port = process.env.PORT || 3000;
@@ -35,6 +35,10 @@ app.get("/login", (req, res) => {
 
 app.get("/gatherDataForm", (req, res) => {
   res.sendFile(path.join(__dirname, "views/gatherDataForm.html"))
+})
+
+app.post("/storeSurvey",(req,res) => {
+  res.send("Yo Dawg, it Worked")
 })
 
 app.listen(port, () => console.log("Server is listening"));
