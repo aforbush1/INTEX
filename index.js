@@ -33,8 +33,8 @@ app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "views/login.html"))
 })
 
-app.get("/gatherdata", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/gatherData.html"))
+app.get("/gatherDataForm", (req, res) => {
+  res.sendFile(path.join(__dirname, "views/gatherDataForm.html"))
 })
 
 app.listen(port, () => console.log("Server is listening"));
