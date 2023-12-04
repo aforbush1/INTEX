@@ -5,142 +5,86 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Log in</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>Sexy Login</title>
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Link to your existing style.css -->
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Additional Inline CSS -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-    <!-- Template Main CSS File -->
-    <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
+        .login-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #4e54c8;  /* Stylish background color */
+            color: #fff;
+        }
 
-    <!-- =======================================================
-  * Template Name: SoftLand
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+        .login-form {
+            width: 80%;
+            max-width: 400px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
 
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-form button {
+            background: #4e54c8;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .image-container {
+            flex: 1;
+            background: url('https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png') center/cover; /* Stylish background image */
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex justify-content-between align-items-center">
+    <div class="login-container">
+        <form class="login-form" action="/login" method="post">
+            <h1 style="color: black;">Login</h1>
+            <label style="color: black;" for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label style="color: black;" for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
 
-            <div class="logo">
-                <h1>
-                    <a href="index.html"></a>
-                </h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-            </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="" href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a class="active" href="contact.html">Log in</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-        </div>
-    </header>
-
-      <!-- Login Form -->
-      <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
-          <form action="/login" method="post" role="form" class="php-email-form" style="width: fit-content;">
-            <fieldset>
-              <legend>Login</legend>
-              <label for="username">Username:
-                <input type="text" id="username" placeholder="Enter your username" required>
-              </label>
-                                <br><br>
-                                <label for="password">Password:
-                <input type="password" id="password" placeholder="Enter your password" required>
-              </label>
-
-                                <button type="submit" id="submit">Log-In</button><br><br>
-                                <a href="">Create An Account</a>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-                <!-- End Login Form -->
-            </div>
-        </section>
-
-        <!-- End CTA Section -->
-
-    </main>
-    <!-- End #main -->
-
-  <!-- ======= Footer ======= -->
- 
-
-            <div class="row justify-content-center text-center">
-                <div class="col-md-7">
-                    <p class="copyright">&copy; Copyright SoftLand. All Rights Reserved</p>
-                    <div class="credits">
-                        <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=SoftLand
-          -->
-                        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </footer>
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <div class="image-container"></div>
 
 </body>
 
