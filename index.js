@@ -45,7 +45,7 @@ app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "views/login.html"))
 })
 
-app.get("/gatherDataForm", (req, res) => {
+app.get("/surveyForm", (req, res) => {
   res.sendFile(path.join(__dirname, "views/gatherDataForm.html"))
 })
 
