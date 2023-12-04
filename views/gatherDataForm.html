@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Updated to column */
+    align-items: center;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Add margin to the top */
+}
+
+/* Rest of your CSS remains unchanged */
+
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="submit_survey.php" method="post">
+            <label for="age">Age</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="relationshipStatus">Relationship Status</label>
+        <select id="relationshipStatus" name="relationshipStatus" required>
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="occupationStatus">Occupation Status</label>
+        <select id="occupationStatus" name="occupationStatus" required>
+            <option value="employed">Employed</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="student">Student</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="affiliatedOrganizations">What type of organizations are you affiliated with?</label>
+        <input type="text" id="affiliatedOrganizations" name="affiliatedOrganizations" required>
+
+        <label for="useSocialMedia">Do you use social media?</label>
+        <select id="useSocialMedia" name="useSocialMedia" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="socialMediaPlatforms">What social media platforms do you commonly use?</label>
+        <input type="text" id="socialMediaPlatforms" name="socialMediaPlatforms" required>
+
+        <label for="averageTimeOnSocialMedia">What is the average time you spend on social media every day?</label>
+        <input type="text" id="averageTimeOnSocialMedia" name="averageTimeOnSocialMedia" required>
+
+        <label for="socialMediaWithoutPurpose">How often do you find yourself using social media without a specific purpose?</label>
+        <select id="socialMediaWithoutPurpose" name="socialMediaWithoutPurpose" required>
+            <option value="rarely">Rarely</option>
+            <option value="occasionally">Occasionally</option>
+            <option value="frequently">Frequently</option>
+            <option value="always">Always</option>
+        </select>
+
+        <label for="distractedBySocialMedia">How often do you get distracted by social media when you are busy doing something?</label>
+        <select id="distractedBySocialMedia" name="distractedBySocialMedia" required>
+            <option value="rarely">Rarely</option>
+            <option value="occasionally">Occasionally</option>
+            <option value="frequently">Frequently</option>
+            <option value="always">Always</option>
+        </select>
+
+        <label for="restlessWithoutSocialMedia">Do you feel restless if you haven’t used social media in a while?</label>
+        <select id="restlessWithoutSocialMedia
+        <select id="restlessWithoutSocialMedia" name="restlessWithoutSocialMedia" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="easilyDistracted">How easily distracted are you?</label>
+        <select id="easilyDistracted" name="easilyDistracted" required>
+            <option value="notAtAll">Not at all</option>
+            <option value="slightly">Slightly</option>
+            <option value="moderately">Moderately</option>
+            <option value="very">Very</option>
+            <option value="extremely">Extremely</option>
+        </select>
+
+        <label for="botheredByWorries">How much are you bothered by worries?</label>
+        <select id="botheredByWorries" name="botheredByWorries" required>
+            <option value="notAtAll">Not at all</option>
+            <option value="slightly">Slightly</option>
+            <option value="moderately">Moderately</option>
+            <option value="very">Very</option>
+            <option value="extremely">Extremely</option>
+        </select>
+
+        <label for="difficultToConcentrate">Do you find it difficult to concentrate on things?</label>
+        <select id="difficultToConcentrate" name="difficultToConcentrate" required>
+            <option value="notAtAll">Not at all</option>
+            <option value="slightly">Slightly</option>
+            <option value="moderately">Moderately</option>
+            <option value="very">Very</option>
+            <option value="extremely">Extremely</option>
+        </select>
+
+        <label for="compareToOthersOnSocialMedia">How often do you compare yourself to other successful people through the use of social media?</label>
+        <select id="compareToOthersOnSocialMedia" name="compareToOthersOnSocialMedia" required>
+            <option value="rarely">Rarely</option>
+            <option value="occasionally">Occasionally</option>
+            <option value="frequently">Frequently</option>
+            <option value="always">Always</option>
+        </select>
+
+        <label for="feelingsAboutComparisons">Following the previous question, how do you feel about these comparisons, generally speaking?</label>
+        <textarea id="feelingsAboutComparisons" name="feelingsAboutComparisons" required></textarea>
+
+        <label for="seekValidationOnSocialMedia">How often do you look to seek validation from features of social media?</label>
+        <select id="seekValidationOnSocialMedia" name="seekValidationOnSocialMedia" required>
+            <option value="rarely">Rarely</option>
+            <option value="occasionally">Occasionally</option>
+            <option value="frequently">Frequently</option>
+            <option value="always">Always</option>
+        </select>
+
+        <label for="feelingsOfDepression">How often do you feel depressed or down?</label>
+        <select id="feelingsOfDepression" name="feelingsOfDepression" required>
+            <option value="rarely">Rarely</option>
+            <option value="occasionally">Occasionally</option>
+            <option value="frequently">Frequently</option>
+            <option value="always">Always</option>
+        </select>
+
+        <label for="fluctuationInInterest">How frequently does your interest in daily activities fluctuate?</label>
+        <select id="fluctuationInInterest" name="fluctuationInInterest" required>
+            <option value="rarely">Rarely</option>
+            <option value="occasionally">Occasionally</option>
+            <option value="frequently">Frequently</option>
+            <option value="always">Always</option>
+        </select>
+
+        <label for="sleepIssues">How often do you face issues regarding sleep?</label>
+        <select id="sleepIssues" name="sleepIssues" required>
+            <option value="rarely">Rarely</option>
+            <option value="occasionally">Occasionally</option>
+            <option value="frequently">Frequently</option>
+            <option value="always">Always</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+
+</html>
+
+        
