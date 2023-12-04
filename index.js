@@ -8,6 +8,18 @@ const port = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended:true}));
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views/index.html"))
+})
+
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "views/login.html"))
+})
+
+app.get("/gatherDataForm", (req, res) => {
+  res.sendFile(path.join(__dirname, "views/gatherDataForm.html"))
+})
+
 // const knex = require("knex")({
 //     client: "pg",
 //     connection: {
@@ -24,17 +36,5 @@ app.use(express.urlencoded({ extended:true}));
 // //     res.render("displayCountry", { mycountry: country });
 // //   });
 // });
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/index.html"))
-})
-
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/login.html"))
-})
-
-app.get("/gatherDataForm", (req, res) => {
-  res.sendFile(path.join(__dirname, "views/gatherDataForm.html"))
-})
 
 app.listen(port, () => console.log("Server is listening"));
