@@ -37,7 +37,7 @@ app.get("/gatherDataForm", (req, res) => {
   res.sendFile(path.join(__dirname, "views/gatherDataForm.html"))
 })
 
-app.post("/storeSurvey",(req,res) => {
+app.post("/submitSurvey",(req,res) => {
   res.send("Yo Dawg, it Worked")
 })
 
