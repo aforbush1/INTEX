@@ -29,4 +29,8 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views/index.html"))
 })
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views/index.html"))
+})
+
 app.listen(port, () => console.log("Server is listening"));
