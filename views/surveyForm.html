@@ -5,34 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey Form</title>
+
+    <!-- Favicons -->
+    <link href="https://aforbush1.github.io/INTEX/views/assets/img/favicon.png" rel="icon">
+    <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.jpeg" rel="provo-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
     <style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column; /* Updated to column */
-    align-items: center;
-}
-
-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Add margin to the top */
-}
-
-/* Rest of your CSS remains unchanged */
-
-
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            /* Updated to column */
+            align-items: center;
+        }
+        
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            /* Add margin to the top */
+        }
+        /* Rest of your CSS remains unchanged */
+        
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
         }
-
+        
         input,
         select {
             width: 100%;
@@ -42,7 +57,7 @@ form {
             border-radius: 4px;
             box-sizing: border-box;
         }
-
+        
         button {
             background-color: #4caf50;
             color: #fff;
@@ -52,12 +67,40 @@ form {
             cursor: pointer;
         }
     </style>
+
+    <!-- Template Main CSS File -->
+    <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <div class="logo">
+                <!--<h1><a href="index.html">SoftLand</a></h1>-->
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid">
+                </a>
+            </div>
+
+            <!-- .navbar -->
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="active" href="/">Home</a></li>
+                    <li><a href="/surveyForm">Survey</a></li>
+                    <li><a href="/login">Log In</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+
+        </div>
+    </header>
+    <!-- End Header -->
+    <br><br><br>
     <form action="/submitSurvey" method="post">
-            <label for="age">Age</label>
+        <label for="age">Age</label>
         <input type="number" id="age" name="age" required>
 
         <label for="gender">Gender</label>
@@ -116,86 +159,84 @@ form {
 
         <label for="restlessWithoutSocialMedia">Do you feel restless if you haven’t used social media in a while?</label>
         <select id="restlessWithoutSocialMedia
-        <select id="restlessWithoutSocialMedia" name="restlessWithoutSocialMedia" required>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+        <select id=" restlessWithoutSocialMedia " name="restlessWithoutSocialMedia " required>
+            <option value="yes ">Yes</option>
+            <option value="no ">No</option>
         </select>
 
-        <label for="easilyDistracted">How easily distracted are you?</label>
-        <select id="easilyDistracted" name="easilyDistracted" required>
-            <option value="notAtAll">Not at all</option>
-            <option value="slightly">Slightly</option>
-            <option value="moderately">Moderately</option>
-            <option value="very">Very</option>
-            <option value="extremely">Extremely</option>
+        <label for="easilyDistracted ">How easily distracted are you?</label>
+        <select id="easilyDistracted " name="easilyDistracted " required>
+            <option value="notAtAll ">Not at all</option>
+            <option value="slightly ">Slightly</option>
+            <option value="moderately ">Moderately</option>
+            <option value="very ">Very</option>
+            <option value="extremely ">Extremely</option>
         </select>
 
-        <label for="botheredByWorries">How much are you bothered by worries?</label>
-        <select id="botheredByWorries" name="botheredByWorries" required>
-            <option value="notAtAll">Not at all</option>
-            <option value="slightly">Slightly</option>
-            <option value="moderately">Moderately</option>
-            <option value="very">Very</option>
-            <option value="extremely">Extremely</option>
+        <label for="botheredByWorries ">How much are you bothered by worries?</label>
+        <select id="botheredByWorries " name="botheredByWorries " required>
+            <option value="notAtAll ">Not at all</option>
+            <option value="slightly ">Slightly</option>
+            <option value="moderately ">Moderately</option>
+            <option value="very ">Very</option>
+            <option value="extremely ">Extremely</option>
         </select>
 
-        <label for="difficultToConcentrate">Do you find it difficult to concentrate on things?</label>
-        <select id="difficultToConcentrate" name="difficultToConcentrate" required>
-            <option value="notAtAll">Not at all</option>
-            <option value="slightly">Slightly</option>
-            <option value="moderately">Moderately</option>
-            <option value="very">Very</option>
-            <option value="extremely">Extremely</option>
+        <label for="difficultToConcentrate ">Do you find it difficult to concentrate on things?</label>
+        <select id="difficultToConcentrate " name="difficultToConcentrate " required>
+            <option value="notAtAll ">Not at all</option>
+            <option value="slightly ">Slightly</option>
+            <option value="moderately ">Moderately</option>
+            <option value="very ">Very</option>
+            <option value="extremely ">Extremely</option>
         </select>
 
-        <label for="compareToOthersOnSocialMedia">How often do you compare yourself to other successful people through the use of social media?</label>
-        <select id="compareToOthersOnSocialMedia" name="compareToOthersOnSocialMedia" required>
-            <option value="rarely">Rarely</option>
-            <option value="occasionally">Occasionally</option>
-            <option value="frequently">Frequently</option>
-            <option value="always">Always</option>
+        <label for="compareToOthersOnSocialMedia ">How often do you compare yourself to other successful people through the use of social media?</label>
+        <select id="compareToOthersOnSocialMedia " name="compareToOthersOnSocialMedia " required>
+            <option value="rarely ">Rarely</option>
+            <option value="occasionally ">Occasionally</option>
+            <option value="frequently ">Frequently</option>
+            <option value="always ">Always</option>
         </select>
 
-        <label for="feelingsAboutComparisons">Following the previous question, how do you feel about these comparisons, generally speaking?</label>
-        <textarea id="feelingsAboutComparisons" name="feelingsAboutComparisons" required></textarea>
+        <label for="feelingsAboutComparisons ">Following the previous question, how do you feel about these comparisons, generally speaking?</label>
+        <textarea id="feelingsAboutComparisons " name="feelingsAboutComparisons " required></textarea>
 
-        <label for="seekValidationOnSocialMedia">How often do you look to seek validation from features of social media?</label>
-        <select id="seekValidationOnSocialMedia" name="seekValidationOnSocialMedia" required>
-            <option value="rarely">Rarely</option>
-            <option value="occasionally">Occasionally</option>
-            <option value="frequently">Frequently</option>
-            <option value="always">Always</option>
+        <label for="seekValidationOnSocialMedia ">How often do you look to seek validation from features of social media?</label>
+        <select id="seekValidationOnSocialMedia " name="seekValidationOnSocialMedia " required>
+            <option value="rarely ">Rarely</option>
+            <option value="occasionally ">Occasionally</option>
+            <option value="frequently ">Frequently</option>
+            <option value="always ">Always</option>
         </select>
 
-        <label for="feelingsOfDepression">How often do you feel depressed or down?</label>
-        <select id="feelingsOfDepression" name="feelingsOfDepression" required>
-            <option value="rarely">Rarely</option>
-            <option value="occasionally">Occasionally</option>
-            <option value="frequently">Frequently</option>
-            <option value="always">Always</option>
+        <label for="feelingsOfDepression ">How often do you feel depressed or down?</label>
+        <select id="feelingsOfDepression " name="feelingsOfDepression " required>
+            <option value="rarely ">Rarely</option>
+            <option value="occasionally ">Occasionally</option>
+            <option value="frequently ">Frequently</option>
+            <option value="always ">Always</option>
         </select>
 
-        <label for="fluctuationInInterest">How frequently does your interest in daily activities fluctuate?</label>
-        <select id="fluctuationInInterest" name="fluctuationInInterest" required>
-            <option value="rarely">Rarely</option>
-            <option value="occasionally">Occasionally</option>
-            <option value="frequently">Frequently</option>
-            <option value="always">Always</option>
+        <label for="fluctuationInInterest ">How frequently does your interest in daily activities fluctuate?</label>
+        <select id="fluctuationInInterest " name="fluctuationInInterest " required>
+            <option value="rarely ">Rarely</option>
+            <option value="occasionally ">Occasionally</option>
+            <option value="frequently ">Frequently</option>
+            <option value="always ">Always</option>
         </select>
 
-        <label for="sleepIssues">How often do you face issues regarding sleep?</label>
-        <select id="sleepIssues" name="sleepIssues" required>
-            <option value="rarely">Rarely</option>
-            <option value="occasionally">Occasionally</option>
-            <option value="frequently">Frequently</option>
-            <option value="always">Always</option>
+        <label for="sleepIssues ">How often do you face issues regarding sleep?</label>
+        <select id="sleepIssues " name="sleepIssues " required>
+            <option value="rarely ">Rarely</option>
+            <option value="occasionally ">Occasionally</option>
+            <option value="frequently ">Frequently</option>
+            <option value="always ">Always</option>
         </select>
 
-        <button type="submit">Submit</button>
+        <button type="submit ">Submit</button>
     </form>
 
 </body>
 
 </html>
-
-        
