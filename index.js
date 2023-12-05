@@ -13,8 +13,8 @@ const knex = require("knex")({
     connection: {
         host: process.env.RDS_HOSTNAME || "localhost",
         user: process.env.USER_NAME || "postgres",
-        password: process.env.RDS_PASSWORD || "***",
-        database: process.env.RDS_DB_NAME || "surveryData",
+        password: process.env.RDS_PASSWORD || "rhawk999",
+        database: process.env.RDS_DB_NAME || "plainsville",
         port: process.env.RDS_PORT || 5432,
         // ssl: process.env.DB_SSL ? {rejectUnauthorized:false}:false
     }
@@ -61,8 +61,8 @@ app.get("/adminIndex", (req, res) => {
 })
 
 app.get("/adminViewData", (req, res) => {
-    knex.select().from("surveryData").then( (surveryData) => {
-        res.render("adminViewData", {theSurverys : surveryData});
+    knex.select().from("plainsville").then( (plainsville) => {
+        res.render("adminViewData", {theSurveys : plainsville});
     });
 });
 

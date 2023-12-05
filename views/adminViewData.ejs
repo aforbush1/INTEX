@@ -50,30 +50,46 @@
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
         <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
-        <% for (let iCount = 0; iCount < surveyData.length; iCount++) { %>
+        <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
             <tr>
-                <td><%= theSurveys[iCount].Rest_Name %></td>
-                <td><%= theSurverys[iCount].Rest_Location %></td>
-                <td style="text-align: center;"><%= theSurveys[iCount].Rest_Rating %></td>
-                <td><%= theSurveys[iCount].Rest_Link %></td>
-                <td><%= theSurveys[iCount].Rest_Dietary_Description %></td>
-                <td style="text-align: center;">
-                    <form action="/editRestaurants/<%= theSurveys[iCount].Rest_ID %>" method="GET">
-                        <button type="submit">Edit</button>
-                    </form>
-                </td>
-                <td style="text-align: center;">
-                    <form action="/deleteRestaurants/<%= myRestaurants[iCount].Rest_ID %>" method="POST">
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
+                <td><%= theSurveys[iCount].Date %></td>
+                <td><%= theSurveys[iCount].Time %></td>
+                <td style="text-align: center;"><%= theSurveys[iCount].Age %></td>
+                <td><%= theSurveys[iCount].Gender %></td>
+                <td><%= theSurveys[iCount].Relationship_Status %></td>
+                <td><%= theSurveys[iCount].Occupation_Status %></td>
+                <td><%= theSurveys[iCount].Affiliation_Number %></td>
+                <td><%= theSurveys[iCount].Organization_Affiliation %></td>
+                <td><%= theSurveys[iCount].Social_Media %></td>
+                <td><%= theSurveys[iCount].Facebook %></td>
+                <td><%= theSurveys[iCount].Twitter %></td>
+                <td><%= theSurveys[iCount].Instagram %></td>
+                <td><%= theSurveys[iCount].Youtube %></td>
+                <td><%= theSurveys[iCount].Discord %></td>
+                <td><%= theSurveys[iCount].Reddit %></td>
+                <td><%= theSurveys[iCount].Pinterest %></td>
+                <td><%= theSurveys[iCount].TikTok %></td>
+                <td><%= theSurveys[iCount].Snapchat %></td>
+                <td><%= theSurveys[iCount].Other_Platform %></td>
+                <td><%= theSurveys[iCount].Average_Daily_Social_Media_Use_Hours %></td>
+                <td><%= theSurveys[iCount].Non_Specific_Use_Rating %></td>
+                <td><%= theSurveys[iCount].Social_Media_Distraction_Rating %></td>
+                <td><%= theSurveys[iCount].Restlessness_Rating %></td>
+                <td><%= theSurveys[iCount].Distractedness_Rating %></td>
+                <td><%= theSurveys[iCount].Worries_Rating %></td>
+                <td><%= theSurveys[iCount].Concentration_Difficulty_Ratings %></td>
+                <td><%= theSurveys[iCount].Comparison_Rating %></td>
+                <td><%= theSurveys[iCount].Followup_Comparison_Rating %></td>
+                <td><%= theSurveys[iCount].Seek_Validation_Rating %></td>
+                <td><%= theSurveys[iCount].Depression_Rating %></td>
+                <td><%= theSurveys[iCount].Interest_Fluctuation_Rating %></td>
+                <td><%= theSurveys[iCount].Sleep_Issue_Rating %></td>
+                <td><%= theSurveys[iCount].Location %></td>
+                <td style="text-align: center;"></td>
             </tr>
         <% } %>
         </tbody>
     </table>
     <br><br>
-    <form action="/addRestaurants" method="GET">
-        <button type="submit">Add Restaurant</button>
-    </form>
 </body>
 </html>
