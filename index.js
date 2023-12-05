@@ -53,7 +53,7 @@ app.post("/submitLogin", (req, res) => {
 
   if (username===sAdminUsername && password===sAdminPassword)
   {
-    res.render('createAccount')
+    res.sendFile(path.join(__dirname, "views/adminIndex.html"))
   }
   else
   (
