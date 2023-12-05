@@ -45,8 +45,8 @@ app.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname, "views/login.html"))
 })
 
-app.post("/login", (req, res) => {
-    res.send("It worked!");
+app.post("/submitLogin", (req, res) => {
+    res.send("Ya Dawg it Be Workin");
 });
 
 app.get("/surveyForm", (req, res) => {
@@ -54,6 +54,6 @@ app.get("/surveyForm", (req, res) => {
 })
 
 app.post("/submitSurvey", (req, res) =>
-  res.send("Ya Dawg it Be Workin"))
+    res.send("Ya Dawg it Be Workin"))
 
 app.listen(port, () => console.log("Server is listening"));
