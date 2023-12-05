@@ -33,9 +33,13 @@ app.post("/submitLogin", (req, res) => {
     const password = req.body.password
 
     if (username === sAdminUsername && password === sAdminPassword) {
-        res.render('createAccount')
+        res.render('adminIndex.html')
     } else
         (
             res.send('Invalid Credentials, Please Try Again')
         )
 });
+
+app.get("/createAccount", (req, res) => {
+  res.render("createAccount");
+})
