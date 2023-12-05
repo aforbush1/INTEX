@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "views/login.ejs"))
+  res.render("login");
 })
 
 app.post("/submitLogin", (req, res) => {
@@ -39,7 +39,7 @@ app.post("/submitLogin", (req, res) => {
 });
 
 app.get("/surveyForm", (req, res) => {
-    res.sendFile(path.join(__dirname, "views/surveyForm.ejs"))
+  res.render("surveyForm");
 })
 
 app.post("/submitSurvey", (req, res) =>
