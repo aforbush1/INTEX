@@ -44,6 +44,10 @@ app.get("/createAccount", (req, res) => {
   res.render("createAccount");
 })
 
+app.get("/surveyForm", (req, res) => {
+  res.render("surveyForm");
+})
+
 app.get("/adminViewData" ,(req,res) => 
 res.send ("yo Dawg we need to connect this to our database"))
 
