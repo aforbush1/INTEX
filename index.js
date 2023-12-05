@@ -23,8 +23,6 @@ app.get("/login", (req, res) => {
 app.post("/submitSurvey", (req, res) =>
     res.send("Yo Dawg it Be Workin"))
 
-app.listen(port, () => console.log("Server is listening"));
-
 const sAdminUsername = 'Admin'
 const sAdminPassword = 'Password'
 
@@ -33,7 +31,7 @@ app.post("/submitLogin", (req, res) => {
     const password = req.body.password
 
     if (username === sAdminUsername && password === sAdminPassword) {
-      res.sendFile(path.join(__dirname, "views/adminIndex.html"))
+        res.sendFile(path.join(__dirname, "views/adminIndex.html"))
     } else
         (
             res.send('Invalid Credentials, Please Try Again')
@@ -41,15 +39,17 @@ app.post("/submitLogin", (req, res) => {
 });
 
 app.get("/createAccount", (req, res) => {
-  res.render("createAccount");
+    res.render("createAccount");
 })
 
 app.get("/surveyForm", (req, res) => {
-  res.render("surveyForm");
+    res.render("surveyForm");
 })
 
-app.get("/adminViewData" ,(req,res) => 
-res.send ("yo Dawg we need to connect this to our database"))
+app.get("/adminViewData", (req, res) =>
+    res.send("yo Dawg we need to connect this to our database"))
 
-app.get("/dashboard" ,(req,res) => 
-res.send ("yo Dawg we need to connect this to our database"))
+app.get("/dashboard", (req, res) =>
+    res.send("yo Dawg we need to connect this to our database"))
+
+app.listen(port, () => console.log("Server is listening"));
