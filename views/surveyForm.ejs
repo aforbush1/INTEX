@@ -20,6 +20,11 @@
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+    <!-- Select2 Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
     <style>
         body {
             background-color: #586a9a;
@@ -143,7 +148,7 @@
         </select>
 
         <label for="socialMedia">What social media platforms do you commonly use?</label>
-        <select id="socialMedia" name="socialMedia[]" multiple>
+        <select id="socialMedia" name="socialMedia[]" multiple required>
             <option value="Facebook">Facebook</option>
             <option value="Twitter">Twitter</option>
             <option value="Instagram">Instagram</option>
@@ -155,6 +160,7 @@
             <option value="Snapchat">Snapchat</option>
             <option value="Other">Other</option>
         </select>
+
 
         <label for="averageTimeOnSocialMedia">What is the average time you spend on social media every day?</label>
         <input type="text" id="averageTimeOnSocialMedia" name="averageTimeOnSocialMedia" required>
@@ -256,5 +262,9 @@
     </form>
 <br><br><br>
 </body>
-
+    <script>
+    $(document).ready(function() {
+        $('#socialMedia').select2();
+    });
+    </script>
 </html>
