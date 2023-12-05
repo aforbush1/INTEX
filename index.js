@@ -19,9 +19,6 @@ app.get("/login", (req, res) => {
 })
 
 
-app.get("/surveyForm", (req, res) => {
-    res.render("surveyForm");
-})
 
 app.post("/submitSurvey", (req, res) =>
     res.send("Ya Dawg it Be Workin"))
