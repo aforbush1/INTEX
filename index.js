@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "views/login.html"))
+    res.sendFile(path.join(__dirname, "views/login.ejs"))
 })
 
 app.post("/submitLogin", (req, res) => {
@@ -50,7 +50,7 @@ app.post("/submitLogin", (req, res) => {
 });
 
 app.get("/surveyForm", (req, res) => {
-    res.sendFile(path.join(__dirname, "views/surveyForm.html"))
+    res.sendFile(path.join(__dirname, "views/surveyForm.ejs"))
 })
 
 app.post("/submitSurvey", (req, res) =>
