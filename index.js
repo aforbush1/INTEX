@@ -50,6 +50,7 @@ app.post("/submitLogin", (req, res) => {
 
 app.post("/createUser", (res,res) =>{
 
+    knex("loginInfo").insert({username: req.body.})
 })
 
 app.get("/createAccount", (req, res) => {
