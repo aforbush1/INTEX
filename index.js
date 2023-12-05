@@ -49,6 +49,7 @@ app.get("/surveyForm", (req, res) => {
     res.sendFile(path.join(__dirname, "views/surveyForm.html"))
 })
 
+app.post()
 
 
 app.listen(port, () => console.log("Server is listening"));
