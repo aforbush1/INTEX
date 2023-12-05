@@ -33,7 +33,7 @@ app.post("/submitLogin", (req, res) => {
     const password = req.body.password
 
     if (username === sAdminUsername && password === sAdminPassword) {
-        res.render('views/adminIndex.html')
+      res.sendFile(path.join(__dirname, "views/adminIndex.html"))
     } else
         (
             res.send('Invalid Credentials, Please Try Again')
@@ -43,3 +43,6 @@ app.post("/submitLogin", (req, res) => {
 app.get("/createAccount", (req, res) => {
   res.render("createAccount");
 })
+
+app.get("/adminViewData" ,(req,res) => 
+res.send ("yo Dawg we need to connect this to our database"))
