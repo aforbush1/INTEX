@@ -21,7 +21,7 @@ app.get("/login", (req, res) => {
 
 
 app.post("/submitSurvey", (req, res) =>
-    res.send("Ya Dawg it Be Workin"))
+    res.send("Yo Dawg it Be Workin"))
 
 app.listen(port, () => console.log("Server is listening"));
 
