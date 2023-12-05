@@ -11,11 +11,39 @@
     <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
         <thead style="background-color: cornflowerblue; color: white;">
         <tr>
-            <th style="text-align: left;">Name</th>
+            <th style="text-align: left;">Date</th>
+            <th style="text-align: left;">Time</th>
+            <th style="text-align: left;">Age</th>
+            <th style="text-align: left;">Gender</th>
+            <th style="text-align: left;">Relationship_Status</th>
+            <th style="text-align: left;">Occupation_Status</th>
+            <th style="text-align: left;">Affiliation_Number</th>
+            <th style="text-align: left;">Organization_Affiliation</th>
+            <th style="text-align: left;">Social_Media</th>
+            <th style="text-align: left;">Facebook</th>
+            <th style="text-align: left;">Twitter</th>
+            <th style="text-align: left;">Instagram</th>
+            <th style="text-align: left;">Youtube</th>
+            <th style="text-align: left;">Discord</th>
+            <th style="text-align: left;">Reddit</th>
+            <th style="text-align: left;">Pinterest</th>
+            <th style="text-align: left;">TikTok</th>
+            <th style="text-align: left;">Snapchat</th>
+            <th style="text-align: left;">Other_Platform</th>
+            <th style="text-align: left;">Average_Daily_Social_Media_Use_Hours</th>
+            <th style="text-align: left;">Average_Daily_Social_Media_Use_Hours</th>
+            <th style="text-align: left;">Social_Media_Distraction_Rating</th>
+            <th style="text-align: left;">Restlessness_Rating</th>
+            <th style="text-align: left;">Distractedness_Rating</th>
+            <th style="text-align: left;">Worries_Rating</th>
+            <th style="text-align: left;">Concentration_Difficulty_Rating</th>
+            <th style="text-align: left;">Comparison_Rating</th>
+            <th style="text-align: left;">Followup_Comparison_Rating</th>
+            <th style="text-align: left;">Seek_Validation_Rating</th>
+            <th style="text-align: left;">Depression_Rating</th>
+            <th style="text-align: left;">Interest_Fluctuation_Rating</th>
+            <th style="text-align: left;">Sleep_Issue_Rating</th>
             <th style="text-align: left;">Location</th>
-            <th style="text-align: left;">Rating</th>
-            <th style="text-align: left;">Website Link</th>
-            <th style="text-align: left;">Dietary Description</th>
             <th></th>
             <th></th>
         </tr>
@@ -24,13 +52,13 @@
         <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
         <% for (let iCount = 0; iCount < surveyData.length; iCount++) { %>
             <tr>
-                <td><%= myRestaurants[iCount].Rest_Name %></td>
-                <td><%= myRestaurants[iCount].Rest_Location %></td>
-                <td style="text-align: center;"><%= myRestaurants[iCount].Rest_Rating %></td>
-                <td><%= myRestaurants[iCount].Rest_Link %></td>
-                <td><%= myRestaurants[iCount].Rest_Dietary_Description %></td>
+                <td><%= theSurveys[iCount].Rest_Name %></td>
+                <td><%= theSurverys[iCount].Rest_Location %></td>
+                <td style="text-align: center;"><%= theSurveys[iCount].Rest_Rating %></td>
+                <td><%= theSurveys[iCount].Rest_Link %></td>
+                <td><%= theSurveys[iCount].Rest_Dietary_Description %></td>
                 <td style="text-align: center;">
-                    <form action="/editRestaurants/<%= myRestaurants[iCount].Rest_ID %>" method="GET">
+                    <form action="/editRestaurants/<%= theSurveys[iCount].Rest_ID %>" method="GET">
                         <button type="submit">Edit</button>
                     </form>
                 </td>
