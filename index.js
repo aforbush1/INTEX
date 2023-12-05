@@ -44,7 +44,7 @@ app.post("/submitLogin", (req, res) => {
         res.sendFile(path.join(__dirname, "views/adminIndex.html"))
     } else
         (
-            res.send('Invalid Credentials, Please Try Again')
+            res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
         )
 });
 
