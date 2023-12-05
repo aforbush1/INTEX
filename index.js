@@ -33,7 +33,7 @@ app.post("/submitLogin", (req, res) => {
     const password = req.body.password
 
     if (username === sAdminUsername && password === sAdminPassword) {
-        res.render('adminIndex.html')
+        res.render('views/adminIndex.html')
     } else
         (
             res.send('Invalid Credentials, Please Try Again')
