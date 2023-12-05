@@ -61,3 +61,6 @@ app.post("/submitLogin", (req, res) => {
   )
 });
 
+app.get("/surveyForm", (req, res) => {
+  res.render("createAccount");
+})
