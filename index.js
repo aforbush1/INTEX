@@ -34,7 +34,7 @@ app.post("/submitSurvey", (req, res) =>
     res.send("Yo Dawg it Be Workin"))
 
 const sAdminUsername = 'Admin'
-const sAdminPassword = 'Password'
+const sAdminPassword = 'Intex2023'
 
 app.post("/submitLogin", (req, res) => {
     const username = req.body.username
@@ -47,6 +47,10 @@ app.post("/submitLogin", (req, res) => {
             res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
         )
 });
+
+app.post("/createUser", (res,res) =>{
+
+})
 
 app.get("/createAccount", (req, res) => {
     res.render("createAccount");
