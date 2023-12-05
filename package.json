@@ -13,5 +13,14 @@
         "express": "^4.18.2",
         "knex": "^3.0.1",
         "pg": "^8.11.3"
-    }
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/aforbush1/INTEX.git"
+    },
+    "bugs": {
+        "url": "https://github.com/aforbush1/INTEX/issues"
+    },
+    "homepage": "https://github.com/aforbush1/INTEX#readme"
 }
