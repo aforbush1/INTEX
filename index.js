@@ -46,3 +46,6 @@ app.get("/createAccount", (req, res) => {
 
 app.get("/adminViewData" ,(req,res) => 
 res.send ("yo Dawg we need to connect this to our database"))
+
+app.get("/dashboard" ,(req,res) => 
+res.send ("yo Dawg we need to connect this to our database"))
