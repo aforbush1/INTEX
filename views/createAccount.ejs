@@ -2,36 +2,205 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SoftLand Bootstrap Template - Contact</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="https://aforbush1.github.io/INTEX/views/assets/img/favicon.png" rel="icon">
+  <link href="https://aforbush1.github.io/INTEX/views/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: SoftLand
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
-    <form action="action_page.php">
-        <div class="container">
-            <h1>Register</h1>
-            <p>Please fill in this form to create an account.</p>
-            <hr>
 
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+      <div class="logo">
+        <h1><a href="index.html">SoftLand</a></h1>
+      </div>
 
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-            <hr>
+      <nav id="navbar" class="navbar">
+        <ul>
+            <li><a class="" href="adminIndex">Home</a></li>
+            <li><a href="createAccount">Create User</a></li>
+            <li><a href="adminViewData">View Data</a></li>
+            <li><a href="dashboard">View Dashboard</a></li>
+            <li><a href="/">Log Out</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
 
-            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-            <button type="submit" class="registerbtn">Register</button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero-section inner-page">
+      
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="row mb-5 align-items-end">
+          <div class="col-md-6 mx-auto" data-aos="fade-up">
+            <h2>Create a User</h2>
+            <p class="mb-0">Please enter the information of the user you wish to create.</p>
+          </div>
         </div>
 
-        <div class="container signin">
-            <p>Already have an account? <a href="#">Sign in</a>.</p>
+        <div class="row">
+          <div class="col-md-6 mx-auto" data-aos="fade-up">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="fName">First Name</label>
+                      <input type="text" name="fName" class="form-control" id="fName" required>
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                      <label for="lName">Last Name</label>
+                      <input type="text" class="form-control" name="lName" id="lName" required>
+                    </div>
+                    <div class="col-md-12 form-group mt-3">
+                      <label for="email">Email</label>
+                      <input type="text" name="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="col-md-12 form-group mt-3">
+                      <label for="username">UserName</label>
+                      <input type="text" name="username" class="form-control" id="username" required>
+                    </div>
+                    <div class="col-md-12 form-group mt-3">
+                      <label for="password">Password</label>
+                      <input type="password" name="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="col-md-12 form-group mt-3">
+                      <label for="retypePassword">Retype Password</label>
+                      <input type="password" name="retypePassword" class="form-control" id="retypePassword" required>
+                    </div>
+
+                <div class="col-md-12 mb-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-    </form>
+      </div>
+    </section>
+
+    <!-- ======= CTA Section ======= -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 me-auto text-center text-md-start mb-5 mb-md-0">
+            <h2>Starts Publishing Your Apps</h2>
+          </div>
+          <div class="col-md-5 text-center text-md-end">
+            <p><a href="#" class="btn d-inline-flex align-items-center"><i class="bx bxl-apple"></i><span>App store</span></a> <a href="#" class="btn d-inline-flex align-items-center"><i class="bx bxl-play-store"></i><span>Google play</span></a></p>
+          </div>
+        </div>
+      </div>
+    </section><!-- End CTA Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h3>About SoftLand</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam aperiam
+            dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi.</p>
+          <p class="social">
+            <a href="#"><span class="bi bi-twitter"></span></a>
+            <a href="#"><span class="bi bi-facebook"></span></a>
+            <a href="#"><span class="bi bi-instagram"></span></a>
+            <a href="#"><span class="bi bi-linkedin"></span></a>
+          </p>
+        </div>
+        <div class="col-md-7 ms-auto">
+          <div class="row site-section pt-0">
+            <div class="col-md-4 mb-4 mb-md-0">
+              <h3>Navigation</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+              <h3>Services</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Collaboration</a></li>
+                <li><a href="#">Todos</a></li>
+                <li><a href="#">Events</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+              <h3>Downloads</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Get from the App Store</a></li>
+                <li><a href="#">Get from the Play Store</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-md-7">
+          <p class="copyright">&copy; Copyright SoftLand. All Rights Reserved</p>
+          <div class="credits">
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/aos/aos.js"></script>
+  <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="https://aforbush1.github.io/INTEX/views/assets/js/main.js"></script>
+
 </body>
 
 </html>

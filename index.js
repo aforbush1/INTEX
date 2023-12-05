@@ -56,11 +56,12 @@ app.get("/surveyForm", (req, res) => {
     res.render("surveyForm");
 });
 
-app.get("/adminViewData", (req, res) => {
-    knex.select().from("survey").then( (survey) => {
-        res.send("adminViewData", {surveyData : survey});
-    });
-});
+app.get("/adminIndex", (req, res) => {
+    res.sendFile(path.join(__dirname, "views/adminIndex.html"))
+  })
+  
+  app.get("/adminViewData", (req, res) =>
+      res.send("yo Dawg we need to connect this to our database"))
 
 app.get("/dashboard", (req, res) =>
     res.send("yo Dawg we need to connect this to our database"));
