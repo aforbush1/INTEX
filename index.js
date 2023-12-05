@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/login", (req, res) => {
-  res.render("login");
+    res.render("login");
 })
 
 app.post("/submitLogin", (req, res) => {
@@ -39,7 +39,7 @@ app.post("/submitLogin", (req, res) => {
 });
 
 app.get("/surveyForm", (req, res) => {
-  res.render("surveyForm");
+    res.render("surveyForm");
 })
 
 app.post("/submitSurvey", (req, res) =>
