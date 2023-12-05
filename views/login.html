@@ -4,52 +4,65 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>Sexy Login</title>
+    <title>Login - City of Provo</title>
 
     <!-- Link to your existing style.css -->
-    <link href="'https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
+    <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
     <!-- Additional Inline CSS -->
     <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
 
-    body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    background: linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(45, 140, 30, 0.8) 50%, transparent 50%), 
-                url('https://aforbush1.github.io/INTEX/views/assets/img/img_1.jpg') center/cover;
-    }
-        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://aforbush1.github.io/INTEX/views/assets/img/img_1.jpg') center/cover no-repeat;
+            background-size: cover;
+            filter: brightness(50%) blur(4px); /* Adjust brightness and blur */
+        }
+
         .login-container {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #586a9a;
             color: #fff;
+            text-align: center;
         }
-        
+
         .login-form {
             width: 80%;
             max-width: 400px;
             padding: 20px;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
-        
+
+        .login-form h1 {
+            color: black;
+        }
+
         .login-form label {
             display: block;
             margin-bottom: 8px;
         }
-        
+
         .login-form input {
             width: 100%;
             padding: 10px;
@@ -58,7 +71,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-        
+
         .login-form button {
             background-color: #6a9c59;
             color: #fff;
@@ -67,18 +80,73 @@
             border-radius: 4px;
             cursor: pointer;
         }
-        
-        .image-container {
-            flex: 1;
-            background: url('https://aforbush1.github.io/INTEX/views/assets/img/img_1.jpg') center/cover;
-            /* Stylish background image */
+
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure it's above other elements */
+            background-color: transparent; /* Make the background transparent */
+            padding: 20px 0; /* Add padding for better visibility */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 50px; /* Adjust as needed */
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin-right: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            color: #6a9c59;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="login-container" >
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="active" href="/">Home</a></li>
+                    <li><a href="/surveyForm">Survey</a></li>
+                    <li><a href="/login">Log In</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <div class="login-container">
         <form class="login-form" action="/login" method="post">
             <h1 style="color: black;">Login</h1>
             <label style="color: black;" for="username">Username:</label>
@@ -88,8 +156,6 @@
             <button type="submit">Log In</button>
         </form>
     </div>
-
-    <div class="image-container"></div>
 
 </body>
 
