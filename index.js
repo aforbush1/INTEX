@@ -53,7 +53,7 @@ app.post("/submitLogin", (req, res) => {
 
   if (username===sAdminUsername && password===sAdminPassword)
   {
-    res.render('/createAccount')
+    res.render('createAccount')
   }
   else
   (
