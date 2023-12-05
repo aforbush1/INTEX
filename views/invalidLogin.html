@@ -7,57 +7,72 @@
   <title>Invalid Login</title>
   <style>
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       margin: 0;
-      background-color: #f8f9fa;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
     }
 
-    .login-container {
-      text-align: center;
-      padding: 20px;
-      border: 1px solid #ced4da;
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Align text to the top left */
+      justify-content: flex-start; /* Align text to the top left */
+      background: url('https://aforbush1.github.io/INTEX/views/assets/img/invalidLogin.jpeg') center/cover no-repeat;
+      text-align: left;
+      color: #555; /* Grey text color */
+      padding: 20px; /* Add padding to the top and left */
+    }
+
+    .content {
       border-radius: 8px;
-      background-color: #fff;
+      background: rgba(255, 255, 255, 0.9);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
     }
 
     .dog-image {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-top: 20px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .try-again-button {
       display: inline-block;
-      margin-top: 20px;
       padding: 10px 20px;
       font-size: 16px;
       font-weight: bold;
       text-decoration: none;
       color: #fff;
-      background-color: #007bff;
-      border: 1px solid #007bff;
+      background-color: #555;
+      border: 1px solid #555;
       border-radius: 5px;
       cursor: pointer;
+      z-index: 1; /* Ensure the button appears on top */
     }
 
     .try-again-button:hover {
-      background-color: #0056b3;
-      border-color: #0056b3;
+      background-color: #555;
+      border-color: #555;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="login-container">
-    <h2>Invalid Credentials</h2>
-    <p>Please try again when you're sober.</p>
-    <img src="https://aforbush1.github.io/INTEX/views/assets/img/invalidLogin.jpeg" alt="Dog Drinking" class="dog-image">
-    <a href="#" class="try-again-button">Try Again</a>
+  <div class="overlay">
+
+    <h2 style="font-size: 60px; margin-bottom: 10px;">Invalid Credentials</h2>
+    <p style="font-size: 30px;">Please try again when you're sober.</p>
+
+    <a href="/login" class="try-again-button">Try Again</a>
+
   </div>
 
 </body>
