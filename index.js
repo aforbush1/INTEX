@@ -8,7 +8,17 @@ const port = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
-
+const knex = require("knex")({
+    client: "pg",
+    connection: {
+        host: process.env.RDS_HOSTNAME || "localhost",
+        user: process.env.USER_NAME || "postgres",
+        password: process.env.RDS_PASSWORD || "Rbh979birmingham!",
+        database: process.env.RDS_DB_NAME || "restaurants",
+        port: process.env.RDS_PORT || 5432,
+        // ssl: process.env.DB_SSL ? {rejectUnauthorized:false}:false
+    }
+});
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "views/index.html"))
@@ -44,12 +54,15 @@ app.get("/createAccount", (req, res) => {
 
 app.get("/surveyForm", (req, res) => {
     res.render("surveyForm");
-})
+});
 
-app.get("/adminViewData", (req, res) =>
-    res.send("yo Dawg we need to connect this to our database"))
+app.get("/adminViewData", (req, res) => {
+    knex.select().from("survey").then( (survey) => {
+        res.send("adminViewData", {surveyData : survey});
+    });
+});
 
 app.get("/dashboard", (req, res) =>
-    res.send("yo Dawg we need to connect this to our database"))
+    res.send("yo Dawg we need to connect this to our database"));
 
 app.listen(port, () => console.log("Server is listening"));
