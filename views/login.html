@@ -8,20 +8,24 @@
     <title>Sexy Login</title>
 
     <!-- Link to your existing style.css -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="'https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
     <!-- Additional Inline CSS -->
     <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
+
+    body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(45, 140, 30, 0.8) 50%, transparent 50%), 
+                url('https://aforbush1.github.io/INTEX/views/assets/img/img_1.jpg') center/cover;
+    }
         
         .login-container {
             flex: 1;
@@ -74,7 +78,7 @@
 
 <body>
 
-    <div class="login-container">
+    <div class="login-container" >
         <form class="login-form" action="/login" method="post">
             <h1 style="color: black;">Login</h1>
             <label style="color: black;" for="username">Username:</label>
