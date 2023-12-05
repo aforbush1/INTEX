@@ -58,10 +58,10 @@ app.get("/surveyForm", (req, res) => {
 
 app.get("/adminIndex", (req, res) => {
     res.sendFile(path.join(__dirname, "views/adminIndex.html"))
-  })
-  
-  app.get("/adminViewData", (req, res) =>
-      res.send("yo Dawg we need to connect this to our database"))
+})
+
+app.get("/adminViewData", (req, res) =>
+    res.send("yo Dawg we need to connect this to our database"))
 
 app.get("/dashboard", (req, res) =>
     res.send("yo Dawg we need to connect this to our database"));
