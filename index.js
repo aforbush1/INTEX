@@ -34,9 +34,6 @@ app.get("/login", (req, res) => {
     res.render("login");
 })
 
-app.post("/submitLogin", (req, res) => {
-    res.send("Ya Dawg it Be Workin");
-});
 
 app.get("/surveyForm", (req, res) => {
     res.render("surveyForm");
@@ -46,3 +43,21 @@ app.post("/submitSurvey", (req, res) =>
     res.send("Ya Dawg it Be Workin"))
 
 app.listen(port, () => console.log("Server is listening"));
+
+const sAdminUsername= 'Admin'
+const sAdminPassword = 'Password'
+
+app.post("/submitLogin", (req, res) => {
+  const username= req.body.username
+  const password= req.body.password
+
+  if (username===sAdminUsername && password===sAdminPassword)
+  {
+    res.render('/createAccount')
+  }
+  else
+  (
+    res.send ('Invalid Credentials, Please Try Again')
+  )
+});
+
