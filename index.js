@@ -65,24 +65,24 @@ app.post("/login", (req, res) => {
     const { username, password } = req.body;
 
     // Use Knex to query the database for the user
-    knex("loginInfo").select().where({ username, password }).first()
-        .then((loginInfo) => {
-            if (loginInfo) {
-                // User found in the "logininfo" table, redirect to the user index page
-                res.sendFile(path.join(__dirname, "views/userindex.html"));
-            } else if (username === sAdminUsername && password === sAdminPassword) {
-                // Admin credentials match, redirect to the admin index page
-                res.sendFile(path.join(__dirname, "views/adminIndex.html"));
-            } else {
-                // Neither user nor admin credentials match, invalid login
-                res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
-            }
-        })
-        .catch(error => {
-            console.error('Error querying the database:', error);
-            res.status(500).send('Internal Server Error');
-        });
-});
+//     knex("loginInfo").select().where({ username, password }).first()
+//         .then((loginInfo) => {
+//             if (loginInfo) {
+//                 // User found in the "logininfo" table, redirect to the user index page
+//                 res.sendFile(path.join(__dirname, "views/userindex.html"));
+//             } else if (username === sAdminUsername && password === sAdminPassword) {
+//                 // Admin credentials match, redirect to the admin index page
+//                 res.sendFile(path.join(__dirname, "views/adminIndex.html"));
+//             } else {
+//                 // Neither user nor admin credentials match, invalid login
+//                 res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
+//             }
+//         })
+//         .catch(error => {
+//             console.error('Error querying the database:', error);
+//             res.status(500).send('Internal Server Error');
+//         });
+// });
 
 // app.post("/createUser", (req, res) => {
     // knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then((theSurveys) => {
