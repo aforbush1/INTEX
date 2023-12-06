@@ -19,57 +19,77 @@
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <div class="logo">
+                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid">
+                </a>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="active " href="/">Home</a></li>
+                    <li><a href="/surveyForm">Survey</a></li>
+                    <li><a href="/login">Log In</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- .navbar -->
+
+        </div>
+    </header>
 
     <style>
         body {
-            background-image:url("https://aforbush1.github.io/INTEX/views/assets/img/downtownProvo.jpeg") ;
-            background-size: cover;
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color:  rgba(92, 92, 92, 0.8);
+            flex-direction: row;
         }
 
-        body::before {
-            content: "";
-            background-image: url("https://aforbush1.github.io/INTEX/views/assets/img/downtownProvo.jpeg");
+        .left-container {
+            background-color: rgba(92, 92, 92, 0.8);
+            width: 40%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(1px);
+        
+        }
+        .left-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 480px;
+            width: 10%;
+            height: 120%;
+            background: linear-gradient(to left, rgba(92, 92, 92, 0.8), rgba(92, 92, 92, 0.9)),
+                        url('https://aforbush1.github.io/INTEX/views/assets/img/downtownProvo.jpeg');
             background-size: cover;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            filter: blur(10px); /* Adjust the blur amount to match the backdrop-filter */
             z-index: -1;
-            opacity: 0.7; /* Adjust the opacity as needed */
         }
-        
-        header {
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        form {
+
+        .login-container {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
         }
-        
+
+        h1 {
+            color: black;
+        }
+
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
+            color: black;
         }
-        
+
         input,
         select {
             width: 100%;
@@ -79,34 +99,19 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-        
+
         button {
-            background-color: #6a9c59;
+            background-color:rgba(92, 92, 92, 0.8);
             color: #fff;
             padding: 10px 20px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
-        
-
-        
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .login-container {
-        margin-top: 100px; /* Adjust the value as needed */
-        }
 
         .logo img {
             max-height: 50px;
-            /* Adjust as needed */
         }
-        
-
     </style>
 
     <!-- Template Main CSS File -->
@@ -115,35 +120,27 @@
 
 <body>
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="logo">
-                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
-            </div>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="active" href="/">Home</a></li>
-                    <li><a href="/surveyForm">Survey</a></li>
-                    <li><a href="/login">Log In</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- .navbar -->
+    <!-- ======= Left Container ======= -->
+    <div class="left-container">
+        <!-- ======= Login Container ======= -->
+        <div class="login-container">
+            <form class="login-form" action="/submitLogin" method="post">
+                <h1 style="font-size: 35px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Provo Health Login</h1>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br> <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Log In</button>
+            </form>
         </div>
-    </header>
-    <!-- End Header -->
-    <br><br><br>
-    <div class="login-container">
-        <form class="login-form" action="/submitLogin" method="post">
-            <h1 style="color: black;">Login</h1>
-            <label style="color: black;" for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label style="color: black;" for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Log In</button>
-        </form>
+        <!-- End Login Container -->
     </div>
+    <!-- End Left Container -->
+
+    <!-- ======= Right Container ======= -->
+    <div style="background-image: url('https://aforbush1.github.io/INTEX/views/assets/img/downtownProvo.jpeg');
+        background-size: cover; width: 75%; height: 100vh;"></div>
 
 </body>
 
