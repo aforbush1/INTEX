@@ -47,25 +47,10 @@ app.post("/submitLogin", (req, res) => {
 });
 
 app.post("/createUser", (req, res) => {
-    knex("loginInfo").insert({
-      username: req.body.username,
-      password: req.body.password,
-      firstName: req.body.fName,
-      lastName: req.body.lName,
-      email: req.body.email
-    }).then(() => {
-      res.render("viewUser", {
-        username: req.body.username,
-        password: req.body.password,
-        firstName: req.body.fName,
-        lastName: req.body.lName,
-        email: req.body.email
-      });
-    }).catch(err => {
-      console.error(err);
-      res.status(500).send("Internal Server Error");
+    knex("loginInfo").insert({firstName: req.body.fName, lastName: req.body.lName, email: req.body.email, username: req.body.username, password: req.body.password}).then((theLogin) => {
+      res.redirect("/viewUser");
     });
-  });
+});
   
 
 app.get("/createAccount", (req, res) => {
