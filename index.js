@@ -64,43 +64,7 @@ app.post("/login", (req, res) => {
                 // Neither user nor admin credentials match, invalid login
                 res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
             }
-        })const sAdminUsername = 'Admin'
-const sAdminPassword = 'Intex2023'
-
-app.post("/submitLogin", (req, res) => {
-    const username = req.body.username
-    const password = req.body.password
-
-    if (username === sAdminUsername && password === sAdminPassword) {
-        res.sendFile(path.join(__dirname, "views/adminIndex.html"))
-    } else
-        (
-            res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
-        )
-});
-
-app.post("/login", (req, res) => {
-    const { username, password } = req.body;
-
-    // Use Knex to query the database for the user
-    knex("logininfo").select().where({ username, password }).first()
-        .then((logininfo) => {
-            if (logininfo) {
-                // User found in the "logininfo" table, redirect to the user index page
-                res.sendFile(path.join(__dirname, "views/userindex.html"));
-            } else if (username === sAdminUsername && password === sAdminPassword) {
-                // Admin credentials match, redirect to the admin index page
-                res.sendFile(path.join(__dirname, "views/adminIndex.html"));
-            } else {
-                // Neither user nor admin credentials match, invalid login
-                res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
-            }
         })
-        .catch(error => {
-            console.error('Error querying the database:', error);
-            res.status(500).send('Internal Server Error');
-        });
-});
         .catch(error => {
             console.error('Error querying the database:', error);
             res.status(500).send('Internal Server Error');
