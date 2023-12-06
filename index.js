@@ -12,11 +12,11 @@ const knex = require("knex")({
     client: "pg",
     connection: {
         host: process.env.RDS_HOSTNAME || "localhost",
-        user: process.env.USER_NAME || "postgres",
+        user: process.env.RDS_USERNAME || "postgres",
         password: process.env.RDS_PASSWORD || "rhawk999",
         database: process.env.RDS_DB_NAME || "plainsville",
         port: process.env.RDS_PORT || 5432,
-        // ssl: process.env.DB_SSL ? {rejectUnauthorized:false}:false
+        ssl: process.env.DB_SSL ? {rejectUnauthorized:false}:false
     }
 });
 
