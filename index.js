@@ -41,7 +41,7 @@ app.post("/submitLogin", (req, res) => {
     if (username === sAdminUsername && password === sAdminPassword) {
         res.sendFile(path.join(__dirname, "views/adminIndex.html"))
     }
-     
+
     else
         (
             res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
@@ -116,7 +116,6 @@ app.post('/createUser', (req, res) => {
         });
 });
 
-
 app.get("/viewUser", (req, res) => {
     // Retrieve the user data using Knex.js
     knex.select().from("loginInfo").then((loginInfo) => {
@@ -127,7 +126,6 @@ app.get("/viewUser", (req, res) => {
         res.status(500).send("Error fetching user data");
     });
 });
-  
 
 app.get("/createUser", (req, res) => {
     res.render("createUser");
