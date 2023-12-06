@@ -159,10 +159,10 @@ app.get("/viewData", (req, res) => {
     });
 });
 
-app.get("/editUsers/:username", (req, res) => {
-    knex.select("firstName", "lastName", "email", "username", "password")
+app.get("/editUsers/:id", (req, res) => {
+    knex.select("firstName", "lastName", "email", "username", "password", "id")
     .from("loginInfo")
-    .where("username", req.params.username)
+    .where("id", parseInt(req.params.id))
     .then(loginInfo => {
         res.render("editUsers", {theLogin: loginInfo});
     }).catch(err => {
@@ -173,7 +173,7 @@ app.get("/editUsers/:username", (req, res) => {
 
 
 app.post("/editUsers", (req, res) => {
-    knex("loginInfo").where("username", req.body.username).update({
+    knex("loginInfo").where("id", parseInt(req.body.id)).update({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
@@ -184,8 +184,8 @@ app.post("/editUsers", (req, res) => {
     });
 });
 
-app.post("/deleteUser/:username", (req, res) => {
-    knex("loginInfo").where("username", req.params.username).del().then(theLogin => {
+app.post("/deleteUser/:id", (req, res) => {
+    knex("loginInfo").where("id", parseInt(req.params.id)).del().then(theLogin => {
         res.redirect("/viewUser");
     }).catch(err => {
         console.log(err);
