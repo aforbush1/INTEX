@@ -16,6 +16,11 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+  <!-- Include SweetAlert2 CSS and JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  
   <!-- Vendor CSS Files -->
   <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,9 +31,7 @@
   <!-- Template Main CSS File -->
   <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
 
-      <!-- Include SweetAlert2 CSS and JS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
   <!-- =======================================================
   * Template Name: SoftLand
@@ -211,19 +214,19 @@
   <!--javascript code to catch the error and return an error message in the form of a stylish popup box-->
   <script>
 
-    const formData = {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        email: document.getElementById('email').value,
-        username: document.getElementById('username').value,
-        password: document.getElementById('password').value,
-    };
-
-
     document.addEventListener('DOMContentLoaded', function () {
         // Assuming you have a form with id 'createUserForm'
         document.getElementById('createUserForm').addEventListener('submit', function (event) {
             event.preventDefault();
+            const formData = {
+
+              firstName: document.getElementById('firstName').value,
+              lastName: document.getElementById('lastName').value,
+              email: document.getElementById('email').value,
+              username: document.getElementById('username').value,
+              password: document.getElementById('password').value,
+          };
+
     
             // Assuming you're using Fetch API to send the form data to the server
             fetch('/createUser', {
