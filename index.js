@@ -40,10 +40,14 @@ app.post("/submitLogin", (req, res) => {
 
     if (username === sAdminUsername && password === sAdminPassword) {
         res.sendFile(path.join(__dirname, "views/adminIndex.html"))
-    } else
+    }
+     
+    else
         (
             res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
         )
+    
+    
 });
 
 app.post("/login", (req, res) => {
@@ -77,24 +81,44 @@ app.post("/login", (req, res) => {
 // });
 
 app.post('/createUser', (req, res) => {
+    const { firstName, lastName, email, username, password } = req.body;
+
+    // Check if the username already exists
     knex('loginInfo')
-        .insert({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            username: req.body.username,
-            password: req.body.password
-        })
-        .then(() => {
-            // Redirect to the "/viewUser" page upon successful data insertion
-            res.redirect('/viewUser');
+        .where('username', username)
+        .first()
+        .then(existingUser => {
+            if (existingUser) {
+                // Username already exists, send an error response
+                return res.status(400).send('Username already exists');
+            }
+
+            // Username doesn't exist, insert the new user
+            return knex('loginInfo')
+                .insert({
+                    firstName,
+                    lastName,
+                    email,
+                    username,
+                    password
+                })
+                .then(() => {
+                    // Redirect to the "/viewUser" page upon successful data insertion
+                    res.redirect('/viewUser');
+                })
+                .catch((error) => {
+                    // Handle any errors that occurred during insertion
+                    console.error('Error inserting data:', error);
+                    res.status(500).send('Error inserting data');
+                });
         })
         .catch((error) => {
-            // Handle any errors that occurred during insertion
-            console.error('Error inserting data:', error);
-            res.status(500).send('Error inserting data');
+            // Handle any errors that occurred during the username check
+            console.error('Error checking username:', error);
+            res.status(500).send('Error checking username');
         });
 });
+
 
 app.get("/viewUser", (req, res) => {
     // Retrieve the user data using Knex.js
@@ -123,6 +147,15 @@ app.get("/adminIndex", (req, res) => {
 app.get("/adminViewData", (req, res) => {
     knex.select().from("plainsville").then( (plainsville) => {
         res.render("adminViewData", {theSurveys : plainsville});
+    });
+});
+
+app.post("/deleteUser/:username", (req, res) => {
+    knex("loginInfo").where("username", req.params.username).del().then(theLogin => {
+        res.redirect("/viewUser");
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({err});
     });
 });
 
