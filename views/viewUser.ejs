@@ -97,8 +97,8 @@
                 <th>Email</th>
                 <th>Username</th>
                 <th>Password</th>
-                <th></th>
-                <th></th>
+                <th>Edit Data Button</th>
+                <th>Delete Data Button</th>
             </tr>
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
@@ -113,12 +113,12 @@
                     <td></td>
                     <td></td>
                     <td style="text-align: center;">
-                        <form action="/editUsers/<%= theLogin[iCount].username %>" method="GET">
+                        <form action="/editUsers/<%= theLogin[iCount].id %>" method="GET">
                             <button type="submit">Edit</button>
                         </form>
                     </td>
                     <td style="text-align: center;">
-                        <form action="/deleteUser/<%= theLogin[iCount].username %>" method="POST">
+                        <form action="/deleteUser/<%= theLogin[iCount].id %>" method="POST">
                             <button type="submit">Delete</button>
                         </form>
                     </td>
