@@ -31,24 +31,36 @@ app.get("/login", (req, res) => {
 app.post("/submitSurvey", (req, res) =>
     res.send("Yo Dawg it Be Workin"))
     
-const sAdminUsername = 'Admin'
-const sAdminPassword = 'Intex2023'
-
-app.post("/submitLogin", (req, res) => {
-    const username = req.body.username
-    const password = req.body.password
-
-    if (username === sAdminUsername && password === sAdminPassword) {
-        res.sendFile(path.join(__dirname, "views/adminIndex.html"))
-    }
-     
-    else
-        (
-            res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
-        )
+    const sAdminUsername = 'Admin'
+    const sAdminPassword = 'Intex2023'
     
+    app.post("/submitLogin", (req, res) => {
+        const username = req.body.username
+        const password = req.body.password
     
-});
+        if (username === sAdminUsername && password === sAdminPassword)    
+            {
+            res.sendFile(path.join(__dirname, "views/adminIndex.html"))
+            }
+    
+        
+        else {
+            knex('loginInfo')
+                .where('username', username)
+                .andWhere('password', password)
+                .then(result => {
+                    if (result.length > 0) {
+                        res.sendFile(path.join(__dirname, "views/userIndex.html"))
+                    } else {
+                        res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    res.status(500).send("Internal Server Error");
+                });
+        }
+    });
 
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
