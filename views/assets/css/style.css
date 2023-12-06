@@ -658,8 +658,8 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.65);
   white-space: nowrap;
   transition: 0.3s;
