@@ -46,25 +46,29 @@ app.post("/submitLogin", (req, res) => {
         )
 });
 
-// Search database for username and password
-// app.post("/loginUser", (req, res) => {
-//     const { username, password } = req.body;
-//     // Use Knex to query the database for the user
-//     knex("users").select().where({ username, password }).first()
-//         .then((user) => {
-//             if (user) {
-//                 // User found, redirect to the home page or wherever needed
-//                 res.redirect("/admin");
-//             } else {
-//                 // User not found or invalid credentials, handle accordingly
-//                 res.render("login", { error: "Username or password is incorrect" });
-//             }
-//         })
-//         .catch(error => {
-//             console.error('Error querying the database:', error);
-//             res.status(500).send('Internal Server Error');
-//         });
-// });
+app.post("/login", (req, res) => {
+    const { username, password } = req.body;
+
+    // Use Knex to query the database for the user
+    knex("logininfo").select().where({ username, password }).first()
+        .then((logininfo) => {
+            if (logininfo) {
+                // User found in the "logininfo" table, redirect to the user index page
+                res.sendFile(path.join(__dirname, "views/userindex.html"));
+            } else if (username === sAdminUsername && password === sAdminPassword) {
+                // Admin credentials match, redirect to the admin index page
+                res.sendFile(path.join(__dirname, "views/adminIndex.html"));
+            } else {
+                // Neither user nor admin credentials match, invalid login
+                res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
+            }
+        })
+        .catch(error => {
+            console.error('Error querying the database:', error);
+            res.status(500).send('Internal Server Error');
+        });
+});
+
 
 // app.post("/createUser", (req, res) => {
     // knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then((theSurveys) => {
