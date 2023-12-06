@@ -147,11 +147,11 @@ app.get("/adminViewData", (req, res) => {
     });
 });
 
-app.get("/editUser/:username", (req, res) => {
+app.get("/editUsers/:username", (req, res) => {
     knex.select("firstName", "lastName", "email", "username", "password")
     .from("loginInfo")
     .where("username", req.params.username)
-    .then(username => {
+    .then(loginInfo => {
         res.render("editUsers", {theLogin: loginInfo});
     }).catch(err => {
         console.log(err);
