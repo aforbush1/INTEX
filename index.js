@@ -140,9 +140,9 @@ app.get("/adminIndex", (req, res) => {
     res.sendFile(path.join(__dirname, "views/adminIndex.html"))
 })
 
-app.get("/adminViewData", (req, res) => {
+app.get("/viewData", (req, res) => {
     knex.select().from("plainsville").then( (plainsville) => {
-        res.render("adminViewData", {theSurveys : plainsville});
+        res.render("viewData", {theSurveys : plainsville});
     });
 });
 
