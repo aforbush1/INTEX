@@ -12,15 +12,16 @@
     <style>
         /* Styles for the navigation bar */
         header {
-            background-color: #333; /* Adjust as needed */
-            color: white; /* Text color */
-            padding: 10px 0; /* Adjust padding */
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        header .logo img {
+            max-width: 150px;
         }
 
         nav ul {
@@ -31,16 +32,16 @@
         }
 
         nav ul li {
-            margin-right: 20px; /* Adjust spacing between list items */
+            margin-right: 20px;
         }
 
         nav ul li a {
-            color: white; /* Link text color */
+            color: white;
             text-decoration: none;
         }
 
         nav ul li a:hover {
-            text-decoration: underline; /* Underline on hover */
+            text-decoration: underline;
         }
         
         /* Table styles */
@@ -49,7 +50,7 @@
             background-color: antiquewhite;
             border: 1px solid black;
             border-collapse: collapse;
-            margin-top: 20px; /* Add space between navigation and table */
+            margin-top: 20px;
         }
         thead {
             background-color: cornflowerblue;
@@ -68,7 +69,7 @@
 <body>
     <!-- Header with navigation -->
     <header id="header" class="fixed-top">
-        <div class="container d-flex justify-content-between align-items-center">
+        <div class="container">
             <div class="logo">
                 <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
             </div>
