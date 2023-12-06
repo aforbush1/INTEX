@@ -98,8 +98,7 @@ app.post('/createUser', (req, res) => {
         .first()
         .then(existingUser => {
             if (existingUser) {
-                const errorMessage = 'Username already exists';
-                res.status(400).json({ error: errorMessage });
+                res.render('usernameTaken');
             } else {
                 // Username doesn't exist, insert the new user
                 return knex('loginInfo')
