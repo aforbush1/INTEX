@@ -53,8 +53,8 @@ app.post("/createUser", (req, res) => {
 });
   
 
-app.get("/createAccount", (req, res) => {
-    res.render("createAccount");
+app.get("/createUser", (req, res) => {
+    res.render("createUser");
 })
 
 app.get("/surveyForm", (req, res) => {
