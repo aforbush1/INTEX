@@ -99,7 +99,7 @@ app.post('/createUser', (req, res) => {
         .then(existingUser => {
             if (existingUser) {
                 // Username already exists, send an error response
-                document.getElementById("invalidUserPrompt").style.display='block' ;
+                res.status(400).json({ error: 'Username already exists' }); ;
             }
 
             // Username doesn't exist, insert the new user
@@ -112,7 +112,6 @@ app.post('/createUser', (req, res) => {
                     password
                 })
                 .then(() => {
-                    document.getElementById("invalidUserPrompt").style.display='none'
                     // Redirect to the "/viewUser" page upon successful data insertion
                     res.redirect('/viewUser');
                 })
