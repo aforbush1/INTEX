@@ -181,7 +181,7 @@ app.post("/editUsers", (req, res) => {
         username: req.body.username,
         password: req.body.password
     }).then(theLogin => {
-        res.redirect("/editUsers");
+        res.redirect("/viewUser");
     });
 });
 
