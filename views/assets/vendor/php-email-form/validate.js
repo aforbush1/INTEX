@@ -22,9 +22,9 @@
         return;
       }
       const loadingElement = thisForm.querySelector('.loading');
-      if (loadingElement) {
-    loadingElement.classList.add('d-block');
-      }
+if (loadingElement) {
+  loadingElement.classList.add('d-block');
+}
       thisForm.querySelector('.error-message').classList.remove('d-block');
       thisForm.querySelector('.sent-message').classList.remove('d-block');
 
