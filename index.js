@@ -11,8 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 const knex = require("knex")({
     client: "pg",
     connection: {
-        host: process.env.RDS_HOSTNAME || "localhost",
-        user: process.env.RDS_USERNAME || "postgres",
+        host: process.env.RDS_HOSTNAME || "awseb-e-kcv5hvwgic-stack-awsebrdsdatabase-rbjlqchlnpgp.citjsziqcj7q.us-east-1.rds.amazonaws.com",
+        user: process.env.RDS_USERNAME || "ebroot",
         password: process.env.RDS_PASSWORD || "rhawk999",
         database: process.env.RDS_DB_NAME || "plainsville",
         port: process.env.RDS_PORT || 5432,
