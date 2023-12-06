@@ -47,7 +47,7 @@ app.post("/submitLogin", (req, res) => {
 });
 
 app.post("/createUser", (req, res) => {
-    knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then (() => {
+    knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then((theLogin) => {
       res.redirect("/viewUser");
     });
 });
