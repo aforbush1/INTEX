@@ -38,10 +38,11 @@ app.post("/submitLogin", (req, res) => {
     const username = req.body.username
     const password = req.body.password
 
-    if (username === sAdminUsername && password === sAdminPassword) {
+    if (username === sAdminUsername && password === sAdminPassword)    
+        {
         res.sendFile(path.join(__dirname, "views/adminIndex.html"))
     }
-
+     
     else
         (
             res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
