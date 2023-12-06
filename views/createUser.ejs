@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Create Account</title>
+  <title>Create</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -50,7 +50,8 @@
       <nav id="navbar" class="navbar">
         <ul>
             <li><a class="" href="adminIndex">Home</a></li>
-            <li><a href="createAccount">Create User</a></li>
+            <li><a href="createUser">Create User</a></li>
+            <li><a href="viewUser">View Users</a></li>
             <li><a href="adminViewData">View Data</a></li>
             <li><a href="dashboard">View Dashboard</a></li>
             <li><a href="/">Log Out</a></li>
@@ -78,15 +79,15 @@
 
         <div class="row">
           <div class="col-md-6 mx-auto" data-aos="fade-up">
-            <form action="/createUser" method="post" role="form" class="php-email-form">
+            <form action="/createUser" method="POST" role="form" class="php-email-form">
                 <div class="row">
                     <div class="col-md-6 form-group">
-                      <label for="fName">First Name</label>
-                      <input type="text" name="fName" class="form-control" id="fName" required>
+                      <label for="firstName">First Name</label>
+                      <input type="text" name="firstName" class="form-control" id="firstName" required>
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
-                      <label for="lName">Last Name</label>
-                      <input type="text" class="form-control" name="lName" id="lName" required>
+                      <label for="lastName">Last Name</label>
+                      <input type="text" class="form-control" name="lastName" id="lastName" required>
                     </div>
                     <div class="col-md-12 form-group mt-3">
                       <label for="email">Email</label>

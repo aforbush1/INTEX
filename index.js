@@ -1,6 +1,6 @@
 // Author: Adam Forbush, Josh Thatcher, Chris Fowler, Ryan Hawkins
 // Description: Index.js File
-
+// Hello
 const express = require("express");
 let app = express();
 let path = require("path");
@@ -46,30 +46,46 @@ app.post("/submitLogin", (req, res) => {
         )
 });
 
-app.post("/createUser", (req, res) => {
-    knex("loginInfo").insert({
-      username: req.body.username,
-      password: req.body.password,
-      firstName: req.body.fName,
-      lastName: req.body.lName,
-      email: req.body.email
-    }).then(() => {
-      res.render("viewUser", {
-        username: req.body.username,
-        password: req.body.password,
-        firstName: req.body.fName,
-        lastName: req.body.lName,
-        email: req.body.email
-      });
-    }).catch(err => {
-      console.error(err);
-      res.status(500).send("Internal Server Error");
+// app.post("/createUser", (req, res) => {
+//     knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then(() => {
+//       res.redirect("viewUser");
+//     });
+// });
+
+app.post('/createUser', (req, res) => {
+    knex('loginInfo')
+        .insert({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password
+        })
+        .then(() => {
+            // Redirect to the "/viewUser" page upon successful data insertion
+            res.redirect('/viewUser');
+        })
+        .catch((error) => {
+            // Handle any errors that occurred during insertion
+            console.error('Error inserting data:', error);
+            res.status(500).send('Error inserting data');
+        });
+});
+
+app.get("/viewUser", (req, res) => {
+    // Retrieve the user data using Knex.js, assuming 'theLogin' contains the fetched data
+    knex.select().from("loginInfo").then((theLogin) => {
+        res.render("viewUser", { theLogin }); // Pass 'theLogin' as an object property
+    }).catch((error) => {
+        // Handle errors if any while fetching data
+        console.error("Error fetching user data:", error);
+        res.status(500).send("Error fetching user data");
     });
-  });
+});
   
 
-app.get("/createAccount", (req, res) => {
-    res.render("createAccount");
+app.get("/createUser", (req, res) => {
+    res.render("createUser");
 })
 
 app.get("/surveyForm", (req, res) => {
