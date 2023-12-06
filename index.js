@@ -173,7 +173,7 @@ app.get("/editUsers/:username", (req, res) => {
 
 
 app.post("/editUsers", (req, res) => {
-    knex("loginInfo").where("username", parseInt(req.body.username)).update({
+    knex("loginInfo").where("username", req.body.username).update({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
