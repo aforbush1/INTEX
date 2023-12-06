@@ -132,9 +132,25 @@ app.post('/createUser', (req, res) => {
 });
 
 app.post("/SubmitSurvey", (req, res) => {
-    knex("plainsville").insert({Date: req.body.Rest_Name, Time: req.body.Rest_Location, Age: req.body.age, Gender: req.body.gender, Relationship_Status: req.body.relationshipStatus, Occupation_Status: req.body.occupationStatus, Affiliation_Company: req.body.Rest_Name, Affiliation_Private: req.body.Rest_Name, Affiliation_Government: req.body.Rest_Name, Affilication_School: req.body.Rest_Name, Affiliation_University: req.body.Rest_Name, Affiliation_None: req.body.Rest_Name, Social_Media: req.body.useSocialMedia, Facebook: req.body.Rest_Name, Twitter: req.body.Rest_Name, Instagram: req.body.Rest_Name, Youtube: req.body.Rest_Name, Discord: req.body.Rest_Name, Reddit: req.body.Rest_Name, Pinterest: req.body.Rest_Name, TikTok: req.body.Rest_Name, Snapchat: req.body.Rest_Name, Other_Platform: req.body.Rest_Name, Average_Daily_Social_Media_Use_Hours: req.body.averageTimeOnSocialMedia, Non_Specific_Use_Rating: req.body.socialMediaWithoutPurpose, Social_Media_Distraction_Rating: req.body.distractedBySocialMedia, Restlessness_Rating: req.body.restlessWithoutSocialMedia, Distractedness_Rating: req.body.easilyDistracted, Worries_Rating: req.body.botheredByWorries, Concentration_Difficulty_Rating: req.body.difficultToConcentrate, Comparison_Rating: req.body.compareToOthersOnSocialMedia, Followup_Comparison_Rating: req.body.followupCompare, Seek_Validation_Rating: req.body.seekValidationOnSocialMedia, Depression_Rating: req.body.feelingsOfDepression, Interest_Fluctuation_Rating: req.body.fluctuationInInterest, Sleep_Issue_Rating: req.body.sleepIssues, Location: req.body.Rest_Name}).then(myRestaurants => {
-        res.redirect("/displayRestaurants");
-    });
+    const currentDate = new Date();
+    const currentTime = currentDate.toISOString();
+
+    knex("plainsville").insert({Date: req.body.currentDate, Time: req.body.CurrentTime, Age: req.body.age, Gender: req.body.gender, 
+            Relationship_Status: req.body.relationshipStatus, Occupation_Status: req.body.occupationStatus, Affiliation_Company: req.body.Rest_Name, 
+            Affiliation_Private: req.body.Rest_Name, Affiliation_Government: req.body.Rest_Name, Affilication_School: req.body.Rest_Name, 
+            Affiliation_University: req.body.Rest_Name, Affiliation_None: req.body.Rest_Name, Social_Media: req.body.useSocialMedia, 
+            Facebook: req.body.Rest_Name, Twitter: req.body.Rest_Name, Instagram: req.body.Rest_Name, Youtube: req.body.Rest_Name, 
+            Discord: req.body.Rest_Name, Reddit: req.body.Rest_Name, Pinterest: req.body.Rest_Name, TikTok: req.body.Rest_Name, 
+            Snapchat: req.body.Rest_Name, Other_Platform: req.body.Rest_Name, Average_Daily_Social_Media_Use_Hours: req.body.averageTimeOnSocialMedia, 
+            Non_Specific_Use_Rating: req.body.socialMediaWithoutPurpose, Social_Media_Distraction_Rating: req.body.distractedBySocialMedia, 
+            Restlessness_Rating: req.body.restlessWithoutSocialMedia, Distractedness_Rating: req.body.easilyDistracted, Worries_Rating: req.body.botheredByWorries, 
+            Concentration_Difficulty_Rating: req.body.difficultToConcentrate, Comparison_Rating: req.body.compareToOthersOnSocialMedia, 
+            Followup_Comparison_Rating: req.body.followupCompare, Seek_Validation_Rating: req.body.seekValidationOnSocialMedia, 
+            Depression_Rating: req.body.feelingsOfDepression, Interest_Fluctuation_Rating: req.body.fluctuationInInterest, 
+            Sleep_Issue_Rating: req.body.sleepIssues, Location: "Provo"})
+        .then(surveyResponse => {
+            res.sendFile(path.join(__dirname, "/index.html"));
+        });
 });
 
 
