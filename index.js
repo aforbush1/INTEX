@@ -46,9 +46,10 @@ app.post("/submitLogin", (req, res) => {
         knex('loginInfo')
             .where('username', username)
             .andWhere('password', password)
+            .andWhere('firstName',firstName)
             .then(result => {
                 if (result.length > 0) {
-                    res.sendFile(path.join(__dirname, "views/userIndex.html"))
+                    res.render('userIndex',{firstName})
                 } else {
                     res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
                 }
