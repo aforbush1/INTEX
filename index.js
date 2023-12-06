@@ -53,8 +53,15 @@ app.post("/createUser", (req, res) => {
 });
 
 app.get("/viewUser", (req, res) => {
-    res.render("viewUser"); 
-  });
+    // Retrieve the user data using Knex.js, assuming 'theLogin' contains the fetched data
+    knex.select().from("loginInfo").then((theLogin) => {
+        res.render("viewUser", { theLogin }); // Pass 'theLogin' as an object property
+    }).catch((error) => {
+        // Handle errors if any while fetching data
+        console.error("Error fetching user data:", error);
+        res.status(500).send("Error fetching user data");
+    });
+});
   
 
 app.get("/createUser", (req, res) => {
