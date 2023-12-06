@@ -38,14 +38,27 @@ app.post("/submitLogin", (req, res) => {
     const username = req.body.username
     const password = req.body.password
 
-    if (username === sAdminUsername && password === sAdminPassword) {
+    if (username === sAdminUsername && password === sAdminPassword)    
+        {
         res.sendFile(path.join(__dirname, "views/adminIndex.html"))
+        }
+    
+    else {
+        knex('loginInfo')
+            .where('username', username)
+            .andWhere('password', password)
+            .then(result => {
+                if (result.length > 0) {
+                    res.sendFile(path.join(__dirname, "views/userIndex.html"))
+                } else {
+                    res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                res.status(500).send("Internal Server Error");
+            });
     }
-
-    else
-        (
-            res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
-        )
 });
 
 app.post("/login", (req, res) => {
@@ -146,11 +159,11 @@ app.get("/viewData", (req, res) => {
     });
 });
 
-app.get("/editUser/:username", (req, res) => {
+app.get("/editUsers/:username", (req, res) => {
     knex.select("firstName", "lastName", "email", "username", "password")
     .from("loginInfo")
     .where("username", req.params.username)
-    .then(username => {
+    .then(loginInfo => {
         res.render("editUsers", {theLogin: loginInfo});
     }).catch(err => {
         console.log(err);
