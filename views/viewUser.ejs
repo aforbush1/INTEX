@@ -26,22 +26,14 @@
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
         <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
-        <% for (let iCount = 0; iCount < theLogin.length; iCount++) { %>
+        <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
             <tr>
-                <td><%= theLogin[iCount].firstName %></td>
-                <td><%= theLogin[iCount].lastName %></td>
-                <td style="text-align: center;"><%= theLogin[iCount].email %></td>
-                <td><%= theLogin[iCount].username %></td>
-                <td><%= theLogin[iCount].password %></td>
+                <td><%= theSurveys[iCount].firstName %></td>
+                <td><%= theSurveys[iCount].lastName %></td>
+                <td style="text-align: center;"><%= theSurveys[iCount].email %></td>
+                <td><%= theSurveys[iCount].username %></td>
+                <td><%= theSurveys[iCount].password %></td>
                 <td style="text-align: center;">
-                    <form action="/editRestaurants/<%= myRestaurants[iCount].Rest_ID %>" method="GET">
-                        <button type="submit">Edit</button>
-                    </form>
-                </td>
-                <td style="text-align: center;">
-                    <form action="/deleteRestaurants/<%= myRestaurants[iCount].Rest_ID %>" method="POST">
-                        <button type="submit">Delete</button>
-                    </form>
                 </td>
             </tr>
         <% } %>
