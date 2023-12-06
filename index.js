@@ -162,6 +162,31 @@ app.get("/viewData", (req, res) => {
     });
 });
 
+app.get("/editUsers/:username", (req, res) => {
+    knex.select("firstName", "lastName", "email", "username", "password")
+    .from("loginInfo")
+    .where("username", req.params.username)
+    .then(loginInfo => {
+        res.render("editUsers", {theLogin: loginInfo});
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({err});
+    });
+})
+
+
+app.post("/editUsers", (req, res) => {
+    knex("loginInfo").where("username", parseInt(req.body.username)).update({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password
+    }).then(theLogin => {
+        res.redirect("/displayUsers");
+    });
+});
+
 app.post("/deleteUser/:username", (req, res) => {
     knex("loginInfo").where("username", req.params.username).del().then(theLogin => {
         res.redirect("/viewUser");
