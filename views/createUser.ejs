@@ -77,33 +77,40 @@
           </div>
         </div>
 
+        <style>
+          /* Placeholder text in italics */
+          ::placeholder {
+              font-style: italic;
+          }
+      </style>
+
         <div class="row">
           <div class="col-md-6 mx-auto" data-aos="fade-up">
             <form action="/createUser" method="POST" role="form" class="php-email-form">
                 <div class="row">
                     <div class="col-md-6 form-group">
                       <label for="firstName">First Name</label>
-                      <input type="text" name="firstName" class="form-control" id="firstName" required>
+                      <input placeholder="Enter First Name..." type="text" name="firstName" class="form-control" id="firstName" required>
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
                       <label for="lastName">Last Name</label>
-                      <input type="text" class="form-control" name="lastName" id="lastName" required>
+                      <input placeholder="Enter Last Name..." type="text" class="form-control" name="lastName" id="lastName" required>
                     </div>
                     <div class="col-md-12 form-group mt-3">
                       <label for="email">Email</label>
-                      <input type="text" name="email" class="form-control" id="email" required>
+                      <input placeholder="Enter Email..." type="text" name="email" class="form-control" id="email" required>
                     </div>
                     <div class="col-md-12 form-group mt-3">
                       <label for="username">UserName</label>
-                      <input type="text" name="username" class="form-control" id="username" required>
+                      <input placeholder="Enter Desired Userame..." type="text" name="username" class="form-control" id="username" required>
                     </div>
                     <div class="col-md-12 form-group mt-3">
                       <label for="password">Password</label>
-                      <input type="password" name="password" class="form-control" id="password" required>
+                      <input placeholder="Enter Password..." type="password" name="password" class="form-control" id="password" required>
                     </div>
                     <div class="col-md-12 form-group mt-3">
                       <label for="retypePassword">Retype Password</label>
-                      <input type="password" name="retypePassword" class="form-control" id="retypePassword" required>
+                      <input placeholder="Re enter password..." type="password" name="retypePassword" class="form-control" id="retypePassword" required>
                     <div class="col-md-6 form-group">
                   <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
                 </div>
