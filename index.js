@@ -38,51 +38,40 @@ app.post("/submitLogin", (req, res) => {
     const username = req.body.username
     const password = req.body.password
 
-    if (username === sAdminUsername && password === sAdminPassword)    
-        {
+    if (username === sAdminUsername && password === sAdminPassword) {
         res.sendFile(path.join(__dirname, "views/adminIndex.html"))
-        }
-    
-    else {
-        knex('loginInfo')
-            .where('username', username)
-            .andWhere('password', password)
-            .then(result => {
-                if (result.length > 0) {
-                    res.sendFile(path.join(__dirname, "views/userIndex.html"))
-                } else {
-                    res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
-                }
-            })
-            .catch(error => {
-                console.error(error);
-                res.status(500).send("Internal Server Error");
-            });
     }
+     
+    else
+        (
+            res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
+        )
+    
+    
 });
 
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
 
     // Use Knex to query the database for the user
-//     knex("loginInfo").select().where({ username, password }).first()
-//         .then((loginInfo) => {
-//             if (loginInfo) {
-//                 // User found in the "logininfo" table, redirect to the user index page
-//                 res.sendFile(path.join(__dirname, "views/userindex.html"));
-//             } else if (username === sAdminUsername && password === sAdminPassword) {
-//                 // Admin credentials match, redirect to the admin index page
-//                 res.sendFile(path.join(__dirname, "views/adminIndex.html"));
-//             } else {
-//                 // Neither user nor admin credentials match, invalid login
-//                 res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
-//             }
-//         })
-//         .catch(error => {
-//             console.error('Error querying the database:', error);
-//             res.status(500).send('Internal Server Error');
-//         });
-// });
+    knex("loginInfo").select().where({ username, password }).first()
+        .then((loginInfo) => {
+            if (loginInfo) {
+                // User found in the "logininfo" table, redirect to the user index page
+                res.sendFile(path.join(__dirname, "views/userindex.html"));
+            } else if (username === sAdminUsername && password === sAdminPassword) {
+                // Admin credentials match, redirect to the admin index page
+                res.sendFile(path.join(__dirname, "views/adminIndex.html"));
+            } else {
+                // Neither user nor admin credentials match, invalid login
+                res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
+            }
+        })
+        .catch(error => {
+            console.error('Error querying the database:', error);
+            res.status(500).send('Internal Server Error');
+        });
+});
 
 // app.post("/createUser", (req, res) => {
     // knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then((theSurveys) => {
@@ -130,6 +119,7 @@ app.post('/createUser', (req, res) => {
         });
 });
 
+
 app.get("/viewUser", (req, res) => {
     // Retrieve the user data using Knex.js
     knex.select().from("loginInfo").then((loginInfo) => {
@@ -140,6 +130,7 @@ app.get("/viewUser", (req, res) => {
         res.status(500).send("Error fetching user data");
     });
 });
+  
 
 app.get("/createUser", (req, res) => {
     res.render("createUser");
@@ -156,31 +147,6 @@ app.get("/adminIndex", (req, res) => {
 app.get("/viewData", (req, res) => {
     knex.select().from("plainsville").then( (plainsville) => {
         res.render("viewData", {theSurveys : plainsville});
-    });
-});
-
-app.get("/editUsers/:username", (req, res) => {
-    knex.select("firstName", "lastName", "email", "username", "password")
-    .from("loginInfo")
-    .where("username", req.params.username)
-    .then(loginInfo => {
-        res.render("editUsers", {theLogin: loginInfo});
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json({err});
-    });
-})
-
-
-app.post("/editUser", (req, res) => {
-    knex("loginInfo").where("username", parseInt(req.body.username)).update({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        username: req.body.username,
-        password: req.body.password
-    }).then(theLogin => {
-        res.redirect("/viewUser");
     });
 });
 
