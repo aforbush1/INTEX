@@ -52,9 +52,9 @@ app.post("/login", (req, res) => {
     const { username, password } = req.body;
 
     // Use Knex to query the database for the user
-    knex("logininfo").select().where({ username, password }).first()
-        .then((logininfo) => {
-            if (logininfo) {
+    knex("loginInfo").select().where({ username, password }).first()
+        .then((loginInfo) => {
+            if (loginInfo) {
                 // User found in the "logininfo" table, redirect to the user index page
                 res.sendFile(path.join(__dirname, "views/userindex.html"));
             } else if (username === sAdminUsername && password === sAdminPassword) {
