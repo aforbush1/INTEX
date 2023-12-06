@@ -46,10 +46,30 @@ app.post("/submitLogin", (req, res) => {
         )
 });
 
-app.post("/createUser", (req, res) => {
-    knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then(() => {
-      res.redirect("/viewUser");
-    });
+// app.post("/createUser", (req, res) => {
+    // knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then(() => {
+    //   res.redirect("/viewUser");
+    // });
+// });
+
+app.post('/createUser', (req, res) => {
+    knex('loginInfo')
+        .insert({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password
+        })
+        .then(() => {
+            // Redirect to the "/viewUser" page upon successful data insertion
+            res.redirect('/viewUser');
+        })
+        .catch((error) => {
+            // Handle any errors that occurred during insertion
+            console.error('Error inserting data:', error);
+            res.status(500).send('Error inserting data');
+        });
 });
 
 app.get("/viewUser", (req, res) => {
