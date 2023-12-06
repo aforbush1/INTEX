@@ -47,9 +47,9 @@ app.post("/submitLogin", (req, res) => {
 });
 
 // app.post("/createUser", (req, res) => {
-    // knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then(() => {
-    //   res.redirect("/viewUser");
-    // });
+//     knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then(() => {
+//       res.redirect("viewUser");
+//     });
 // });
 
 app.post('/createUser', (req, res) => {
@@ -63,7 +63,7 @@ app.post('/createUser', (req, res) => {
         })
         .then(() => {
             // Redirect to the "/viewUser" page upon successful data insertion
-            res.redirect('viewUser');
+            res.redirect('/viewUser');
         })
         .catch((error) => {
             // Handle any errors that occurred during insertion
