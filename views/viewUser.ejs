@@ -4,38 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User: </title>
+    <title>User Information</title>
     <!-- Favicons -->
     <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="icon">
     <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="provo-icon">
+    <style>
+        table {
+            width: 100%;
+            background-color: antiquewhite;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        thead {
+            background-color: cornflowerblue;
+            color: white;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid black;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <label><b>User Information: </b></label>
+    <label><b>User Information:</b></label>
     <br><br>
-    <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
-        <thead style="background-color: cornflowerblue; color: white;">
-        <tr>
-            <th style="text-align: left;">First Name</th>
-            <th style="text-align: left;">Last Name</th>
-            <th style="text-align: left;">Email</th>
-            <th style="text-align: left;">Username</th>
-            <th style="text-align: left;">Password</th>
-            <th></th>
-            <th></th>
-        </tr>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th></th>
+                <th></th>
+            </tr>
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
-        <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
-        <% for (let iCount = 0; iCount < theLogin.length; iCount++) { %>
-            <tr>
-                <td><%= theLogin[iCount].firstName %></td>
-                <td><%= theLogin[iCount].lastName %></td>
-                <td style="text-align: center;"><%= theLogin[iCount].email %></td>
-                <td><%= theLogin[iCount].username %></td>
-                <td><%= theLogin[iCount].password %></td>
-                <td style="text-align: center;">
-            </tr>
-        <% } %>
+            <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
+            <% for (let iCount = 0; iCount < theLogin.length; iCount++) { %>
+                <tr>
+                    <td><%= theLogin[iCount].firstName %></td>
+                    <td><%= theLogin[iCount].lastName %></td>
+                    <td><%= theLogin[iCount].email %></td>
+                    <td><%= theLogin[iCount].username %></td>
+                    <td><%= theLogin[iCount].password %></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            <% } %>
         </tbody>
     </table>
     <br><br>
