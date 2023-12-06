@@ -98,28 +98,28 @@ app.post('/createUser', (req, res) => {
         .first()
         .then(existingUser => {
             if (existingUser) {
-                // Username already exists, send an error response
-                res.status(400).json({ error: 'Username already exists' }); ;
-            }
-
-            // Username doesn't exist, insert the new user
-            return knex('loginInfo')
+                const errorMessage = 'Username already exists';
+                res.status(400).json({ error: errorMessage });
+            } else {
+                // Username doesn't exist, insert the new user
+                return knex('loginInfo')
                     .insert({
-                    firstName,
-                    lastName,
-                    email,
-                    username,
-                    password
-                })
-                .then(() => {
-                    // Redirect to the "/viewUser" page upon successful data insertion
-                    res.redirect('/viewUser');
-                })
-                .catch((error) => {
-                    // Handle any errors that occurred during insertion
-                    console.error('Error inserting data:', error);
-                    res.status(500).send('Error inserting data');
-                });
+                        firstName,
+                        lastName,
+                        email,
+                        username,
+                        password
+                    })
+                    .then(() => {
+                        // Redirect to the "/viewUser" page upon successful data insertion
+                        res.redirect('/viewUser');
+                    })
+                    .catch((error) => {
+                        // Handle any errors that occurred during insertion
+                        console.error('Error inserting data:', error);
+                        res.status(500).send('Error inserting data');
+                    });
+            }
         })
         .catch((error) => {
             // Handle any errors that occurred during the username check
@@ -127,6 +127,7 @@ app.post('/createUser', (req, res) => {
             res.status(500).send('Error checking username');
         });
 });
+
 
 
 app.get("/viewUser", (req, res) => {
