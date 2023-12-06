@@ -51,6 +51,10 @@ app.post("/createUser", (req, res) => {
       res.redirect("/viewUser");
     });
 });
+
+app.get("/viewUser", (req, res) => {
+    res.render("viewUser"); 
+  });
   
 
 app.get("/createUser", (req, res) => {
