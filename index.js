@@ -1,6 +1,6 @@
 // Author: Adam Forbush, Josh Thatcher, Chris Fowler, Ryan Hawkins
 // Description: Index.js File
-// Hello
+
 const express = require("express");
 let app = express();
 let path = require("path");
@@ -45,6 +45,26 @@ app.post("/submitLogin", (req, res) => {
             res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
         )
 });
+
+// Search database for username and password
+// app.post("/loginUser", (req, res) => {
+//     const { username, password } = req.body;
+//     // Use Knex to query the database for the user
+//     knex("users").select().where({ username, password }).first()
+//         .then((user) => {
+//             if (user) {
+//                 // User found, redirect to the home page or wherever needed
+//                 res.redirect("/admin");
+//             } else {
+//                 // User not found or invalid credentials, handle accordingly
+//                 res.render("login", { error: "Username or password is incorrect" });
+//             }
+//         })
+//         .catch(error => {
+//             console.error('Error querying the database:', error);
+//             res.status(500).send('Internal Server Error');
+//         });
+// });
 
 // app.post("/createUser", (req, res) => {
     // knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then((theSurveys) => {
