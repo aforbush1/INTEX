@@ -87,12 +87,12 @@ app.post('/createUser', (req, res) => {
         .then(existingUser => {
             if (existingUser) {
                 // Username already exists, send an error response
-                return res.status(400).send('Username already exists');
+                document.getElementById("invalidUserPrompt").style.display='block' ;
             }
 
             // Username doesn't exist, insert the new user
             return knex('loginInfo')
-                .insert({
+                    .insert({
                     firstName,
                     lastName,
                     email,
@@ -100,6 +100,7 @@ app.post('/createUser', (req, res) => {
                     password
                 })
                 .then(() => {
+                    document.getElementById("invalidUserPrompt").style.display='none'
                     // Redirect to the "/viewUser" page upon successful data insertion
                     res.redirect('/viewUser');
                 })
