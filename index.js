@@ -14,7 +14,7 @@ const knex = require("knex")({
         host: process.env.RDS_HOSTNAME || "awseb-e-kcv5hvwgic-stack-awsebrdsdatabase-rbjlqchlnpgp.citjsziqcj7q.us-east-1.rds.amazonaws.com",
         user: process.env.RDS_USERNAME || "ebroot",
         password: process.env.RDS_PASSWORD || "rhawk999",
-        database: process.env.RDS_DB_NAME || "plainsville",
+        database: process.env.RDS_DB_NAME || "ebdb",
         port: process.env.RDS_PORT || 5432,
         ssl: process.env.DB_SSL ? {rejectUnauthorized:false}:false
     }
