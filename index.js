@@ -31,10 +31,11 @@ app.get("/login", (req, res) => {
 app.post("/submitSurvey", (req, res) =>
     res.send("Yo Dawg it Be Workin"))
     
-    const sAdminUsername = 'Admin'
-    const sAdminPassword = 'Intex2023'
+    
     
 app.post("/submitLogin", (req, res) => {
+    const sAdminUsername = 'Admin'
+    const sAdminPassword = 'Intex2023'
     const username = req.body.username
     const password = req.body.password
 
@@ -46,11 +47,14 @@ app.post("/submitLogin", (req, res) => {
         knex('loginInfo')
             .where('username', username)
             .andWhere('password', password)
+            .select('firstName')
+            .first()
             .then(result => {
-                if (result.length > 0) {
-                    res.sendFile(path.join(__dirname, "views/userIndex.html"))
+                if (result) {
+                    const firstName = result.firstName;
+                    res.render('userIndex', { firstName });
                 } else {
-                    res.sendFile(path.join(__dirname, "views/invalidLogin.html"))
+                    res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
                 }
             })
             .catch(error => {
