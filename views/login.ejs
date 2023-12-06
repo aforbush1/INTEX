@@ -122,16 +122,23 @@
 
 <body>
 
+    <style>
+        /* Placeholder text in italics */
+        ::placeholder {
+            font-style: italic;
+        }
+    </style>
+
     <!-- ======= Login Container ======= -->
     <div class="login-container">
         <form class="login-form" action="/submitLogin" method="post">
             <h1 style="font-size: 35px; color: white; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Provo Health Login</h1>
             <br>
             <label for="username" style="color: white;">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input placeholder="Enter Username..." type="text" id="username" name="username" required>
             <br> <br>
             <label for="password" style="color: white;">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input placeholder="Enter Password..." type="password" id="password" name="password" required>
             <button type="submit">Log In</button>
         </form>
     </div>
