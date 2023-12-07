@@ -134,8 +134,8 @@ app.post('/createUser', (req, res) => {
 app.post("/SubmitSurvey", (req, res) => {
     const currentDate = new Date();
     const currentTime = currentDate.toISOString();
-    const affiliatedOrganizations = req.body.affiliatedOrganizations || ["None"];
-    const socialMediaPlatforms = req.body.socialMedia || ["Other"];
+    // const affiliatedOrganizations = req.body.affiliatedOrganizations || ["None"];
+    // const socialMediaPlatforms = req.body.socialMedia || ["Other"];
 
     knex("plainsville").insert({Date: currentDate, Time: currentTime, Age: req.body.age, Gender: req.body.gender, 
             Relationship_Status: req.body.relationshipStatus, Occupation_Status: req.body.occupationStatus, 
