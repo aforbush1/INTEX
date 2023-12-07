@@ -47,12 +47,12 @@ app.post("/submitLogin", (req, res) => {
         knex('loginInfo')
             .where('username', username)
             .andWhere('password', password)
-            .select('firstName')
+            .select('firstName','id')
             .first()
             .then(result => {
                 if (result) {
                     const firstName = result.firstName;
-                    res.render('userIndex', { firstName });
+                    res.render('userIndex', { firstName,id });
                 } else {
                     res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
                 }
