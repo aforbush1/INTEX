@@ -62,11 +62,6 @@
                 <label for="findRecord">Find Record</label>
                 <select name="findRecord" id="findRecord">
                         <option value="default" selected>All Records</option>
-                    <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
-                        <option value="<%= theSurveys[iCount].id %>">
-                            <%= theSurveys[iCount].Date %>, <%= theSurveys[iCount].Time %>, <%= theSurveys[iCount].Age %>, <%= theSurveys[iCount].Gender %> 
-                        </option>
-                    <% } %>
                 </select>
                 <div class="col-md-6 form-group">
                     <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
@@ -172,21 +167,22 @@
         // Function to update the "findRecord" dropdown options based on the selected city
         function updateRecordOptions() {
             const selectedCity = document.getElementById("filterCity").value;
+            console.log("the value has been updated as "+ selectedCity)
     
             // Fetch records for the selected city using AJAX
             fetch(`/getRecords/${selectedCity}?_=${new Date().getTime()}`)
                 .then(response => response.json())
                 .then(data => {
                     // Clear existing options
-                    const findRecordDropdown = document.getElementById("findRecord");
-                    findRecordDropdown.innerHTML = '<option value="default" selected>All Records</option>';
+                    const findRecord = document.getElementById("findRecord");
+                    findRecord.innerHTML = '<option value="default" selected>All Records</option>';
     
                     // Populate options with fetched data
                     data.forEach(record => {
                         const option = document.createElement("option");
                         option.value = record.id;
                         option.textContent = `${record.Date}, ${record.Time}, ${record.Age}, ${record.Gender}`;
-                        findRecordDropdown.appendChild(option);
+                        findRecord.appendChild(option);
                     });
                 })
                 .catch(error => console.error("Error fetching records:", error));
