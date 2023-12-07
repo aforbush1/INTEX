@@ -50,7 +50,24 @@
             <!-- .navbar -->
 
         </div>
-        <form action=""></form>
+        <form action="filterData">
+            <fieldset style="width: fit-content;">
+                <legend>Filter</legend>
+                <label for="filterCity">City</label>
+                <select name="filterCity" id="filterCity">
+                    <option value="provo">Provo</option>
+                    <option value="plainsville">Plainsville</option>
+                </select>
+                <label for="findRecord">Find Record</label>
+                <select name="findRecord" id="findRecord">
+                    <% for (let iCount = 0; iCount < plainsville.length; iCount++) { %>
+                        <option value="<%= plainsville[iCount].id %>">
+                            <%= records[i].displayText %>
+                        </option>
+                    <% } %>
+                </select>
+            </fieldset>
+        </form>
     </header>
 
     <label><b>Survey Information: </b></label>
