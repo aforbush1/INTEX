@@ -133,6 +133,7 @@ app.post('/createUser', (req, res) => {
 });
 
 app.post("/submitSurvey", (req, res) => {
+    console.log(req.body);
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString('en-US');
     const formattedTime = currentDate.toLocaleTimeString('en-US', {
