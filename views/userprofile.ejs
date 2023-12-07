@@ -104,27 +104,27 @@
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
             <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
-            <% for (let iCount = theLogin.id; iCount < theLogin.length;) { %>
+            <!-- Display single user data -->
+            <% theLogin.forEach((user) => { %>
                 <tr>
-                    <td><%= theLogin[iCount].firstName %></td>
-                    <td><%= theLogin[iCount].lastName %></td>
-                    <td><%= theLogin[iCount].email %></td>
-                    <td><%= theLogin[iCount].username %></td>
-                    <td><%= theLogin[iCount].password %></td>
-                    <td></td>
-                    <td></td>
-                    <td style="text-align: center;">
-                        <form action="/editUsers/<%= theLogin[iCount].id %>" method="GET">
+                    <td><%= user.firstName %></td>
+                    <td><%= user.lastName %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.username %></td>
+                    <td><%= user.password %></td>
+                    <!-- Modify the forms as needed -->
+                    <td>
+                        <form action="/editUsers/<%= user.id %>" method="GET">
                             <button type="submit">Edit</button>
                         </form>
                     </td>
-                    <td style="text-align: center;">
-                        <form action="/deleteUser/<%= theLogin[iCount].id %>" method="POST">
+                    <td>
+                        <form action="/deleteUser/<%= user.id %>" method="POST">
                             <button type="submit">Delete</button>
                         </form>
                     </td>
                 </tr>
-            <% } %>
+            <% }) %>
         </tbody>
     </table>
     <br><br>
