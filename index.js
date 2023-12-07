@@ -163,38 +163,6 @@ app.post("/SubmitSurvey", (req, res) => {
         });
 });
 
-// app.post("/SubmitSurvey", (req, res) => {
-//     const currentDate = new Date();
-//     const formattedDate = currentDate.toLocaleDateString('en-US');
-//     const formattedTime = currentDate.toLocaleTimeString('en-US', {
-//         hour: 'numeric',
-//         minute: 'numeric',
-//         second: 'numeric',
-//         hour12: true,
-//       });
-//     knex("plainsville").insert({Date: formattedDate, Time: formattedTime, Age: req.body.age, Gender: req.body.gender, 
-//             Relationship_Status: req.body.relationshipStatus, Occupation_Status: req.body.occupationStatus, 
-//             Affiliation_Company: affiliatedOrganizations.includes("Company") ? "Yes" : "No", Affiliation_Private: affiliatedOrganizations.includes("Private") ? "Yes" : "No",
-//             Affiliation_Government: affiliatedOrganizations.includes("Government") ? "Yes" : "No", Affiliation_School: affiliatedOrganizations.includes("School") ? "Yes" : "No",
-//             Affiliation_University: affiliatedOrganizations.includes("University") ? "Yes" : "No", Affiliation_None: affiliatedOrganizations.includes("None") ? "Yes" : "No", Social_Media: req.body.useSocialMedia, 
-//             Facebook: socialMediaPlatforms.includes("Facebook") ? "Yes" : "No", Twitter: socialMediaPlatforms.includes("Twitter") ? "Yes" : "No",
-//             Instagram: socialMediaPlatforms.includes("Instagram") ? "Yes" : "No", Youtube: socialMediaPlatforms.includes("Youtube") ? "Yes" : "No",
-//             Discord: socialMediaPlatforms.includes("Discord") ? "Yes" : "No", Reddit: socialMediaPlatforms.includes("Reddit") ? "Yes" : "No", Pinterest: socialMediaPlatforms.includes("Pinterest") ? "Yes" : "No",
-//             TikTok: socialMediaPlatforms.includes("TikTok") ? "Yes" : "No",
-//             Snapchat: socialMediaPlatforms.includes("Snapchat") ? "Yes" : "No", Other_Platform: socialMediaPlatforms.includes("Other") ? "Yes" : "No", 
-//             Average_Daily_Social_Media_Use_Hours: req.body.averageTimeOnSocialMedia, Non_Specific_Use_Rating: req.body.socialMediaWithoutPurpose, 
-//             Social_Media_Distraction_Rating: req.body.distractedBySocialMedia, Restlessness_Rating: req.body.restlessWithoutSocialMedia, 
-//             Distractedness_Rating: req.body.easilyDistracted, Worries_Rating: req.body.botheredByWorries, 
-//             Concentration_Difficulty_Rating: req.body.difficultToConcentrate, Comparison_Rating: req.body.compareToOthersOnSocialMedia, 
-//             Followup_Comparison_Rating: req.body.followupCompare, Seek_Validation_Rating: req.body.seekValidationOnSocialMedia, 
-//             Depression_Rating: req.body.feelingsOfDepression, Interest_Fluctuation_Rating: req.body.fluctuationInInterest, 
-//             Sleep_Issue_Rating: req.body.sleepIssues, Location: "Provo"})
-//         .then(surveyResponse => {
-//             res.sendFile(path.join(__dirname, "/index.html"));
-//         });
-// });
-
-
 app.get("/viewUser", (req, res) => {
     // Retrieve the user data using Knex.js
     knex.select().from("loginInfo").then((loginInfo) => {
