@@ -61,7 +61,7 @@
                 </select>
                 <label for="findRecord">Find Record</label>
                 <select name="findRecord" id="findRecord">
-                        <option value="dafault" selected>All Records</option>
+                        <option value="default" selected>All Records</option>
                     <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
                         <option value="<%= theSurveys[iCount].id %>">
                             <%= theSurveys[iCount].Date %>, <%= theSurveys[iCount].Time %>, <%= theSurveys[iCount].Age %>, <%= theSurveys[iCount].Gender %> 
