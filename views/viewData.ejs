@@ -57,7 +57,7 @@
                 <select name="filterCity" id="filterCity">
                     <option value="Provo">Provo</option>
                     <option value="Plainsville">Plainsville</option>
-                    <option value="Both" selected >Both</option>
+                    <option value="Provo || Plainsville" selected >Both</option>
                 </select>
                 <label for="findRecord">Find Record</label>
                 <select name="findRecord" id="findRecord">
@@ -164,35 +164,59 @@
     </table>
     <br><br>
     <script>
-        // Function to update the "findRecord" dropdown options based on the selected city
         function updateRecordOptions() {
-            const selectedCity = document.getElementById("filterCity").value;
-            console.log("the value has been updated as "+ selectedCity)
-    
-            // Fetch records for the selected city using AJAX
-            fetch(`/getRecords/${selectedCity}?_=${new Date().getTime()}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Clear existing options
-                    const findRecord = document.getElementById("findRecord");
-                    findRecord.innerHTML = '<option value="default" selected>All Records</option>';
-    
-                    // Populate options with fetched data
-                    data.forEach(record => {
-                        const option = document.createElement("option");
-                        option.value = record.id;
-                        option.textContent = `${record.Date}, ${record.Time}, ${record.Age}, ${record.Gender}`;
-                        findRecord.appendChild(option);
-                    });
-                })
-                .catch(error => console.error("Error fetching records:", error));
-        }
-    
-        // Attach the function to the change event of the "filterCity" dropdown
-        document.getElementById("filterCity").addEventListener("change", updateRecordOptions);
-    
-        // Initial call to populate options on page load
-        updateRecordOptions();
+    const selectedCity = document.getElementById("filterCity").value;
+    console.log("the value has been updated as " + selectedCity)
+
+    // Fetch records for the selected city or both cities using AJAX
+    let cities;
+    if (selectedCity === "Both") {
+        // Fetch records for both cities
+        cities = ["Provo", "Plainsville"];
+        console.log("both of the cities are selected")
+    } else {
+        // Fetch records for the selected city
+        cities = [selectedCity];
+        console.log("only one city has been selected")
+    }
+
+    // Array to store all records
+    const allRecords = [];
+
+    // Fetch records for each city
+    const fetchPromises = cities.map(city => {
+        return fetch(`/getRecords/${city}?_=${new Date().getTime()}`)
+            .then(response => response.json())
+            .then(data => {
+                // Add records to the array
+                allRecords.push(...data);
+            })
+            .catch(error => console.error(`Error fetching records for ${city}:`, error));
+    });
+
+    // After all fetches are complete, update the dropdown
+    Promise.all(fetchPromises)
+        .then(() => {
+            const findRecord = document.getElementById("findRecord");
+            findRecord.innerHTML = '<option value="default" selected>All Records</option>';
+
+            // Populate options with fetched data
+            allRecords.forEach(record => {
+                const option = document.createElement("option");
+                option.value = record.id;
+                option.textContent = `${record.Date}, ${record.Time}, ${record.Age}, ${record.Gender}`;
+                findRecord.appendChild(option);
+            });
+        })
+        .catch(error => console.error("Error fetching records:", error));
+}
+
+// Attach the function to the change event of the "filterCity" dropdown
+document.getElementById("filterCity").addEventListener("change", updateRecordOptions);
+
+// Initial call to populate options on page load
+updateRecordOptions();
+
     </script>
     
 </body>
