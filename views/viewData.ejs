@@ -49,8 +49,7 @@
             </nav>
             <!-- .navbar -->
     </header>
-    
-        </div>
+
         <form action="filterData">
             <fieldset style="width: fit-content;">
                 <legend>Filter</legend>
@@ -63,7 +62,7 @@
                 <select name="findRecord" id="findRecord">
                     <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
                         <option value="<%= theSurveys[iCount].id %>">
-                            <p><%= theSurveys[iCount].Date %>, <%= theSurveys[iCount].Time %>, <%= theSurveys[iCount].Age %>,<%= theSurveys[iCount].Gender %> </p>
+                            <%= theSurveys[iCount].Date %>, <%= theSurveys[iCount].Time %>, <%= theSurveys[iCount].Age %>, <%= theSurveys[iCount].Gender %> 
                         </option>
                     <% } %>
                 </select>
@@ -71,7 +70,6 @@
                     <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
                 </div>
             </fieldset>
-
         </form>
 
 
