@@ -196,6 +196,33 @@ app.get("/viewData", (req, res) => {
     });
 });
 
+app.post("/filterData", (req, res) => {
+    const selectedCity = req.body.filterCity;
+    const selectedRecordId = req.body.findRecord;
+
+    // Initialize the query with the selected city
+    let query = knex(selectedCity);
+
+    // If a specific record ID is provided, add a WHERE clause
+    if (selectedRecordId) {
+        query = query.where({ id: selectedRecordId });
+    }
+
+    // Execute the query
+    query
+        .then((filteredRecord) => {
+            // Render a page to display the filtered record
+            res.render("filterData", { filteredRecord });
+        })
+        .catch((error) => {
+            // Handle errors if any while querying the database
+            console.error("Error querying the database:", error);
+            res.status(500).send("Error fetching filtered record");
+        });
+});
+
+
+
 app.get("/editUsers/:id", (req, res) => {
     knex.select("firstName", "lastName", "email", "username", "password", "id")
     .from("loginInfo")

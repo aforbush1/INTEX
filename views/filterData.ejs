@@ -1,0 +1,92 @@
+<label><b>Survey Information: </b></label>
+    <br><br>
+    <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
+        <thead style="background-color: cornflowerblue; color: white;">
+        <tr>
+            <th style="text-align: left;">Date</th>
+            <th style="text-align: left;">Time</th>
+            <th style="text-align: left;">Age</th>
+            <th style="text-align: left;">Gender</th>
+            <th style="text-align: left;">Relationship Status</th>
+            <th style="text-align: left;">Occupation Status</th>
+            <th style="text-align: left;">Affiliation_Company</th>
+            <th style="text-align: left;">Affiliation_Private</th>
+            <th style="text-align: left;">Affiliation_Government</th>
+            <th style="text-align: left;">Affiliation_School</th>
+            <th style="text-align: left;">Affiliation_University</th>
+            <th style="text-align: left;">Affiliation_N/A</th>
+            <th style="text-align: left;">Social_Media</th>
+            <th style="text-align: left;">Facebook</th>
+            <th style="text-align: left;">Twitter</th>
+            <th style="text-align: left;">Instagram</th>
+            <th style="text-align: left;">Youtube</th>
+            <th style="text-align: left;">Discord</th>
+            <th style="text-align: left;">Reddit</th>
+            <th style="text-align: left;">Pinterest</th>
+            <th style="text-align: left;">TikTok</th>
+            <th style="text-align: left;">Snapchat</th>
+            <th style="text-align: left;">Other_Platform</th>
+            <th style="text-align: left;">Average_Daily_Social_Media_Use_Hours</th>
+            <th style="text-align: left;">Non_Specific_Use_Rating</th>
+            <th style="text-align: left;">Social_Media_Distraction_Rating</th>
+            <th style="text-align: left;">Restlessness_Rating</th>
+            <th style="text-align: left;">Distractedness_Rating</th>
+            <th style="text-align: left;">Worries_Rating</th>
+            <th style="text-align: left;">Concentration_Difficulty_Rating</th>
+            <th style="text-align: left;">Comparison_Rating</th>
+            <th style="text-align: left;">Followup_Comparison_Rating</th>
+            <th style="text-align: left;">Seek_Validation_Rating</th>
+            <th style="text-align: left;">Depression_Rating</th>
+            <th style="text-align: left;">Interest_Fluctuation_Rating</th>
+            <th style="text-align: left;">Sleep_Issue_Rating</th>
+            <th style="text-align: left;">Location</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody style="font-family: Arial; font-size: 9pt;">
+        <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
+        <% for (let iCount = 0; iCount < filteredRecord.length || (filteredRecord.length === undefined && iCount < 1); iCount++) { %>
+            <tr>
+                <td><%= filteredRecord[iCount].Date %></td>
+                <td><%= filteredRecord[iCount].Time %></td>
+                <td style="text-align: center;"><%= filteredRecord[iCount].Age %></td>
+                <td><%= filteredRecord[iCount].Gender %></td>
+                <td><%= filteredRecord[iCount].Relationship_Status %></td>
+                <td><%= filteredRecord[iCount].Occupation_Status %></td>
+                <td><%= filteredRecord[iCount].Affiliation_Company %></td>
+                <td><%= filteredRecord[iCount].Affiliation_Private %></td>
+                <td><%= filteredRecord[iCount].Affiliation_Government %></td>
+                <td><%= filteredRecord[iCount].Affiliation_School %></td>
+                <td><%= filteredRecord[iCount].Affiliation_University %></td>
+                <td><%= filteredRecord[iCount].Affiliation_None %></td>
+                <td><%= filteredRecord[iCount].Social_Media %></td>
+                <td><%= filteredRecord[iCount].Facebook %></td>
+                <td><%= filteredRecord[iCount].Twitter %></td>
+                <td><%= filteredRecord[iCount].Instagram %></td>
+                <td><%= filteredRecord[iCount].Youtube %></td>
+                <td><%= filteredRecord[iCount].Discord %></td>
+                <td><%= filteredRecord[iCount].Reddit %></td>
+                <td><%= filteredRecord[iCount].Pinterest %></td>
+                <td><%= filteredRecord[iCount].TikTok %></td>
+                <td><%= filteredRecord[iCount].Snapchat %></td>
+                <td><%= filteredRecord[iCount].Other_Platform %></td>
+                <td><%= filteredRecord[iCount].Average_Daily_Social_Media_Use_Hours %></td>
+                <td><%= filteredRecord[iCount].Non_Specific_Use_Rating %></td>
+                <td><%= filteredRecord[iCount].Social_Media_Distraction_Rating %></td>
+                <td><%= filteredRecord[iCount].Restlessness_Rating %></td>
+                <td><%= filteredRecord[iCount].Distractedness_Rating %></td>
+                <td><%= filteredRecord[iCount].Worries_Rating %></td>
+                <td><%= filteredRecord[iCount].Concentration_Difficulty_Ratings %></td>
+                <td><%= filteredRecord[iCount].Comparison_Rating %></td>
+                <td><%= filteredRecord[iCount].Followup_Comparison_Rating %></td>
+                <td><%= filteredRecord[iCount].Seek_Validation_Rating %></td>
+                <td><%= filteredRecord[iCount].Depression_Rating %></td>
+                <td><%= filteredRecord[iCount].Interest_Fluctuation_Rating %></td>
+                <td><%= filteredRecord[iCount].Sleep_Issue_Rating %></td>
+                <td><%= filteredRecord[iCount].Location %></td>
+                <td style="text-align: center;"></td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
