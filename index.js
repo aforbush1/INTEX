@@ -159,7 +159,7 @@ app.post('/createUser', (req, res) => {
                     })
                     .then(() => {
                         // Redirect to the "/viewUser" page upon successful data insertion
-                        res.redirect('/viewUser');
+                        res.redirect('/userCreatedGood');
                     })
                     .catch((error) => {
                         // Handle any errors that occurred during insertion
