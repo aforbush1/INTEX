@@ -200,8 +200,13 @@ app.post("/filterData", (req, res) => {
     const selectedCity = req.body.filterCity;
     const selectedRecordId = req.body.findRecord;
 
-    // Initialize the query with the selected city
-    let query = knex(selectedCity);
+    // Initialize the query without specifying a table
+    let query = knex;
+
+    // If a specific city is selected, add it to the query
+    if (selectedCity) {
+        query = query(selectedCity);
+    }
 
     // If a specific record ID is provided, add a WHERE clause
     if (selectedRecordId) {
@@ -211,8 +216,8 @@ app.post("/filterData", (req, res) => {
     // Execute the query
     query
         .then((filteredRecords) => {
-            // Render a page to display the filtered record
-            res.render("filterData", { theSurveys:filteredRecords });
+            // Make sure to use the correct variable name here (filteredRecords)
+            res.render("filterData", { theSurveys: filteredRecords });
         })
         .catch((error) => {
             // Handle errors if any while querying the database
@@ -220,6 +225,7 @@ app.post("/filterData", (req, res) => {
             res.status(500).send("Error fetching filtered record");
         });
 });
+
 
 app.get("/getRecords/:city", (req, res) => {
     const selectedCity = req.params.city;
