@@ -159,7 +159,15 @@ app.post("/SubmitSurvey", (req, res) => {
             Depression_Rating: req.body.feelingsOfDepression, Interest_Fluctuation_Rating: req.body.fluctuationInInterest, 
             Sleep_Issue_Rating: req.body.sleepIssues, Location: "Provo"})
         .then(theSurveys => {
+            // Handle success
+            console.log("Survey inserted successfully:", theSurveys);
             res.sendFile(path.join(__dirname, "/index.html"));
+        })
+        .catch(err => {
+            // Handle error
+            console.error("Error inserting survey:", err);
+            // Send an error response or redirect to an error page
+            res.status(500).send("Error submitting survey");
         });
 });
 
