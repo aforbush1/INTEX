@@ -103,7 +103,7 @@
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
             <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
-            <% for (let iCount = 0; iCount < theLogin.length; iCount++) { %>
+            <% for (let iCount = theLogin.id; iCount < theLogin.length;) { %>
                 <tr>
                     <td><%= theLogin[iCount].firstName %></td>
                     <td><%= theLogin[iCount].lastName %></td>
