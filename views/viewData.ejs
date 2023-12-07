@@ -204,7 +204,7 @@
             allRecords.forEach(record => {
                 const option = document.createElement("option");
                 option.value = record.id;
-                console.log("the id is"+ option.value)
+                //console.log("the id is"+ option.value)
                 option.textContent = `${record.Date}, ${record.Time}, ${record.Age}, ${record.Gender}`;
                 findRecord.appendChild(option);
             });

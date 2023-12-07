@@ -219,6 +219,7 @@ app.post("/filterData", (req, res) => {
         query = query.where({ id: selectedRecordId });
     }
 
+    console.log("SQL Query:", query.toString());
     // Execute the query
     query
         .then((filteredRecords) => {
