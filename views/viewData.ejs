@@ -62,11 +62,15 @@
                 <select name="findRecord" id="findRecord">
                     <% for (let iCount = 0; iCount < plainsville.length; iCount++) { %>
                         <option value="<%= plainsville[iCount].id %>">
-                            <%= records[i].displayText %>
+                            <%= plainsville[iCount].displayText %>
                         </option>
                     <% } %>
                 </select>
+                <div class="col-md-6 form-group">
+                    <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
+                </div>
             </fieldset>
+
         </form>
     </header>
 
