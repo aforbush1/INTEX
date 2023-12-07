@@ -98,8 +98,7 @@
                 <th>Email</th>
                 <th>Username</th>
                 <th>Password</th>
-                <th>Edit Data Button</th>
-                <th>Delete Data Button</th>
+                
             </tr>
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
@@ -113,16 +112,7 @@
                     <td><%= theLogin.username %></td>
                     <td><%= theLogin.password %></td>
                     <!-- Modify the forms as needed -->
-                    <td style="text-align: center;">
-                        <form action="/editUsers/<%= theLogin.id %>" method="GET">
-                            <button type="submit">Edit</button>
-                        </form>
-                    </td>
-                    <td style="text-align: center;">
-                        <form action="/deleteUser/<%= theLogin.id %>" method="POST">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
+                    
                 </tr>
             <% } else { %>
                 <tr>
