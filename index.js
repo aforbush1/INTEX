@@ -29,7 +29,7 @@ app.get("/login", (req, res) => {
 })
 
 app.post("/submitSurvey", (req, res) =>
-    res.send("Yo Dawg it Be Workin"))
+    res.render("thankYou"))
     
     
     
