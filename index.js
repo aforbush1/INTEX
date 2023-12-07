@@ -21,7 +21,7 @@ const knex = require("knex")({
 });
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "views/index.html"))
+    res.render("index");
 })
 
 // app.get("/dashboard", (req, res) =>
@@ -115,6 +115,7 @@ app.post("/submitLogin", (req, res) => {
                     const id = result.id;
                     res.render('userIndex', { firstName, id });
                 } else {
+                    // res.render("invalidLogin");
                     res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
                 }
             })
@@ -189,6 +190,11 @@ app.get("/viewUser", (req, res) => {
 app.get("/adminIndex", (req, res) => {
     res.sendFile(path.join(__dirname, "views/adminIndex.html"))
 })
+
+// ejs route
+// app.get("/adminIndex", (req, res) => {
+//     res.render("adminIndex");
+// })
 
 app.get("/viewData", (req, res) => {
     knex.select().from("plainsville").then( (plainsville) => {
