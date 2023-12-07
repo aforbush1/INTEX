@@ -52,7 +52,7 @@ app.post("/submitLogin", (req, res) => {
             .then(result => {
                 if (result) {
                     const firstName = result.firstName;
-                    res.render('userIndex', { firstName,id });
+                    res.render('userIndex', { firstName: firstName, id:id });
                 } else {
                     res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
                 }
