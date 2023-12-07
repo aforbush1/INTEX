@@ -848,16 +848,16 @@ section {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-.hero-section {
+/* .hero-section {
   background: linear-gradient(to right, rgba(92, 92, 92, 0.8) 0%, rgba(92, 92, 92, 0.8) 100%), url(../img/hero-bg.jpg);
   position: relative;
-}
+} */
 
-.hero-section .wave {
+/* .hero-section .wave {
   width: 100%;
   overflow: hidden;
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   bottom: -150px;
 }
 
@@ -885,7 +885,7 @@ section {
 .hero-section.inner-page .hero-text {
   transform: translateY(-150px);
   margin-top: -120px;
-}
+} */
 
 @media screen and (max-width: 992px) {
   .hero-section.inner-page .hero-text {
@@ -1047,5 +1047,29 @@ section {
   height: 100%;
   }
   }
+
+  .hero-section {
+    position: relative;
+  }
+  
+  #hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    z-index: 1; /* Ensure the overlay is above the video */
+}
+
 
   
