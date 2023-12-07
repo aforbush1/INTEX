@@ -28,8 +28,6 @@ app.get("/login", (req, res) => {
     res.render("login");
 })
 
-app.post("/submitSurvey", (req, res) =>
-    res.render("thankYou"))
     
     
     
@@ -134,6 +132,25 @@ app.post('/createUser', (req, res) => {
 
 app.post("/submitSurvey", (req, res) => {
     console.log(req.body);
+    const occupation = req.body.occupation || [];
+    const isCompanySelected = occupation.includes("Company")
+    const isPrivateSelected = occupation.includes("Private")
+    const isGovernmentSelected = occupation.includes("Government")
+    const isSchoolSelected = occupation.includes("School")
+    const isUniversitySelected = occupation.includes("University")
+    const isNoneSelected = occupation.includes("None")
+
+    const socialMediaPlatforms = req.body.socialMedia || [];
+    const isFacebookSelected = socialMediaPlatforms.includes("Facebook");
+    const isTwitterSelected = socialMediaPlatforms.includes("Twitter");
+    const isInstagramSelected = socialMediaPlatforms.includes("Instagram");
+    const isYoutubeSelected = socialMediaPlatforms.includes("Youtube");
+    const isDiscordSelected = socialMediaPlatforms.includes("Discord");
+    const isRedditSelected = socialMediaPlatforms.includes("Reddit");
+    const isPinterestSelected = socialMediaPlatforms.includes("Pinterest");
+    const isTikTokSelected = socialMediaPlatforms.includes("TikTok");
+    const isSnapchatSelected = socialMediaPlatforms.includes("Snapchat");
+    const isOther_PlatformSelected = socialMediaPlatforms.includes("Other_Platform");
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString('en-US');
     const formattedTime = currentDate.toLocaleTimeString('en-US', {
@@ -144,14 +161,14 @@ app.post("/submitSurvey", (req, res) => {
     });
     knex("plainsville").insert({Date: formattedDate, Time: formattedTime, Age: req.body.age, Gender: req.body.gender, 
             Relationship_Status: req.body.relationshipStatus, Occupation_Status: req.body.occupationStatus, 
-            Affiliation_Company: "No", Affiliation_Private: "No",
-            Affiliation_Government: "No", Affiliation_School: "No",
-            Affiliation_University: "No", Affiliation_None: "No", Social_Media: req.body.useSocialMedia, 
-            Facebook: "No", Twitter: "No",
-            Instagram: "No", Youtube: "No",
-            Discord: "No", Reddit: "No", Pinterest: "No",
-            TikTok: "No",
-            Snapchat: "No", Other_Platform: "No", 
+            Affiliation_Company: isCompanySelected ? "Yes" : "No", Affiliation_Private: isPrivateSelected ? "Yes" : "No",
+            Affiliation_Government: isGovernmentSelected ? "Yes" : "No", Affiliation_School: isSchoolSelected ? "Yes" : "No",
+            Affiliation_University: isUniversitySelected ? "Yes" : "No", Affiliation_None: isNoneSelected ? "Yes" : "No", Social_Media: req.body.useSocialMedia, 
+            Facebook: isFacebookSelected ? "Yes" : "No", Twitter: isTwitterSelected ? "Yes" : "No",
+            Instagram: isInstagramSelected ? "Yes" : "No", Youtube: isYoutubeSelected ? "Yes" : "No",
+            Discord: isDiscordSelected ? "Yes" : "No", Reddit: isRedditSelected ? "Yes" : "No", Pinterest: isPinterestSelected ? "Yes" : "No",
+            TikTok: isTikTokSelected ? "Yes" : "No",
+            Snapchat: isSnapchatSelected ? "Yes" : "No", Other_Platform: isOther_PlatformSelected ? "Yes" : "No", 
             Average_Daily_Social_Media_Use_Hours: req.body.averageTimeOnSocialMedia, Non_Specific_Use_Rating: req.body.socialMediaWithoutPurpose, 
             Social_Media_Distraction_Rating: req.body.distractedBySocialMedia, Restlessness_Rating: req.body.restlessWithoutSocialMedia, 
             Distractedness_Rating: req.body.easilyDistracted, Worries_Rating: req.body.botheredByWorries, 
@@ -161,7 +178,7 @@ app.post("/submitSurvey", (req, res) => {
             Sleep_Issue_Rating: req.body.sleepIssues, Location: "Provo"})
         .then(() => {
             // Handle success
-            res.sendFile(path.join(__dirname, "/index.html"));
+            res.render("thankYou");
         })
         .catch(err => {
             // Handle error
