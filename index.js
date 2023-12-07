@@ -230,7 +230,7 @@ app.post("/filterData", (req, res) => {
         .catch((error) => {
             // Handle errors if any while querying the database
             console.error("Error querying the database:", error);
-            res.status(500).send("Error fetching filtered record");
+            res.status(500).json({ error: "Error fetching filtered record", details: error.message });;
         });
 });
 
