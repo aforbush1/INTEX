@@ -214,9 +214,14 @@ app.post("/editUsers", (req, res) => {
         email: req.body.email,
         username: req.body.username,
         password: req.body.password
-    }).then(theLogin => {
-        res.redirect("/viewUser");
-    });
+    }).then(userInfo => {
+        if (userInfo && userInfo.username === 'Admin') {
+            res.render("editUsers", { theLogin: userInfo });
+        } else {
+            // Redirect to another EJS file
+            res.redirect("userIndex");
+        }
+    })
 });
 
 app.post("/deleteUser/:id", (req, res) => {
