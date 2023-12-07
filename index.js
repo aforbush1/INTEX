@@ -132,7 +132,7 @@ app.post('/createUser', (req, res) => {
 
 app.post("/submitSurvey", (req, res) => {
     console.log(req.body);
-    const occupation = req.body.occupation || [];
+    const occupation = req.body.affiliatedOrganizations || [];
     const isCompanySelected = occupation.includes("Company")
     const isPrivateSelected = occupation.includes("Private")
     const isGovernmentSelected = occupation.includes("Government")
@@ -150,7 +150,7 @@ app.post("/submitSurvey", (req, res) => {
     const isPinterestSelected = socialMediaPlatforms.includes("Pinterest");
     const isTikTokSelected = socialMediaPlatforms.includes("TikTok");
     const isSnapchatSelected = socialMediaPlatforms.includes("Snapchat");
-    const isOther_PlatformSelected = socialMediaPlatforms.includes("Other_Platform");
+    const isOther_PlatformSelected = socialMediaPlatforms.includes("Other");
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString('en-US');
     const formattedTime = currentDate.toLocaleTimeString('en-US', {
