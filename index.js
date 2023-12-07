@@ -246,6 +246,8 @@ app.get("/getRecords/:city", (req, res) => {
 
 
 
+
+
 app.get("/editUsers/:id", (req, res) => {
     knex.select("firstName", "lastName", "email", "username", "password", "id")
     .from("loginInfo")

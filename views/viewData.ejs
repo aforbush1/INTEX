@@ -179,7 +179,7 @@
                 .then(data => {
                     // Clear existing options
                     const findRecordDropdown = document.getElementById("findRecord");
-                    findRecordDropdown.innerHTML = '<option value="dafault" selected>All Records</option>';
+                    findRecordDropdown.innerHTML = '<option value="default" selected>All Records</option>';
     
                     // Populate options with fetched data
                     data.forEach(record => {
@@ -198,5 +198,6 @@
         // Initial call to populate options on page load
         updateRecordOptions();
     </script>
+    
 </body>
 </html>
