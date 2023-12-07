@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <!-- Favicons -->
+    <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="icon">
+    <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="provo-icon">
+
+    <style>
+        /* Styles for the navigation bar */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            max-width: 150px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Table styles */
+        table {
+            width: 100%;
+            background-color: antiquewhite;
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        thead {
+            background-color: cornflowerblue;
+            color: white;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid black;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header id="header" class="fixed-top">
+        <div class="container">
+            <div class="logo">
+                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="" href="adminIndex">Home</a></li>
+                    <li><a href="createUser">Create User</a></li>
+                    <li><a href="viewUser">View Users</a></li>
+                    <li><a href="viewData">View Data</a></li>
+                    <li><a href="dashboard">Dashboard</a></li>
+                    <li><a href="/">Log Out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Table section -->
+    <label><b>User Information:</b></label>
+    <br><br>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Edit Data Button</th>
+                <th>Delete Data Button</th>
+            </tr>
+        </thead>
+        <tbody style="font-family: Arial; font-size: 9pt;">
+            <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
+            <% for (let iCount = 0; iCount < theLogin.length; iCount++) { %>
+                <tr>
+                    <td><%= theLogin[iCount].firstName %></td>
+                    <td><%= theLogin[iCount].lastName %></td>
+                    <td><%= theLogin[iCount].email %></td>
+                    <td><%= theLogin[iCount].username %></td>
+                    <td><%= theLogin[iCount].password %></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: center;">
+                        <form action="/editUsers/<%= theLogin[iCount].id %>" method="GET">
+                            <button type="submit">Edit</button>
+                        </form>
+                    </td>
+                    <td style="text-align: center;">
+                        <form action="/deleteUser/<%= theLogin[iCount].id %>" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <br><br>
+</body>
+</html>
