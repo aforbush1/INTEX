@@ -105,26 +105,31 @@
         <tbody style="font-family: Arial; font-size: 9pt;">
             <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
             <!-- Display single user data -->
-            <% theLogin.forEach((user) => { %>
+            <% if (theLogin) { %>
                 <tr>
-                    <td><%= user.firstName %></td>
-                    <td><%= user.lastName %></td>
-                    <td><%= user.email %></td>
-                    <td><%= user.username %></td>
-                    <td><%= user.password %></td>
+                    <td><%= theLogin.firstName %></td>
+                    <td><%= theLogin.lastName %></td>
+                    <td><%= theLogin.email %></td>
+                    <td><%= theLogin.username %></td>
+                    <td><%= theLogin.password %></td>
                     <!-- Modify the forms as needed -->
                     <td>
-                        <form action="/editUsers/<%= user.id %>" method="GET">
+                        <form action="/editUsers/<%= theLogin.id %>" method="GET">
                             <button type="submit">Edit</button>
                         </form>
                     </td>
                     <td>
-                        <form action="/deleteUser/<%= user.id %>" method="POST">
+                        <form action="/deleteUser/<%= theLogin.id %>" method="POST">
                             <button type="submit">Delete</button>
                         </form>
                     </td>
                 </tr>
-            <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="7">User not found</td>
+                </tr>
+            <% } %>
+            
         </tbody>
     </table>
     <br><br>
