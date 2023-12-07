@@ -206,7 +206,7 @@ app.post("/filterData", (req, res) => {
     const selectedCity = req.body.filterCity;
     const selectedRecordId = req.body.findRecord;
 
-    // Initialize the query without specifying a table
+    // Initialize the query with the target table
     let query = knex('plainsville');
 
     // If a specific city is selected, add it to the query
@@ -214,8 +214,8 @@ app.post("/filterData", (req, res) => {
         query = query.where('Location', selectedCity);
     }
 
-    // If a specific record ID is provided, add a WHERE clause
-    if (selectedRecordId) {
+    // If a specific record ID is provided (and not "both"), add a WHERE clause
+    if (selectedRecordId && selectedRecordId !== "both") {
         query = query.where({ id: selectedRecordId });
     }
 
@@ -223,16 +223,15 @@ app.post("/filterData", (req, res) => {
     // Execute the query
     query
         .then((filteredRecords) => {
-            console.log("Filtered Records:", filteredRecords); // Log filtered records
-            // Make sure to use the correct variable name here (filteredRecords)
+            console.log("Filtered Records:", filteredRecords);
             res.render("filterData", { theSurveys: filteredRecords });
         })
         .catch((error) => {
-            // Handle errors if any while querying the database
             console.error("Error querying the database:", error);
-            res.status(500).json({ error: "Error fetching filtered record", details: error.message });;
+            res.status(500).json({ error: "Error fetching filtered record", details: error.message });
         });
 });
+
 
 
 
