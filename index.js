@@ -28,8 +28,8 @@ app.get("/login", (req, res) => {
     res.render("login");
 })
 
-app.post("/submitSurvey", (req, res) =>
-    res.send("Yo Dawg it Be Workin"))
+// app.post("/submitSurvey", (req, res) =>
+    // res.send("Yo Dawg it Be Workin"))
     
     
     
