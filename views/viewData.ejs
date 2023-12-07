@@ -30,7 +30,7 @@
 
 </head>
 <body>
-    <header id="header" class="fixed-top d-flex align-items-center">
+    <!-- <header id="header" class="fixed-top d-flex align-items-center">
         <div class="container d-flex justify-content-between align-items-center">
 
             <div class="logo" data-aos-delay="2500" data-aos="fade-down">
@@ -47,38 +47,31 @@
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
-            <!-- .navbar -->
-    </header>
 
+    </header> -->
 
-    <section class="hero-section" id="hero" style="background: linear-gradient(to right, rgba(92, 92, 92, 0.8) 0%, rgba(92, 92, 92, 0.8) 100%), url('https://aforbush1.github.io/INTEX/views/assets/img/img_2.jpeg'); background-size: cover; background-position: center;">
-        <div class="container">
-            <form action="filterData">
-                <fieldset style="width: fit-content;">
-                    <legend>Filter</legend>
-                    <label for="filterCity">City</label>
-                    <select name="filterCity" id="filterCity" required>
-                        <option value="provo">Provo</option>
-                        <option value="plainsville">Plainsville</option>
-                        <option value="plainsville">Both</option>
-                    </select>
-                    <label for="findRecord">Find Record</label>
-                    <select name="findRecord" id="findRecord">
-                        <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
-                            <option value="<%= theSurveys[iCount].id %>">
-                                <%= theSurveys[iCount].Date %>, <%= theSurveys[iCount].Time %>, <%= theSurveys[iCount].Age %>, <%= theSurveys[iCount].Gender %> 
-                            </option>
-                        <% } %>
-                    </select>
-                    <div class="col-md-6 form-group">
-                        <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </section>
-
-        
+        <form action="filterData">
+            <fieldset style="width: fit-content;">
+                <legend>Filter</legend>
+                <label for="filterCity">City</label>
+                <select name="filterCity" id="filterCity">
+                    <option value="provo">Provo</option>
+                    <option value="plainsville">Plainsville</option>
+                    <option value="plainsville">Both</option>
+                </select>
+                <label for="findRecord">Find Record</label>
+                <select name="findRecord" id="findRecord">
+                    <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
+                        <option value="<%= theSurveys[iCount].id %>">
+                            <%= theSurveys[iCount].Date %>, <%= theSurveys[iCount].Time %>, <%= theSurveys[iCount].Age %>, <%= theSurveys[iCount].Gender %> 
+                        </option>
+                    <% } %>
+                </select>
+                <div class="col-md-6 form-group">
+                    <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
+                </div>
+            </fieldset>
+        </form>
 
 
     <label><b>Survey Information: </b></label>
