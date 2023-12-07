@@ -222,6 +222,7 @@ app.post("/filterData", (req, res) => {
     // Execute the query
     query
         .then((filteredRecords) => {
+            console.log("Filtered Records:", filteredRecords); // Log filtered records
             // Make sure to use the correct variable name here (filteredRecords)
             res.render("filterData", { theSurveys: filteredRecords });
         })
@@ -231,6 +232,7 @@ app.post("/filterData", (req, res) => {
             res.status(500).send("Error fetching filtered record");
         });
 });
+
 
 
 
