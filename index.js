@@ -210,14 +210,31 @@ app.post("/filterData", (req, res) => {
 
     // Execute the query
     query
-        .then((filteredRecord) => {
+        .then((filteredRecords) => {
             // Render a page to display the filtered record
-            res.render("filterData", { filteredRecord });
+            res.render("filterData", { theSurveys:filteredRecords });
         })
         .catch((error) => {
             // Handle errors if any while querying the database
             console.error("Error querying the database:", error);
             res.status(500).send("Error fetching filtered record");
+        });
+});
+
+app.get("/getRecords/:city", (req, res) => {
+    const selectedCity = req.params.city;
+
+    // Initialize the query with the selected city
+    let query = knex(selectedCity);
+
+    // Execute the query
+    query
+        .then((records) => {
+            res.json(records); // Send the records as JSON
+        })
+        .catch((error) => {
+            console.error("Error querying the database:", error);
+            res.status(500).json({ error: "Error fetching records" });
         });
 });
 

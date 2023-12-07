@@ -57,10 +57,11 @@
                 <select name="filterCity" id="filterCity">
                     <option value="provo">Provo</option>
                     <option value="plainsville">Plainsville</option>
-                    <option value="plainsville">Both</option>
+                    <option value="both" selected >Both</option>
                 </select>
                 <label for="findRecord">Find Record</label>
                 <select name="findRecord" id="findRecord">
+                        <option value="dafault" selected>All Records</option>
                     <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
                         <option value="<%= theSurveys[iCount].id %>">
                             <%= theSurveys[iCount].Date %>, <%= theSurveys[iCount].Time %>, <%= theSurveys[iCount].Age %>, <%= theSurveys[iCount].Gender %> 
@@ -167,5 +168,35 @@
         </tbody>
     </table>
     <br><br>
+    <script>
+        // Function to update the "findRecord" dropdown options based on the selected city
+        function updateRecordOptions() {
+            const selectedCity = document.getElementById("filterCity").value;
+    
+            // Fetch records for the selected city using AJAX
+            fetch(`/getRecords/${selectedCity}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear existing options
+                    const findRecordDropdown = document.getElementById("findRecord");
+                    findRecordDropdown.innerHTML = '<option value="dafault" selected>All Records</option>';
+    
+                    // Populate options with fetched data
+                    data.forEach(record => {
+                        const option = document.createElement("option");
+                        option.value = record.id;
+                        option.textContent = `${record.Date}, ${record.Time}, ${record.Age}, ${record.Gender}`;
+                        findRecordDropdown.appendChild(option);
+                    });
+                })
+                .catch(error => console.error("Error fetching records:", error));
+        }
+    
+        // Attach the function to the change event of the "filterCity" dropdown
+        document.getElementById("filterCity").addEventListener("change", updateRecordOptions);
+    
+        // Initial call to populate options on page load
+        updateRecordOptions();
+    </script>
 </body>
 </html>
