@@ -607,7 +607,7 @@ section {
 
 #header.header-scrolled {
   background: rgb(144, 144, 144);
-  height: 60px;
+  height: -20px;
 }
 
 #header .logo h1 {
