@@ -205,7 +205,7 @@ app.post("/filterData", (req, res) => {
 
     // If a specific city is selected, add it to the query
     if (selectedCity) {
-        query = query(selectedCity);
+        query = query.where('Location', selectedCity);
     }
 
     // If a specific record ID is provided, add a WHERE clause
@@ -227,14 +227,30 @@ app.post("/filterData", (req, res) => {
 });
 
 
+
 app.get("/getRecords/:city", (req, res) => {
     const selectedCity = req.params.city;
 
-    // Initialize the query with the selected city
-    let query = knex(selectedCity);
+    // Execute the query to fetch records from the "plainsville" table
+    knex('plainsville')
+        .where('Location', selectedCity)
+        .then((records) => {
+            res.json(records); // Send the records as JSON
+        })
+        .catch((error) => {
+            console.error("Error querying the database:", error);
+            res.status(500).json({ error: "Error fetching records" });
+        });
+});
 
-    // Execute the query
-    query
+
+
+app.get("/getRecords/:city", (req, res) => {
+    const selectedCity = req.params.city;
+
+    // Execute the query to fetch records from the "plainsville" table
+    knex('plainsville')
+        .where('Location', selectedCity)
         .then((records) => {
             res.json(records); // Send the records as JSON
         })
