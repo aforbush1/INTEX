@@ -158,7 +158,7 @@ app.post("/SubmitSurvey", (req, res) => {
             Followup_Comparison_Rating: req.body.followupCompare, Seek_Validation_Rating: req.body.seekValidationOnSocialMedia, 
             Depression_Rating: req.body.feelingsOfDepression, Interest_Fluctuation_Rating: req.body.fluctuationInInterest, 
             Sleep_Issue_Rating: req.body.sleepIssues, Location: "Provo"})
-        .then(surveyResponse => {
+        .then(theSurveys => {
             res.sendFile(path.join(__dirname, "/index.html"));
         });
 });
