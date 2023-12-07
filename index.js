@@ -230,7 +230,7 @@ app.get("/dashboard", (req, res) =>
     app.get("/userprofile", (req, res) => {
         // Retrieve the user data using Knex.js
         knex.select().from("loginInfo").then((loginInfo) => {
-            res.render("userrofile", { theLogin: loginInfo }); // Pass 'theLogin' as an object property
+            res.render("userprofile", { theLogin: loginInfo }); // Pass 'theLogin' as an object property
         }).catch((error) => {
             // Handle errors if any while fetching data
             console.error("Error fetching user data:", error);
