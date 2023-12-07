@@ -210,16 +210,17 @@ app.post("/filterData", (req, res) => {
     let query = knex('plainsville');
 
     // If a specific city is selected, add it to the query
-    if (selectedCity) {
+    if (selectedCity && selectedCity !== "Both") {
         query = query.where('Location', selectedCity);
     }
 
-    // If a specific record ID is provided (and not "both"), add a WHERE clause
-    if (selectedRecordId && selectedRecordId !== "both") {
+    // If a specific record ID is provided (and not "All Records"), add a WHERE clause
+    if (selectedRecordId && selectedRecordId !== "default") {
         query = query.where({ id: selectedRecordId });
     }
 
     console.log("SQL Query:", query.toString());
+    
     // Execute the query
     query
         .then((filteredRecords) => {
