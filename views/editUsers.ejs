@@ -6,7 +6,7 @@
     <title>Edit Users</title>
 </head>
 <body>
-    <form action="/editUsers" method="POST">
+    <form action="/submitLogin" method="POST">
         <fieldset style="width: 0px;">
             <legend>Edit Users:</legend>
                 <label for="firstName">First Name:</label>
@@ -25,7 +25,7 @@
                 <input type="text" id="password" name="password" value="<%= theLogin[0].password %>">
                 <br><br>
                 <input type="hidden" id="id" name="id" value="<%= theLogin[0].id %>">
-                <a href="/submitLogin"><button type="submit">Save</button></a>
+                <button type="submit">Save</button>
         </fieldset>
     </form>
 </body>
