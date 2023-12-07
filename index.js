@@ -211,7 +211,7 @@ app.post("/filterData", (req, res) => {
 
     // If a specific city is selected, add it to the query
     if (selectedCity) {
-        query = query(selectedCity);
+        query = query.where('Location', selectedCity);
     }
 
     // If a specific record ID is provided, add a WHERE clause
@@ -233,14 +233,14 @@ app.post("/filterData", (req, res) => {
 });
 
 
+
 app.get("/getRecords/:city", (req, res) => {
     const selectedCity = req.params.city;
+    res.setHeader('Cache-Control', 'no-store');
 
-    // Initialize the query with the selected city
-    let query = knex(selectedCity);
-
-    // Execute the query
-    query
+    // Execute the query to fetch records from the "plainsville" table
+    knex('plainsville')
+        .where('Location', selectedCity)
         .then((records) => {
             res.json(records); // Send the records as JSON
         })
