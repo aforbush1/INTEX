@@ -134,14 +134,11 @@ app.post('/createUser', (req, res) => {
 
 app.post("/SubmitSurvey", (req, res) => {
     const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString('en-US');
-    const formattedTime = currentDate.toLocaleTimeString('en-US', {
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        hour12: true,
-      });
-    knex("plainsville").insert({Date: formattedDate, Time: formattedTime, Age: req.body.age, Gender: req.body.gender, 
+    const currentTime = currentDate.toISOString();
+    const affiliatedOrganizations = req.body.affiliatedOrganizations || ["None"];
+    const socialMediaPlatforms = req.body.socialMedia || ["Other"];
+
+    knex("plainsville").insert({Date: currentDate, Time: currentTime, Age: req.body.age, Gender: req.body.gender, 
             Relationship_Status: req.body.relationshipStatus, Occupation_Status: req.body.occupationStatus, 
             Affiliation_Company: "No", Affiliation_Private: "No",
             Affiliation_Government: "No", Affiliation_School: "No",
