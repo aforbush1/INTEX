@@ -132,7 +132,7 @@ app.post('/createUser', (req, res) => {
         });
 });
 
-app.post("/SubmitSurvey", (req, res) => {
+app.post("/submitSurvey", (req, res) => {
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString('en-US');
     const formattedTime = currentDate.toLocaleTimeString('en-US', {
@@ -158,9 +158,8 @@ app.post("/SubmitSurvey", (req, res) => {
             Followup_Comparison_Rating: req.body.followupCompare, Seek_Validation_Rating: req.body.seekValidationOnSocialMedia, 
             Depression_Rating: req.body.feelingsOfDepression, Interest_Fluctuation_Rating: req.body.fluctuationInInterest, 
             Sleep_Issue_Rating: req.body.sleepIssues, Location: "Provo"})
-        .then(theSurveys => {
+        .then(() => {
             // Handle success
-            console.log("Survey inserted successfully:", theSurveys);
             res.sendFile(path.join(__dirname, "/index.html"));
         })
         .catch(err => {
