@@ -606,7 +606,7 @@ section {
 }
 
 #header.header-scrolled {
-  background: rgba(39, 70, 133, 0.8);
+  background: rgba(227, 2, 159, 0.8);
   height: 60px;
 }
 
@@ -638,6 +638,7 @@ section {
 */
 .navbar {
   padding: 0;
+  
 }
 
 .navbar ul {
@@ -848,16 +849,16 @@ section {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-/* .hero-section {
-  background: linear-gradient(to right, rgba(92, 92, 92, 0.8) 0%, rgba(92, 92, 92, 0.8) 100%), url(../img/hero-bg.jpg);
+.hero-section {
+  background: linear-gradient(to right, rgba(92, 92, 92, 0.8) 0%, rgba(92, 92, 92, 0.8) 100%);
   position: relative;
-} */
+}
 
-/* .hero-section .wave {
+.hero-section .wave {
   width: 100%;
   overflow: hidden;
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   bottom: -150px;
 }
 
@@ -885,7 +886,7 @@ section {
 .hero-section.inner-page .hero-text {
   transform: translateY(-150px);
   margin-top: -120px;
-} */
+}
 
 @media screen and (max-width: 992px) {
   .hero-section.inner-page .hero-text {
@@ -1048,28 +1049,6 @@ section {
   }
   }
 
-  .hero-section {
-    position: relative;
-  }
   
-  #hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    font-size: 24px;
-    z-index: 1; /* Ensure the overlay is above the video */
-}
-
 
   
