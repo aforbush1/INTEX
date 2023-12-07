@@ -134,11 +134,11 @@ app.post('/createUser', (req, res) => {
 
 app.post("/SubmitSurvey", (req, res) => {
     const currentDate = new Date();
-    const currentTime = currentDate.toISOString();
+    const timestamp = currentDate.getTime().toISOString();
     const affiliatedOrganizations = req.body.affiliatedOrganizations || ["None"];
     const socialMediaPlatforms = req.body.socialMedia || ["Other"];
 
-    knex("plainsville").insert({Date: currentDate, Time: currentTime, Age: req.body.age, Gender: req.body.gender, 
+    knex("plainsville").insert({Date: currentDate, Time: timestamp, Age: req.body.age, Gender: req.body.gender, 
             Relationship_Status: req.body.relationshipStatus, Occupation_Status: req.body.occupationStatus, 
             Affiliation_Company: affiliatedOrganizations.includes("Company") ? "Yes" : "No", Affiliation_Private: affiliatedOrganizations.includes("Private") ? "Yes" : "No",
             Affiliation_Government: affiliatedOrganizations.includes("Government") ? "Yes" : "No", Affiliation_School: affiliatedOrganizations.includes("School") ? "Yes" : "No",
