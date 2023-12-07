@@ -230,23 +230,7 @@ app.post("/filterData", (req, res) => {
 
 app.get("/getRecords/:city", (req, res) => {
     const selectedCity = req.params.city;
-
-    // Execute the query to fetch records from the "plainsville" table
-    knex('plainsville')
-        .where('Location', selectedCity)
-        .then((records) => {
-            res.json(records); // Send the records as JSON
-        })
-        .catch((error) => {
-            console.error("Error querying the database:", error);
-            res.status(500).json({ error: "Error fetching records" });
-        });
-});
-
-
-
-app.get("/getRecords/:city", (req, res) => {
-    const selectedCity = req.params.city;
+    res.setHeader('Cache-Control', 'no-store');
 
     // Execute the query to fetch records from the "plainsville" table
     knex('plainsville')

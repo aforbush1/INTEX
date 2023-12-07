@@ -174,7 +174,7 @@
             const selectedCity = document.getElementById("filterCity").value;
     
             // Fetch records for the selected city using AJAX
-            fetch(`/getRecords/${selectedCity}`)
+            fetch(`/getRecords/${selectedCity}?_=${new Date().getTime()}`)
                 .then(response => response.json())
                 .then(data => {
                     // Clear existing options
