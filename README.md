@@ -27,5 +27,3 @@ Our Report view is named "viewData.ejs" this can be accessed by both the User an
 
 ***Dropdown list to filter to a specific person
 
-
-
