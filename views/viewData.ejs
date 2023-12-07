@@ -60,9 +60,9 @@
                 </select>
                 <label for="findRecord">Find Record</label>
                 <select name="findRecord" id="findRecord">
-                    <% for (let iCount = 0; iCount < plainsville.length; iCount++) { %>
-                        <option value="<%= plainsville[iCount].id %>">
-                            <%= plainsville[iCount].displayText %>
+                    <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
+                        <option value="<%= theSurveys[iCount].id %>">
+                            <%= theSurveys[iCount].displayText %>
                         </option>
                     <% } %>
                 </select>
