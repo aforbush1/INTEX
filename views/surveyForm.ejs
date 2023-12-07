@@ -117,6 +117,8 @@
         <label for="age">Age</label>
         <input placeholder="Enter your age" type="number" id="age" name="age" required>
 
+        <br><br>
+
         <label for="gender">Gender</label>
         <select id="gender" name="gender" required>
             <option value="" disabled selected>Select A Gender</option>
@@ -124,6 +126,8 @@
             <option value="Female">Female</option>
             <option value="Other">Other</option>
         </select>
+
+        <br><br>
 
         <label for="relationshipStatus">Relationship Status</label>
         <select id="relationshipStatus" name="relationshipStatus" required>
@@ -135,6 +139,8 @@
             <option value="Other">Other</option>
         </select>
 
+        <br><br>
+
         <label for="occupationStatus">Occupation Status</label>
         <select id="occupationStatus" name="occupationStatus" required>
             <option value="" disabled selected>Select an Occupation Status</option>
@@ -144,7 +150,9 @@
             <option value="Other">Other</option>
         </select>
 
-        <label for="affiliatedOrganizations">What type of organizations are you affiliated with?</label>
+        <br><br>
+
+        <label for="affiliatedOrganizations">What type of organizations are you affiliated with (Please Select All That Apply)</label>
         <select id="affiliatedOrganizations" name="affiliatedOrganizations[]" multiple required>
             <option value="Company">Company</option>
             <option value="Private">Private</option>
@@ -154,6 +162,8 @@
             <option value="None">None</option>
         </select>
 
+        <br><br>
+
         <label for="useSocialMedia">Do you use social media?</label>
         <select id="useSocialMedia" name="useSocialMedia" required>
             <option value="" disabled selected>Select Yes or No</option>
@@ -161,7 +171,9 @@
             <option value="No">No</option>
         </select>
 
-        <label for="socialMedia">What social media platforms do you commonly use?</label>
+        <br><br>
+
+        <label for="socialMedia">What social media platforms do you commonly use? (Please Select All That Apply)</label>
         <select id="socialMedia" name="socialMedia[]" multiple required>
             <option value="Facebook">Facebook</option>
             <option value="Twitter">Twitter</option>
@@ -175,6 +187,8 @@
             <option value="Other">Other</option>
         </select>
 
+        <br><br>
+
         <label for="averageTimeOnSocialMedia">What is the average time you spend on social media every day?</label>
         <select id="averageTimeOnSocialMedia" name="averageTimeOnSocialMedia" required>
             <option value="" disabled selected>Choose an option</option>
@@ -186,6 +200,8 @@
             <option value="More than 5 hours">More than 5 hours</option>
         </select>
 
+        <br><br>
+
         <label for="socialMediaWithoutPurpose">How often do you find yourself using social media without a specific purpose?</label>
         <select id="socialMediaWithoutPurpose" name="socialMediaWithoutPurpose" required>
             <option value="" disabled selected>Choose an option</option>
@@ -195,6 +211,8 @@
             <option value="4">Frequently</option>
             <option value="5">Always</option>
         </select>
+
+        <br><br>
 
         <label for="distractedBySocialMedia">How often do you get distracted by social media when you are busy doing something?</label>
         <select id="distractedBySocialMedia" name="distractedBySocialMedia" required>
@@ -206,7 +224,9 @@
             <option value="5">Always</option>
         </select>
 
-        <label for="restlessWithoutSocialMedia">Do you feel restless if you have not used social media in a while?</label>
+        <br><br>
+
+        <label for="restlessWithoutSocialMedia">How often do you feel restless if you have not used social media in a while?</label>
         <select id=" restlessWithoutSocialMedia" name="restlessWithoutSocialMedia" required>
             <option value="" disabled selected>Choose an option</option>
             <option value="1">Never</option>
@@ -216,7 +236,9 @@
             <option value="5">Always</option>
         </select>
 
-        <label for="easilyDistracted">How easily distracted are you?</label>
+        <br><br>
+
+        <label for="easilyDistracted">How often are you easily distracted?</label>
         <select id="easilyDistracted" name="easilyDistracted" required>
             <option value="" disabled selected>Choose an option</option>
             <option value="1">Never</option>
@@ -226,7 +248,9 @@
             <option value="5">Always</option>
         </select>
 
-        <label for="botheredByWorries">How much are you bothered by worries?</label>
+        <br><br>
+
+        <label for="botheredByWorries">How often are you bothered by worries?</label>
         <select id="botheredByWorries" name="botheredByWorries" required>
             <option value="" disabled selected>Choose an option</option>
             <option value="1">Never</option>
@@ -236,7 +260,9 @@
             <option value="5">Always</option>
         </select>
 
-        <label for="difficultToConcentrate">Do you find it difficult to concentrate on things?</label>
+        <br><br>
+
+        <label for="difficultToConcentrate">How often do you find it difficult to concentrate on things?</label>
         <select id="difficultToConcentrate" name="difficultToConcentrate" required>
             <option value="" disabled selected>Choose an option</option>
             <option value="1">Never</option>
@@ -245,6 +271,8 @@
             <option value="4">Frequently</option>
             <option value="5">Always</option>
         </select>
+
+        <br><br>
 
         <label for="compareToOthersOnSocialMedia">How often do you compare yourself to other successful people through the use of social media?</label>
         <select id="compareToOthersOnSocialMedia" name="compareToOthersOnSocialMedia" required>
@@ -256,15 +284,19 @@
             <option value="5">Always</option>
         </select>
 
-        <label for="feelingsAboutComparisons">Following the previous question, how do you feel about these comparisons, generally speaking?</label>
+        <br><br>
+
+        <label for="feelingsAboutComparisons">Following the previous question, how strongly do you feel about these comparisons, generally speaking?</label>
         <select id="followupCompare" name="followupCompare" required>
             <option value="" disabled selected>Choose an option</option>
-            <option value="1">Strongly Disagree</option>
-            <option value="2">Disagree</option>
-            <option value="3">Undecided</option>
-            <option value="4">Agree</option>
-            <option value="5">Strongly Agree</option>
+            <option value="1">Not At All</option>
+            <option value="2">Very Little</option>
+            <option value="3">Moderately</option>
+            <option value="4">Strongly</option>
+            <option value="5">Very Strongly</option>
         </select>
+
+        <br><br>
 
         <label for="seekValidationOnSocialMedia">How often do you look to seek validation from features of social media?</label>
         <select id="seekValidationOnSocialMedia" name="seekValidationOnSocialMedia" required>
@@ -276,6 +308,8 @@
             <option value="5">Always</option>
         </select>
 
+        <br><br>
+
         <label for="feelingsOfDepression">How often do you feel depressed or down?</label>
         <select id="feelingsOfDepression" name="feelingsOfDepression" required>
             <option value="" disabled selected>Choose an option</option>
@@ -285,6 +319,8 @@
             <option value="4">Frequently</option>
             <option value="5">Always</option>
         </select>
+
+        <br><br>
 
         <label for="fluctuationInInterest">How frequently does your interest in daily activities fluctuate?</label>
         <select id="fluctuationInInterest" name="fluctuationInInterest" required>
@@ -296,6 +332,8 @@
             <option value="5">Always</option>
         </select>
 
+        <br><br>
+
         <label for="sleepIssues">How often do you face issues regarding sleep?</label>
         <select id="sleepIssues" name="sleepIssues" required>
             <option value="" disabled selected>Choose an option</option>
@@ -305,6 +343,8 @@
             <option value="4">Frequently</option>
             <option value="5">Always</option>
         </select>
+
+        <br>
 
         <button type="submit">Submit</button>
     </form>
