@@ -139,8 +139,8 @@ app.post("/SubmitSurvey", (req, res) => {
         hour: 'numeric',
         minute: 'numeric',
         second: 'numeric',
-        hour12: true,
-      });
+        hour12: true
+    });
     knex("plainsville").insert({Date: formattedDate, Time: formattedTime, Age: req.body.age, Gender: req.body.gender, 
             Relationship_Status: req.body.relationshipStatus, Occupation_Status: req.body.occupationStatus, 
             Affiliation_Company: "No", Affiliation_Private: "No",
