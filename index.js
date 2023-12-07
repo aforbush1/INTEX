@@ -207,7 +207,7 @@ app.post("/filterData", (req, res) => {
     const selectedRecordId = req.body.findRecord;
 
     // Initialize the query without specifying a table
-    let query = knex;
+    let query = knex('plainsville');
 
     // If a specific city is selected, add it to the query
     if (selectedCity) {
