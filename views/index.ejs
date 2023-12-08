@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
 
-    <title>Welcome Home</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-   <!-- Favicons -->
-<link rel="icon" href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" type="image/png">
-<link rel="shortcut icon" href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" type="image/png">
+    <!-- Favicons -->
+    <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="icon">
+    <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="provo-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -23,18 +20,57 @@
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+    <!-- Select2Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <style>
+        body {
+            background: url('https://aforbush1.github.io/INTEX/views/assets/img/nature.jpg') fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        header {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        /* Rest of your styles remain unchanged */
+    </style>
+
     <!-- Template Main CSS File -->
     <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
-
 </head>
+
 
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center" style="background-color: rgba(211, 211, 211, 0.7);">
-        <div class="container d-flex justify-content-between align-items-center">
+    <header data-aos-delay="1000" data-aos="fade-down" id="header" class="fixed-top d-flex align-items-center" style="background-color: rgba(211, 211, 211, 0.7);">
+        <div data-aos-delay="1000" class="container d-flex justify-content-between align-items-center">
 
-            <div class="logo" data-aos-delay="2500" data-aos="fade-down">
+            <div class="logo" data-aos-delay="1000" data-aos="fade-down">
                 <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid">
                 </a>
             </div>
@@ -57,7 +93,7 @@
     <!-- ======= Hero Section ======= -->
     <section class="hero-section" id="hero">
         <div style="position: relative; z-index: 0;">
-            <video autoplay muted loop id="hero-video" style="width: 100%;">
+            <video autoplay muted loop id="hero-video" style="width: 100%;" preload="auto" >
                 <source src="https://aforbush1.github.io/INTEX/views/assets/img/provoMountains.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -68,9 +104,9 @@
                 <div class="col-12 hero-text-image">
                     <div class="row">
                         <div style="position: relative; z-index: 2;" class="text-overlay">
-                            <h1 data-aos-delay="1000" data-aos-offset="-500" data-aos="fade-right">WELCOME TO PROVO</h1>
+                            <h1 data-aos-delay="2500" data-aos-offset="-500" data-aos="fade-right">PROVO HEALTH</h1>
                             <p data-aos="fade-down" data-aos-delay="2500" data-aos-offset="-500">
-                                <a href="#section" class="btn btn-outline-white" style="margin-bottom: 300px;">take the tour</a>
+                                <a href="#section" class="btn btn-outline-white" style="margin-bottom: 300px;">IMPROVE YOUR HEALTH</a>
                             </p>
                         </div>
                     </div>

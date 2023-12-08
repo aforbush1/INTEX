@@ -27,8 +27,10 @@
     <!--main css file-->
     <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
     
+    </style>
 
 </head>
+
 <body>
     <!-- <header id="header" class="fixed-top d-flex align-items-center">
         <div class="container d-flex justify-content-between align-items-center">
@@ -55,148 +57,77 @@
                 <legend>Filter</legend>
                 <label for="filterCity">City</label>
                 <select name="filterCity" id="filterCity">
-                    <option value="provo">Provo</option>
-                    <option value="plainsville">Plainsville</option>
-                    <option value="both" selected >Both</option>
+                    <option value="Provo">Provo</option>
+                    <option value="Plainsville">Plainsville</option>
+                    <option value="Both" selected >Both</option>
                 </select>
                 <label for="findRecord">Find Record</label>
                 <select name="findRecord" id="findRecord">
                         <option value="default" selected>All Records</option>
-                    <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
-                        <option value="<%= theSurveys[iCount].id %>">
-                            <%= theSurveys[iCount].Date %>, <%= theSurveys[iCount].Time %>, <%= theSurveys[iCount].Age %>, <%= theSurveys[iCount].Gender %> 
-                        </option>
-                    <% } %>
                 </select>
                 <div class="col-md-6 form-group">
                     <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
                 </div>
             </fieldset>
         </form>
-
-
-    <label><b>Survey Information: </b></label>
     <br><br>
-    <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
-        <thead style="background-color: cornflowerblue; color: white;">
-        <tr>
-            <th style="text-align: left;">Date</th>
-            <th style="text-align: left;">Time</th>
-            <th style="text-align: left;">Age</th>
-            <th style="text-align: left;">Gender</th>
-            <th style="text-align: left;">Relationship Status</th>
-            <th style="text-align: left;">Occupation Status</th>
-            <th style="text-align: left;">Affiliation_Company</th>
-            <th style="text-align: left;">Affiliation_Private</th>
-            <th style="text-align: left;">Affiliation_Government</th>
-            <th style="text-align: left;">Affiliation_School</th>
-            <th style="text-align: left;">Affiliation_University</th>
-            <th style="text-align: left;">Affiliation_N/A</th>
-            <th style="text-align: left;">Social_Media</th>
-            <th style="text-align: left;">Facebook</th>
-            <th style="text-align: left;">Twitter</th>
-            <th style="text-align: left;">Instagram</th>
-            <th style="text-align: left;">Youtube</th>
-            <th style="text-align: left;">Discord</th>
-            <th style="text-align: left;">Reddit</th>
-            <th style="text-align: left;">Pinterest</th>
-            <th style="text-align: left;">TikTok</th>
-            <th style="text-align: left;">Snapchat</th>
-            <th style="text-align: left;">Other_Platform</th>
-            <th style="text-align: left;">Average_Daily_Social_Media_Use_Hours</th>
-            <th style="text-align: left;">Non_Specific_Use_Rating</th>
-            <th style="text-align: left;">Social_Media_Distraction_Rating</th>
-            <th style="text-align: left;">Restlessness_Rating</th>
-            <th style="text-align: left;">Distractedness_Rating</th>
-            <th style="text-align: left;">Worries_Rating</th>
-            <th style="text-align: left;">Concentration_Difficulty_Rating</th>
-            <th style="text-align: left;">Comparison_Rating</th>
-            <th style="text-align: left;">Followup_Comparison_Rating</th>
-            <th style="text-align: left;">Seek_Validation_Rating</th>
-            <th style="text-align: left;">Depression_Rating</th>
-            <th style="text-align: left;">Interest_Fluctuation_Rating</th>
-            <th style="text-align: left;">Sleep_Issue_Rating</th>
-            <th style="text-align: left;">Location</th>
-            <th></th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody style="font-family: Arial; font-size: 9pt;">
-        <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
-        <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
-            <tr>
-                <td><%= theSurveys[iCount].Date %></td>
-                <td><%= theSurveys[iCount].Time %></td>
-                <td style="text-align: center;"><%= theSurveys[iCount].Age %></td>
-                <td><%= theSurveys[iCount].Gender %></td>
-                <td><%= theSurveys[iCount].Relationship_Status %></td>
-                <td><%= theSurveys[iCount].Occupation_Status %></td>
-                <td><%= theSurveys[iCount].Affiliation_Company %></td>
-                <td><%= theSurveys[iCount].Affiliation_Private %></td>
-                <td><%= theSurveys[iCount].Affiliation_Government %></td>
-                <td><%= theSurveys[iCount].Affiliation_School %></td>
-                <td><%= theSurveys[iCount].Affiliation_University %></td>
-                <td><%= theSurveys[iCount].Affiliation_None %></td>
-                <td><%= theSurveys[iCount].Social_Media %></td>
-                <td><%= theSurveys[iCount].Facebook %></td>
-                <td><%= theSurveys[iCount].Twitter %></td>
-                <td><%= theSurveys[iCount].Instagram %></td>
-                <td><%= theSurveys[iCount].Youtube %></td>
-                <td><%= theSurveys[iCount].Discord %></td>
-                <td><%= theSurveys[iCount].Reddit %></td>
-                <td><%= theSurveys[iCount].Pinterest %></td>
-                <td><%= theSurveys[iCount].TikTok %></td>
-                <td><%= theSurveys[iCount].Snapchat %></td>
-                <td><%= theSurveys[iCount].Other_Platform %></td>
-                <td><%= theSurveys[iCount].Average_Daily_Social_Media_Use_Hours %></td>
-                <td><%= theSurveys[iCount].Non_Specific_Use_Rating %></td>
-                <td><%= theSurveys[iCount].Social_Media_Distraction_Rating %></td>
-                <td><%= theSurveys[iCount].Restlessness_Rating %></td>
-                <td><%= theSurveys[iCount].Distractedness_Rating %></td>
-                <td><%= theSurveys[iCount].Worries_Rating %></td>
-                <td><%= theSurveys[iCount].Concentration_Difficulty_Rating %></td>
-                <td><%= theSurveys[iCount].Comparison_Rating %></td>
-                <td><%= theSurveys[iCount].Followup_Comparison_Rating %></td>
-                <td><%= theSurveys[iCount].Seek_Validation_Rating %></td>
-                <td><%= theSurveys[iCount].Depression_Rating %></td>
-                <td><%= theSurveys[iCount].Interest_Fluctuation_Rating %></td>
-                <td><%= theSurveys[iCount].Sleep_Issue_Rating %></td>
-                <td><%= theSurveys[iCount].Location %></td>
-                <td style="text-align: center;"></td>
-            </tr>
-        <% } %>
-        </tbody>
-    </table>
+    
     <br><br>
     <script>
-        // Function to update the "findRecord" dropdown options based on the selected city
         function updateRecordOptions() {
-            const selectedCity = document.getElementById("filterCity").value;
-    
-            // Fetch records for the selected city using AJAX
-            fetch(`/getRecords/${selectedCity}?_=${new Date().getTime()}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Clear existing options
-                    const findRecordDropdown = document.getElementById("findRecord");
-                    findRecordDropdown.innerHTML = '<option value="default" selected>All Records</option>';
-    
-                    // Populate options with fetched data
-                    data.forEach(record => {
-                        const option = document.createElement("option");
-                        option.value = record.id;
-                        option.textContent = `${record.Date}, ${record.Time}, ${record.Age}, ${record.Gender}`;
-                        findRecordDropdown.appendChild(option);
-                    });
-                })
-                .catch(error => console.error("Error fetching records:", error));
-        }
-    
-        // Attach the function to the change event of the "filterCity" dropdown
-        document.getElementById("filterCity").addEventListener("change", updateRecordOptions);
-    
-        // Initial call to populate options on page load
-        updateRecordOptions();
+    const selectedCity = document.getElementById("filterCity").value;
+    console.log("the value has been updated as " + selectedCity)
+
+    // Fetch records for the selected city or both cities using AJAX
+    let cities;
+    if (selectedCity === "Both") {
+        // Fetch records for both cities
+        cities = ["Provo", "Plainsville"];
+        console.log("both of the cities are selected")
+    } else {
+        // Fetch records for the selected city
+        cities = [selectedCity];
+        console.log("only one city has been selected")
+    }
+
+    // Array to store all records
+    const allRecords = [];
+
+    // Fetch records for each city
+    const fetchPromises = cities.map(city => {
+        return fetch(`/getRecords/${city}?_=${new Date().getTime()}`)
+            .then(response => response.json())
+            .then(data => {
+                // Add records to the array
+                allRecords.push(...data);
+            })
+            .catch(error => console.error(`Error fetching records for ${city}:`, error));
+    });
+
+    // After all fetches are complete, update the dropdown
+    Promise.all(fetchPromises)
+        .then(() => {
+            const findRecord = document.getElementById("findRecord");
+            findRecord.innerHTML = '<option value="default" selected>All Records</option>';
+
+            // Populate options with fetched data
+            allRecords.forEach(record => {
+                const option = document.createElement("option");
+                option.value = record.id;
+                //console.log("the id is"+ option.value)
+                option.textContent = `${record.Date}, ${record.Time}, ${record.Age}, ${record.Gender}`;
+                findRecord.appendChild(option);
+            });
+        })
+        .catch(error => console.error("Error fetching records:", error));
+}
+
+// Attach the function to the change event of the "filterCity" dropdown
+document.getElementById("filterCity").addEventListener("change", updateRecordOptions);
+
+// Initial call to populate options on page load
+updateRecordOptions();
+
     </script>
     
 </body>

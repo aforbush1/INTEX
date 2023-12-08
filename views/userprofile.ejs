@@ -1,4 +1,3 @@
-<!-- Ryan -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,22 +47,23 @@
         /* Table styles */
         table {
             width: 100%;
-            background-color: antiquewhite;
-            border: 1px solid black;
+            background-color: #f5f5f5; /* Light grey background */
+            border: 1px solid #ccc; /* Light border color */
             border-collapse: collapse;
             margin-top: 20px;
         }
-        thead {
-            background-color: cornflowerblue;
+        thead th {
+            background-color: #333; /* Dark header background */
             color: white;
+            padding: 8px;
+            text-align: left;
         }
         th, td {
-            text-align: left;
             padding: 8px;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid #ccc; /* Light border color */
         }
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9; /* Light alternate row color */
         }
     </style>
 </head>
@@ -98,8 +98,7 @@
                 <th>Email</th>
                 <th>Username</th>
                 <th>Password</th>
-                <th>Edit Data Button</th>
-                <th>Delete Data Button</th>
+                
             </tr>
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
@@ -113,16 +112,7 @@
                     <td><%= theLogin.username %></td>
                     <td><%= theLogin.password %></td>
                     <!-- Modify the forms as needed -->
-                    <td>
-                        <form action="/editUsers/<%= theLogin.id %>" method="GET">
-                            <button type="submit">Edit</button>
-                        </form>
-                    </td>
-                    <td>
-                        <form action="/deleteUser/<%= theLogin.id %>" method="POST">
-                            <a href="/"><button type="submit">Delete</button>
-                        </form>
-                    </td>
+                    
                 </tr>
             <% } else { %>
                 <tr>
