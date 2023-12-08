@@ -368,17 +368,31 @@ app.get("/editUsers/:id", (req, res) => {
 
 //Submits data from the edit user page and updates the corresponding row in the database to match the changes. Then redirects to the viewUser page
 app.post("/editUsers/:id", (req, res) => {
-    const id= req.params.id
-    knex("loginInfo").where("id", parseInt(req.body.id)).update({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        username: req.body.username,
-        password: req.body.password
-    }).then(theLogin => {
-        res.render("viewUser",{id:id});
-    });
+    const id = req.params.id;
+
+    knex("loginInfo")
+        .where("id", parseInt(req.body.id))
+        .update({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password
+        })
+        .then(() => {
+            // Fetch user data again after the update
+            return knex("loginInfo").where("id", id);
+        })
+        .then(updatedUser => {
+            // Render the "viewUser" page with the updated user data
+            res.render("viewUser", { theLogin: updatedUser, id: id });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ err });
+        });
 });
+
 
 
 //From the view users page, there is a delete button by each record. This allows to select a row (by its id) and then delete it from the database. Then redirects back to view user
