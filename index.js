@@ -358,7 +358,7 @@ app.get("/editUsers/:id", (req, res) => {
     .where("id", parseInt(req.params.id))
     .then(loginInfo => {
         console.log("Retrieved Login Info:", loginInfo);
-        res.render("editUsers", {theLogin: loginInfo,id:id});
+        res.render("editUsers", {theLogin: loginInfo,id:req.params.id});
     }).catch(err => {
         console.log(err);
         res.status(500).json({err});
