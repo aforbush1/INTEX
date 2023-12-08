@@ -20,6 +20,7 @@
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+    <!-- Custom Styles -->
     <style>
         body {
             background-color: #ffffff;
@@ -41,8 +42,8 @@
         }
 
         header.fixed-top {
-            background-color: #001f4d;
-            color: white;
+            background-color: #7c7c7c;
+            color: #ffffff;
         }
 
         label {
@@ -78,10 +79,21 @@
             font-weight: bold;
         }
 
-        header.fixed-top {
-            background-color: #7c7c7c;
-            color: #7c7c7c;
+                /* Add margin-bottom to the section containing text */
+                .section {
+            margin-bottom: -130px; /* Adjust this value as needed */
+            margin-left: -12px;
         }
+
+        .col-md-6 {
+        width: 100%; /* Set to 100% to extend to the right */
+        max-width: none; /* Remove maximum width */
+    }
+
+    h2 {
+        font-size: 28px; /* Adjust the size as needed */
+    }
+
     </style>
 
     <!-- Template Main CSS File -->
@@ -93,13 +105,11 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center" style="background-color: rgba(211, 211, 211, 0.7);">
         <div class="container d-flex justify-content-between align-items-center">
-
             <div class="logo">
-                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid">
-                </a>
+                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
             </div>
 
-            <!-- .navbar -->
+            <!-- Navigation -->
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a href="/">Home</a></li>
@@ -109,24 +119,28 @@
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
-
         </div>
     </header>
 
-    <br><br><br><br>
-    <br><br><br><br>
-    <div class="dashboard-tags">
-        <!-- Add your desired text tags here -->
-        <p>Hey there</p>
-        <p>Text Tag 2</p>
-    </div>
+    <!-- ======= Main Section ======= -->
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="mb-4">Analyzing Mental Health factors by Demographics and Social Media Usage</h2>
+                    <!-- <p class="mb-4">This platform is designed for users and local Provo authorities to explore the connection between social media and mental health. By completing a concise 20-question survey, you contribute to our understanding of how social media influences well-being.</p> -->
+                    <hr><br>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- End Header -->
-    <br><br><br><br>
+    <!-- ======= Tableau Dashboard ======= -->
+<div class="tableau-container" style="padding-left: 100px;">
     <div class='tableauPlaceholder' id='viz1701977854943' style='position: relative'>
         <noscript>
             <a href='#'>
-                <img alt='Dashboard 4 ' src='https://public.tableau.com/static/images/IN/INTEXDashboard/Dashboard4/1_rss.png' style='border: none' />
+                <img alt='Dashboard 4' src='https://public.tableau.com/static/images/IN/INTEXDashboard/Dashboard4/1_rss.png' style='border: none' />
             </a>
         </noscript>
         <object class='tableauViz' style='display:none;'>
@@ -146,6 +160,8 @@
             <param name='filter' value='publish=yes' />
         </object>
     </div>
+</div>
+    <!-- Tableau JavaScript -->
     <script type='text/javascript'>
         var divElement = document.getElementById('viz1701977854943');
         var vizElement = divElement.getElementsByTagName('object')[0];
@@ -168,7 +184,7 @@
                 vizElement.style.width = '100%';
                 vizElement.style.height = Math.round(viewportWidth * heightScaleFactor * 0.8) + 'px';
             }
-        };
+    };
 
         // Initial calculation
         calculateDimensions();
