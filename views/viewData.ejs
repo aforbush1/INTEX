@@ -26,29 +26,7 @@
 
     <!--main css file-->
     <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
-    <style>
-        /* Table styles */
-        table {
-            width: 100%;
-            background-color: #f5f5f5; /* Light grey background */
-            border: 1px solid #ccc; /* Light border color */
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        thead th {
-            background-color: #333; /* Dark header background */
-            color: white;
-            padding: 8px;
-            text-align: left;
-        }
-        th, td {
-            padding: 8px;
-            border-bottom: 1px solid #ccc; /* Light border color */
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9; /* Light alternate row color */
-        }
-    </style>
+    
     </style>
 
 </head>
@@ -92,100 +70,8 @@
                 </div>
             </fieldset>
         </form>
-
-
-    <label><b>Survey Information: </b></label>
     <br><br>
-    <table style="width: 100%; background-color: antiquewhite; border: 1px solid black;">
-        <thead style="background-color: cornflowerblue; color: white;">
-        <tr>
-            <th style="text-align: left;">Date</th>
-            <th style="text-align: left;">Time</th>
-            <th style="text-align: left;">Age</th>
-            <th style="text-align: left;">Gender</th>
-            <th style="text-align: left;">Relationship Status</th>
-            <th style="text-align: left;">Occupation Status</th>
-            <th style="text-align: left;">Affiliation Company</th>
-            <th style="text-align: left;">Affiliation Private</th>
-            <th style="text-align: left;">Affiliation Government</th>
-            <th style="text-align: left;">Affiliation School</th>
-            <th style="text-align: left;">Affiliation University</th>
-            <th style="text-align: left;">Affiliation N/A</th>
-            <th style="text-align: left;">Social Media</th>
-            <th style="text-align: left;">Facebook</th>
-            <th style="text-align: left;">Twitter</th>
-            <th style="text-align: left;">Instagram</th>
-            <th style="text-align: left;">Youtube</th>
-            <th style="text-align: left;">Discord</th>
-            <th style="text-align: left;">Reddit</th>
-            <th style="text-align: left;">Pinterest</th>
-            <th style="text-align: left;">TikTok</th>
-            <th style="text-align: left;">Snapchat</th>
-            <th style="text-align: left;">Other Platform</th>
-            <th style="text-align: left;">Average_Daily Social Media Use Hours</th>
-            <th style="text-align: left;">Non_Specific Use Rating</th>
-            <th style="text-align: left;">Social Media Distraction Rating</th>
-            <th style="text-align: left;">Restlessness Rating</th>
-            <th style="text-align: left;">Distractedness Rating</th>
-            <th style="text-align: left;">Worries Rating</th>
-            <th style="text-align: left;">Concentration Difficulty Rating</th>
-            <th style="text-align: left;">Comparison Rating</th>
-            <th style="text-align: left;">Followup Comparison Rating</th>
-            <th style="text-align: left;">Seek Validation Rating</th>
-            <th style="text-align: left;">Depression Rating</th>
-            <th style="text-align: left;">Interest Fluctuation Rating</th>
-            <th style="text-align: left;">Sleep Issue Rating</th>
-            <th style="text-align: left;">Location</th>
-            <th></th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody style="font-family: Arial; font-size: 9pt;">
-        <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
-        <% for (let iCount = 0; iCount < theSurveys.length; iCount++) { %>
-            <tr>
-                <td><%= theSurveys[iCount].Date %></td>
-                <td><%= theSurveys[iCount].Time %></td>
-                <td style="text-align: center;"><%= theSurveys[iCount].Age %></td>
-                <td><%= theSurveys[iCount].Gender %></td>
-                <td><%= theSurveys[iCount].Relationship_Status %></td>
-                <td><%= theSurveys[iCount].Occupation_Status %></td>
-                <td><%= theSurveys[iCount].Affiliation_Company %></td>
-                <td><%= theSurveys[iCount].Affiliation_Private %></td>
-                <td><%= theSurveys[iCount].Affiliation_Government %></td>
-                <td><%= theSurveys[iCount].Affiliation_School %></td>
-                <td><%= theSurveys[iCount].Affiliation_University %></td>
-                <td><%= theSurveys[iCount].Affiliation_None %></td>
-                <td><%= theSurveys[iCount].Social_Media %></td>
-                <td><%= theSurveys[iCount].Facebook %></td>
-                <td><%= theSurveys[iCount].Twitter %></td>
-                <td><%= theSurveys[iCount].Instagram %></td>
-                <td><%= theSurveys[iCount].Youtube %></td>
-                <td><%= theSurveys[iCount].Discord %></td>
-                <td><%= theSurveys[iCount].Reddit %></td>
-                <td><%= theSurveys[iCount].Pinterest %></td>
-                <td><%= theSurveys[iCount].TikTok %></td>
-                <td><%= theSurveys[iCount].Snapchat %></td>
-                <td><%= theSurveys[iCount].Other_Platform %></td>
-                <td><%= theSurveys[iCount].Average_Daily_Social_Media_Use_Hours %></td>
-                <td><%= theSurveys[iCount].Non_Specific_Use_Rating %></td>
-                <td><%= theSurveys[iCount].Social_Media_Distraction_Rating %></td>
-                <td><%= theSurveys[iCount].Restlessness_Rating %></td>
-                <td><%= theSurveys[iCount].Distractedness_Rating %></td>
-                <td><%= theSurveys[iCount].Worries_Rating %></td>
-                <td><%= theSurveys[iCount].Concentration_Difficulty_Rating %></td>
-                <td><%= theSurveys[iCount].Comparison_Rating %></td>
-                <td><%= theSurveys[iCount].Followup_Comparison_Rating %></td>
-                <td><%= theSurveys[iCount].Seek_Validation_Rating %></td>
-                <td><%= theSurveys[iCount].Depression_Rating %></td>
-                <td><%= theSurveys[iCount].Interest_Fluctuation_Rating %></td>
-                <td><%= theSurveys[iCount].Sleep_Issue_Rating %></td>
-                <td><%= theSurveys[iCount].Location %></td>
-                <td style="text-align: center;"></td>
-            </tr>
-        <% } %>
-        </tbody>
-    </table>
+    
     <br><br>
     <script>
         function updateRecordOptions() {
