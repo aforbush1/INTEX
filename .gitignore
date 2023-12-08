@@ -1,3 +1,4 @@
+#this is our git ignore file so we dont sent a million gigabites to our git repository
 node_modules/
 *.zip
 .DS_Store
