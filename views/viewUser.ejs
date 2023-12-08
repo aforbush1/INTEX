@@ -37,57 +37,114 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            margin-bottom: 20px; /* Added margin to push content down */
         }
 
         header .logo img {
             max-width: 150px;
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
 
-        nav ul li {
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-        
         /* Table styles */
+        body {
+            background-image:url('https://aforbush1.github.io/INTEX/views/assets/img/utahLake.jpg') ; 
+            background-size: cover;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
         table {
             width: 100%;
-            background-color: #f5f5f5; /* Light grey background */
-            border: 1px solid #ccc; /* Light border color */
+            background-color: #454545; /* Darker grey background for the table */
+            border: 1px solid #666; /* Dark border color */
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 15px; /* Push the table down */
         }
+
         thead th {
-            background-color: #333; /* Dark header background */
+            background-color: #222; /* Darker header background */
             color: white;
             padding: 8px;
             text-align: left;
         }
+
         th, td {
             padding: 8px;
-            border-bottom: 1px solid #ccc; /* Light border color */
+            border-bottom: 1px solid #666; /* Dark border color */
         }
+
         tr:nth-child(even) {
-            background-color: #f9f9f9; /* Light alternate row color */
+            background-color: #333; /* Dark alternate row color */
         }
+
+        /* Button styles */
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            background-color: #6a9c59; /* Green button color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4b7847; /* Darker green on hover */
+        }
+
+        /* Add this to your existing CSS styles */
+        .delete-button {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #ab1919;
+            background: none;
+            border: 2px solid #ab1919;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        .delete-button:hover {
+            background-color: #ab1919;
+            color: #fff;
+        }
+
+        .edit-button {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color:  white;
+            background: none;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        .edit-button:hover {
+            background-color: #274685;
+            color: #fff;
+        }
+
     </style>
 </head>
 
-<body>
+<body style="background-image: url('https://aforbush1.github.io/INTEX/views/assets/img/cascadeAtNight.jpg');background-size: cover;">
     <!-- Header with navigation -->
     <header id="header" class="fixed-top d-flex align-items-center"  style="background-color: rgba(211, 211, 211, 0.7);">
         <div class="container d-flex justify-content-between align-items-center">
@@ -133,18 +190,22 @@
                     <td><%= theLogin[iCount].username %></td>
                     <td><%= theLogin[iCount].password %></td>
                     <td style="text-align: center;">
-                        <form action="/editUsers/<%= theLogin[iCount].id %>" method="GET">
-                            <div class="button-container">
-                                <button type="submit">Edit</button>
-                            </div>
-                        </form>
+                        <div style="margin-top: 10px;">
+                            <button type="button" onclick="window.location.href='/editUsers/<%= theLogin[iCount].id %>'"
+                                class="edit-button">
+                                Edit
+                            </button>
+                        </div>
                     </td>
                     <td style="text-align: center;">
+                        <div style="margin-top: 10px;">
                         <form action="/deleteUser/<%= theLogin[iCount].id %>" method="POST">
                             <div class="button-container">
-                                <button type="submit" style="color: #ab1919;">Delete</button>
+                                <button class="delete-button" type="submit" style="color: #ab1919;">Delete</button>
+
                             </div>
                         </form>
+                        </div>
                     </td>
                 </tr>
             <% } %>
@@ -153,3 +214,7 @@
     <br><br>
 </body>
 </html>
+
+
+
+   
