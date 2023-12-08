@@ -188,7 +188,7 @@ app.get("/createUser/:id", (req, res) => {
 //Submits a form containing information for a new account with a unique username
 app.post('/createUser/:id', (req, res) => {
     const { firstName, lastName, email, username, password } = req.body;
-    const id = req.params.id
+    const id = req.params.id;
 
     // Check if the username already exists
     knex('loginInfo')
@@ -196,7 +196,7 @@ app.post('/createUser/:id', (req, res) => {
         .first()
         .then(existingUser => {
             if (existingUser) {
-                res.render('usernameTaken',{username,id});
+                res.render('usernameTaken', { username, id });
             } else {
                 // Username doesn't exist, insert the new user
                 return knex('loginInfo')
@@ -208,8 +208,12 @@ app.post('/createUser/:id', (req, res) => {
                         password
                     })
                     .then(() => {
-                        // Redirect to the "/viewUser" page upon successful data insertion
-                        res.render('viewUser',{id:id});
+                        // Fetch user data again after the insertion
+                        return knex.select().from("loginInfo");
+                    })
+                    .then(loginInfo => {
+                        // Render the "viewUser" page with the updated user data
+                        res.render('viewUser', { theLogin: loginInfo, id: id });
                     })
                     .catch((error) => {
                         // Handle any errors that occurred during insertion
@@ -225,22 +229,6 @@ app.post('/createUser/:id', (req, res) => {
         });
 });
 
-
-//Retrieves the user information table from the database
-app.get("/viewUser/:id", (req, res) => {
-    const id= req.params.id
-    
-    // Retrieve the user data using Knex.js
-    knex.select().from("loginInfo").then((loginInfo) => {
-        console.log("Rendered viewUser with data:", { id: id });
-        res.render("viewUser", { theLogin: loginInfo ,id:id}); // Pass 'theLogin' as an object property
-    }).catch((error) => {
-
-        // Handle errors if any while fetching data
-        console.error("Error fetching user data:", error);
-        res.status(500).send("Error fetching user data");
-    });
-});
 
 
 //Renders the adminIndex page
