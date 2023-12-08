@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,34 +20,52 @@
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- Select2Library -->
+    <!-- Select2 Library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-    
+
     <!-- Template Main CSS File -->
     <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
 
     <style>
         /* Styles for the navigation bar */
         header {
-            background-color: #333;
-            color: white;
+            background-color: rgba(211, 211, 211, 0.7);
             padding: 10px 0;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px; /* Added margin to push content down */
+            margin-bottom: 20px;
         }
 
         header .logo img {
             max-width: 150px;
         }
 
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
 
         /* Table styles */
         body {
-            background-image:url('https://aforbush1.github.io/INTEX/views/assets/img/utahLake.jpg') ; 
+            background-image: url('https://aforbush1.github.io/INTEX/views/assets/img/cascadeAtNight.jpg');
             background-size: cover;
             color: white;
             font-family: 'Roboto', sans-serif;
@@ -60,26 +78,27 @@
 
         table {
             width: 100%;
-            background-color: #454545; /* Darker grey background for the table */
-            border: 1px solid #666; /* Dark border color */
+            background-color: #454545;
+            border: 1px solid #666;
             border-collapse: collapse;
-            margin-top: 15px; /* Push the table down */
+            margin-top: 15px;
         }
 
         thead th {
-            background-color: #222; /* Darker header background */
+            background-color: #222;
             color: white;
             padding: 8px;
             text-align: left;
         }
 
-        th, td {
+        th,
+        td {
             padding: 8px;
-            border-bottom: 1px solid #666; /* Dark border color */
+            border-bottom: 1px solid #666;
         }
 
         tr:nth-child(even) {
-            background-color: #333; /* Dark alternate row color */
+            background-color: #333;
         }
 
         /* Button styles */
@@ -88,65 +107,47 @@
             justify-content: center;
         }
 
-        button {
+        .button-container button {
             padding: 10px 20px;
             font-size: 14px;
             font-weight: bold;
             text-decoration: none;
-            color: #fff;
-            background-color: #6a9c59; /* Green button color */
-            border: none;
             border-radius: 5px;
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #4b7847; /* Darker green on hover */
+        .edit-button {
+            color: white;
+            background: none;
+            border: 2px solid white;
+            transition: background-color 0.4s, color 0.4s;
         }
 
-        /* Add this to your existing CSS styles */
         .delete-button {
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: bold;
-            text-decoration: none;
             color: #ab1919;
             background: none;
             border: 2px solid #ab1919;
-            border-radius: 5px;
-            cursor: pointer;
             transition: background-color 0.4s, color 0.4s;
+        }
+
+        .button-container button:hover {
+            color: #fff;
+        }
+
+        .edit-button:hover {
+            background-color: #274685;
         }
 
         .delete-button:hover {
             background-color: #ab1919;
             color: #fff;
         }
-
-        .edit-button {
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: bold;
-            text-decoration: none;
-            color:  white;
-            background: none;
-            border: 2px solid white;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.4s, color 0.4s;
-        }
-
-        .edit-button:hover {
-            background-color: #274685;
-            color: #fff;
-        }
-
     </style>
 </head>
 
-<body style="background-image: url('https://aforbush1.github.io/INTEX/views/assets/img/cascadeAtNight.jpg');background-size: cover;">
+<body>
     <!-- Header with navigation -->
-    <header id="header" class="fixed-top d-flex align-items-center"  style="background-color: rgba(211, 211, 211, 0.7);">
+    <header id="header" class="fixed-top d-flex align-items-center">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="logo">
                 <a href="/adminIndex/<%=id%>"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
@@ -180,8 +181,6 @@
             </tr>
         </thead>
         <tbody style="font-family: Arial; font-size: 9pt;">
-            <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
-            <% console.log("theLogin:", theLogin); %>
             <% for (let iCount = 0; iCount < theLogin.length; iCount++) { %>
                 <tr>
                     <td><%= theLogin[iCount].firstName %></td>
@@ -199,12 +198,11 @@
                     </td>
                     <td style="text-align: center;">
                         <div style="margin-top: 10px;">
-                        <form action="/deleteUser/<%= theLogin[iCount].id %>" method="POST">
-                            <div class="button-container">
-                                <button class="delete-button" type="submit" style="color: #ab1919;">Delete</button>
-
-                            </div>
-                        </form>
+                            <form action="/deleteUser/<%= theLogin[iCount].id %>" method="POST">
+                                <div class="button-container">
+                                    <button class="delete-button" type="submit" style="color: #ab1919;">Delete</button>
+                                </div>
+                            </form>
                         </div>
                     </td>
                 </tr>
@@ -213,8 +211,5 @@
     </table>
     <br><br>
 </body>
+
 </html>
-
-
-
-   
