@@ -351,10 +351,13 @@ app.get("/getRecords/:city", (req, res) => {
 
 //From the view users page, this will select an individual record in the data table and pass the id of this record into the edit users page
 app.get("/editUsers/:id", (req, res) => {
+    console.log("Requested ID:", req.params.id);
+
     knex.select("firstName", "lastName", "email", "username", "password", "id")
     .from("loginInfo")
     .where("id", parseInt(req.params.id))
     .then(loginInfo => {
+        console.log("Retrieved Login Info:", loginInfo);
         res.render("editUsers", {theLogin: loginInfo,id:id});
     }).catch(err => {
         console.log(err);
