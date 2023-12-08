@@ -7,8 +7,8 @@
     <title>Login</title>
 
     <!-- Favicons -->
-    <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="icon">
-    <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="provo-icon">
+    <link rel="icon" href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico">
+    <link rel="provo-icon" href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -19,7 +19,6 @@
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
 
     <style>
         body {
@@ -46,29 +45,31 @@
         }
 
         .login-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    background-color: rgba(169, 169, 169, 0.8);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(2px);
-    transition: backdrop-filter 3s ease;
-}
-
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            background-color: rgb(224, 224, 224, 0.7);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2px);
+            transition: backdrop-filter 3s ease;
+            margin-top: 30px;
+        }
 
         h1 {
-            color: black;
+            font-size: 35px;
+            color: white;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: black;
+            color: white;
         }
 
         input,
@@ -82,7 +83,7 @@
         }
 
         button {
-            background-color: rgba(92, 92, 92, 0.8);
+            background: linear-gradient(-45deg, #1391a5, #274685);
             color: #fff;
             padding: 10px 20px;
             border: none;
@@ -94,62 +95,48 @@
             max-height: 50px;
         }
 
-        
+        ::placeholder {
+            font-style: italic;
+        }
     </style>
 
     <!-- Template Main CSS File -->
     <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
     <header id="header" class="fixed-top d-flex align-items-center" style="background-color: rgba(211, 211, 211, 0.7);">
         <div class="container d-flex justify-content-between align-items-center">
-
             <div class="logo">
-                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid">
-                </a>
+                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
             </div>
 
             <nav id="navbar" class="navbar" style="color: grey;">
                 <ul>
-                    <li><a  href="/">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/surveyForm">Survey</a></li>
                     <li><a href="/dashboard">Dashboard</a></li>
                     <li><a class="active" href="/login">Log In</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
-            <!-- .navbar -->
-
         </div>
     </header>
-</head>
 
-<body>
-
-    <style>
-        /* Placeholder text in italics */
-        ::placeholder {
-            font-style: italic;
-        }
-    </style>
-<br><br><br><br>
     <!-- ======= Login Container ======= -->
     <div class="login-container">
         <form id="createUserForm" class="login-form" action="/submitLogin" method="post">
-            <h1 style="font-size: 35px; color: white; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Provo Health Login</h1>
+            <h1>Provo Health Login</h1>
             <br>
-            <label for="username" style="color: white;">Username:</label>
+            <label for="username">Username:</label>
             <input placeholder="Enter Username..." type="text" id="username" name="username" required>
-            <br> <br>
-            <label for="password" style="color: white;">Password:</label>
+            <br>
+            <label for="password">Password:</label>
             <input placeholder="Enter Password..." type="password" id="password" name="password" required>
             <button type="submit">Log In</button>
         </form>
     </div>
-    <!-- End Login Container -->
-
-
-    
-
-
+    <!-- ======= Login Container ======= -->
 </body>
 
 </html>
