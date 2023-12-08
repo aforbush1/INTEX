@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
 
-    <title>Welcome Home</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-   <!-- Favicons -->
-<link rel="icon" href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" type="image/png">
-<link rel="shortcut icon" href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" type="image/png">
+    <!-- Favicons -->
+    <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="icon">
+    <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="provo-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -23,10 +20,49 @@
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+    <!-- Select2Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <style>
+        body {
+            background: url('https://aforbush1.github.io/INTEX/views/assets/img/nature.jpg') fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        header {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        /* Rest of your styles remain unchanged */
+    </style>
+
     <!-- Template Main CSS File -->
     <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
-
 </head>
+
 
 <body>
 
