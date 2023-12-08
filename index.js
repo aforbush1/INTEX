@@ -154,13 +154,13 @@ app.post("/submitLogin", (req, res) => {
     });
 
     app.get("/userIndex/:id", (req, res) => {
-        const userId = req.params.id;
+        const id = req.params.id;
         knex('loginInfo')
             .where('id', userId)
             .select('firstName', 'id')
             .then(result => {
                 const firstName = result[0].firstName; // Assuming you only expect one result
-                res.render("userIndex", { firstName, id: userId });
+                res.render("userIndex", { firstName, id: id });
             })
             .catch(error => {
                 console.error(error);
