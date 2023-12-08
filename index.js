@@ -138,7 +138,7 @@ app.post("/submitLogin", (req, res) => {
                 if (result) {
                     const firstName = result.firstName;
                     const id = result.id;
-                    res.render('userIndex', { firstName, id });
+                    res.render('/userIndex', { firstName, id });
 
                 //Otherwise if no match is found it redirects you to an invalid login page
                 } else {
@@ -151,6 +151,14 @@ app.post("/submitLogin", (req, res) => {
                 res.status(500).send("Internal Server Error");
             });
     }
+    });
+
+    app.get("/userIndex", (req, res) => {
+        const id = req.query.id; // Extracting the 'id' from the query string
+        const firstName = req.query.firstName; // Extracting the 'firstName' from the query string
+    
+        // Render the user index page and pass the id and firstName values
+        res.render("userIndex", { id, firstName });
     });
 
 
@@ -225,6 +233,13 @@ app.get("/adminIndex", (req, res) => {
 app.get("/viewData", (req, res) => {
     knex.select().from("plainsville").then( (plainsville) => {
         res.render("viewData", {theSurveys : plainsville});
+    });
+});
+
+//Retrieves the view data page for the user that shows all data from plainsville and provo (even though it is called plainsville it contains all our data)
+app.get("/viewUserData", (req, res) => {
+    knex.select().from("plainsville").then( (plainsville) => {
+        res.render("viewUserData", {theSurveys : plainsville});
     });
 });
 
