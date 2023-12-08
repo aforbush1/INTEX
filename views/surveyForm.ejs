@@ -24,8 +24,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-        <!-- Template Main CSS File -->
+    
+    <!-- Template Main CSS File -->
     <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
+    
     <script>
         AOS.init();
     </script>
@@ -74,11 +76,16 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-        
+
+        .button-container {
+        display: flex;
+        justify-content: center;
+        }
+    
         button {
             background: linear-gradient(-45deg, #1391a5, #274685);
             color: #fff;
-            padding: 10px 20px;
+            padding: 10px 30px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -88,12 +95,16 @@
             background-color: #7c7c7c;
             color: #7c7c7c;
         }
+        
+        #age::placeholder {
+            color: black;
+        }
     </style>
 
 
 </head>
 
-<body style="background-image: url('https://aforbush1.github.io/INTEX/views/assets/img/nature.jpg'); background-color: #909090; margin-top: 0px;">
+<body style="background-image: url('https://aforbush1.github.io/INTEX/views/assets/img/nature.jpg'); background-size: contain;">
 
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center" style="background-color: rgba(211, 211, 211, 0.7);" >
@@ -130,7 +141,7 @@
 
         <label for="gender">Gender</label>
         <select id="gender" name="gender" required>
-            <option value="" disabled selected>Select A Gender</option>
+            <option value="" disabled selected>Select a Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
@@ -140,7 +151,7 @@
 
         <label for="relationshipStatus">Relationship Status</label>
         <select id="relationshipStatus" name="relationshipStatus" required>
-            <option value="" disabled selected>Select A Relationship Status</option>
+            <option value="" disabled selected>Select a Relationship Status</option>
             <option value="Single">Single</option>
             <option value="In a Relationship">In a Relationship</option>
             <option value="Married">Married</option>
@@ -200,7 +211,7 @@
 
         <label for="averageTimeOnSocialMedia">What is the average time you spend on social media every day?</label>
         <select id="averageTimeOnSocialMedia" name="averageTimeOnSocialMedia" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="Less than an Hour">Less than an Hour</option>
             <option value="Between 1 and 2 hours">Between 1 and 2 hours</option>
             <option value="Between 2 and 3 hours">Between 2 and 3 hours</option>
@@ -213,7 +224,7 @@
 
         <label for="socialMediaWithoutPurpose">How often do you find yourself using social media without a specific purpose?</label>
         <select id="socialMediaWithoutPurpose" name="socialMediaWithoutPurpose" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -225,7 +236,7 @@
 
         <label for="distractedBySocialMedia">How often do you get distracted by social media when you are busy doing something?</label>
         <select id="distractedBySocialMedia" name="distractedBySocialMedia" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -237,7 +248,7 @@
 
         <label for="restlessWithoutSocialMedia">How often do you feel restless if you have not used social media in a while?</label>
         <select id=" restlessWithoutSocialMedia" name="restlessWithoutSocialMedia" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -249,7 +260,7 @@
 
         <label for="easilyDistracted">How often are you easily distracted?</label>
         <select id="easilyDistracted" name="easilyDistracted" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -261,7 +272,7 @@
 
         <label for="botheredByWorries">How often are you bothered by worries?</label>
         <select id="botheredByWorries" name="botheredByWorries" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -273,7 +284,7 @@
 
         <label for="difficultToConcentrate">How often do you find it difficult to concentrate on things?</label>
         <select id="difficultToConcentrate" name="difficultToConcentrate" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -285,7 +296,7 @@
 
         <label for="compareToOthersOnSocialMedia">How often do you compare yourself to other successful people through the use of social media?</label>
         <select id="compareToOthersOnSocialMedia" name="compareToOthersOnSocialMedia" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -297,7 +308,7 @@
 
         <label for="feelingsAboutComparisons">Following the previous question, how strongly do you feel about these comparisons, generally speaking?</label>
         <select id="followupCompare" name="followupCompare" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Not At All</option>
             <option value="2">Very Little</option>
             <option value="3">Moderately</option>
@@ -309,7 +320,7 @@
 
         <label for="seekValidationOnSocialMedia">How often do you look to seek validation from features of social media?</label>
         <select id="seekValidationOnSocialMedia" name="seekValidationOnSocialMedia" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -321,7 +332,7 @@
 
         <label for="feelingsOfDepression">How often do you feel depressed or down?</label>
         <select id="feelingsOfDepression" name="feelingsOfDepression" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -333,7 +344,7 @@
 
         <label for="fluctuationInInterest">How frequently does your interest in daily activities fluctuate?</label>
         <select id="fluctuationInInterest" name="fluctuationInInterest" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -345,7 +356,7 @@
 
         <label for="sleepIssues">How often do you face issues regarding sleep?</label>
         <select id="sleepIssues" name="sleepIssues" required>
-            <option value="" disabled selected>Choose an option</option>
+            <option value="" disabled selected>Choose an Option</option>
             <option value="1">Never</option>
             <option value="2">Rarely</option>
             <option value="3">Occasionally</option>
@@ -355,7 +366,9 @@
 
         <br>
 
-        <button type="submit">Submit</button>
+        <div class="button-container">
+            <button type="submit">Submit</button>
+        </div>
     </form>
     <br><br><br>
 </body>

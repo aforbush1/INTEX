@@ -11,15 +11,15 @@
     <link rel="provo-icon" href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700|Poppins:300,400,500,600,700" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+    <!-- Your custom CSS -->
     <style>
         body {
             margin: 0;
@@ -34,13 +34,13 @@
             content: '';
             position: fixed;
             top: 0;
-            left: 0px;
+            left: 0;
             width: 100vw;
             height: 100vh;
             background-image: url('https://aforbush1.github.io/INTEX/views/assets/img/downtownProvo.jpeg');
             background-size: cover;
             z-index: -1;
-            filter: blur(0px);
+            filter: blur(0);
             transition: filter 1s ease;
         }
 
@@ -50,7 +50,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            background-color: rgb(224, 224, 224, 0.7);
+            background-color: rgba(224, 224, 224, 0.7);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -80,6 +80,11 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
         }
 
         button {
@@ -126,17 +131,19 @@
     <!-- ======= Login Container ======= -->
     <div class="login-container">
         <form id="createUserForm" class="login-form" action="/submitLogin" method="post">
-            <h1>Provo Health Login</h1>
+            <h1 style="color: white;">Provo Health Login</h1>
             <br>
             <label for="username">Username:</label>
             <input placeholder="Enter Username..." type="text" id="username" name="username" required>
             <br>
             <label for="password">Password:</label>
             <input placeholder="Enter Password..." type="password" id="password" name="password" required>
-            <button type="submit">Log In</button>
+            <div class="button-container">
+                <button type="submit">Log in</button>
+            </div>
         </form>
     </div>
-    <!-- ======= Login Container ======= -->
+    <!-- ======= End Login Container ======= -->
 </body>
 
 </html>
