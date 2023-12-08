@@ -153,6 +153,22 @@ app.post("/submitLogin", (req, res) => {
     }
     });
 
+    app.get("/userIndex/:id", (req, res) => {
+        const userId = req.params.id;
+        knex('loginInfo')
+            .where('id', userId)
+            .select('firstName', 'id')
+            .then(result => {
+                const firstName = result[0].firstName; // Assuming you only expect one result
+                res.render("userIndex", { firstName, id: userId });
+            })
+            .catch(error => {
+                console.error(error);
+                // Handle errors here
+                res.status(500).send('Internal Server Error');
+            });
+    });
+    
 
 //Renders the create user page (Only accessible from the admin index page)
 app.get("/createUser", (req, res) => {
@@ -344,4 +360,5 @@ app.get("/dashboard", (req, res) => {
 })
 
 
+//Checks to see if the server is running
 app.listen(port, () => console.log("Server is listening"));
