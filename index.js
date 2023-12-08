@@ -186,8 +186,9 @@ app.get("/createUser/:id", (req, res) => {
 
 
 //Submits a form containing information for a new account with a unique username
-app.post('/createUser', (req, res) => {
+app.post('/createUser/:id', (req, res) => {
     const { firstName, lastName, email, username, password } = req.body;
+    const id = req.params.id
 
     // Check if the username already exists
     knex('loginInfo')
@@ -195,7 +196,7 @@ app.post('/createUser', (req, res) => {
         .first()
         .then(existingUser => {
             if (existingUser) {
-                res.render('usernameTaken',{username});
+                res.render('usernameTaken',{username,id});
             } else {
                 // Username doesn't exist, insert the new user
                 return knex('loginInfo')
@@ -208,7 +209,7 @@ app.post('/createUser', (req, res) => {
                     })
                     .then(() => {
                         // Redirect to the "/viewUser" page upon successful data insertion
-                        res.redirect('/viewUser');
+                        res.render('viewUser',{id:id});
                     })
                     .catch((error) => {
                         // Handle any errors that occurred during insertion
