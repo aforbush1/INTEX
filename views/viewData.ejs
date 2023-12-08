@@ -79,6 +79,8 @@
 
         .form-group {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
         }
 
         .btn {
@@ -93,29 +95,9 @@
 
 </head>
 
-<body>
-    <!-- <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <div class="logo" data-aos-delay="2500" data-aos="fade-down">
-                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid">
-                </a>
-            </div>
-
-            <nav style="color: rgb(212, 209, 209);" id="navbar" class="navbar" data-aos-delay="1000" data-aos="fade-right" data-aos-offset="0">
-                <ul>
-                    <li><a style=" color: grey;"  href="/">Home</a></li>
-                    <li><a style=" color: grey;" class="active" href="/surveyForm">Survey</a></li>
-                    <li><a style=" color: grey;" href="dashboard">Dashboard</a></li>
-                    <li><a style=" color: grey;" href="/login">Log In</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-
-    </header> -->
-    <!-- ======= Header ======= -->
+<body style="background-image: url('https://aforbush1.github.io/INTEX/views/assets/img/nature.jpg');">
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top d-flex align-items-center" style="background: linear-gradient(to bottom, #001f4d, #00bfff);">
+<header id="header" class="fixed-top d-flex align-items-center" style="background: grey;">
     <div class="container d-flex justify-content-between align-items-center">
         <div class="logo">
             <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
@@ -123,9 +105,8 @@
         <!-- .navbar -->
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="" href="adminIndex">Home</a></li>
-                <li><a href="createUser">Create User</a></li>
-                <li><a href="viewUser">View Users</a></li>
+                <li><a class="" href="adminIndex">Return Home</a></li>
+                
                 <li><a href="viewData">View Data</a></li>
                 <li><a href="/">Log Out</a></li>
             </ul>
@@ -133,88 +114,84 @@
     </div>
 </header>
 
-    <br><br><br><br><br>
-    <div class="login-container">
-        <form class='login-form' action="filterData" method="POST">
-            <fieldset>
-                <legend>Filter</legend>
-                <label for="filterCity">City</label>
-                <select name="filterCity" id="filterCity">
-                    <option value="Provo">Provo</option>
-                    <option value="Plainsville">Plainsville</option>
-                    <option value="Both" selected>Both</option>
-                </select>
-                <label for="findRecord">Find Record</label>
-                <select name="findRecord" id="findRecord">
-                    <option value="default" selected>All Records</option>
-                </select>
-                <div class="col-md-6 form-group">
-                    <input type="submit" class="btn" value="Submit">
-                </div>
-            </fieldset>
-        </form>
-    </div>
+<br><br><br><br><br>
+<div class="login-container">
+    <form class='login-form' action="filterData" method="POST">
+        <fieldset>
+            <legend>Filter</legend>
+            <label for="filterCity">City</label>
+            <select name="filterCity" id="filterCity">
+                <option value="Provo">Provo</option>
+                <option value="Plainsville">Plainsville</option>
+                <option value="Both" selected>Both</option>
+            </select>
+            <label for="findRecord">Find Record</label>
+            <select name="findRecord" id="findRecord">
+                <option value="default" selected>All Records</option>
+            </select>
+            <div class="col-md-6 form-group">
+                <input type="submit" class="btn" value="Submit">
+            </div>
+        </fieldset>
+    </form>
+</div>
 
-    
+<br><br>
+<script>
+    function updateRecordOptions() {
+        const selectedCity = document.getElementById("filterCity").value;
+        console.log("the value has been updated as " + selectedCity)
 
-    
-    <br><br>
-    <script>
-        function updateRecordOptions() {
-    const selectedCity = document.getElementById("filterCity").value;
-    console.log("the value has been updated as " + selectedCity)
+        // Fetch records for the selected city or both cities using AJAX
+        let cities;
+        if (selectedCity === "Both") {
+            // Fetch records for both cities
+            cities = ["Provo", "Plainsville"];
+            console.log("both of the cities are selected")
+        } else {
+            // Fetch records for the selected city
+            cities = [selectedCity];
+            console.log("only one city has been selected")
+        }
 
-    // Fetch records for the selected city or both cities using AJAX
-    let cities;
-    if (selectedCity === "Both") {
-        // Fetch records for both cities
-        cities = ["Provo", "Plainsville"];
-        console.log("both of the cities are selected")
-    } else {
-        // Fetch records for the selected city
-        cities = [selectedCity];
-        console.log("only one city has been selected")
+        // Array to store all records
+        const allRecords = [];
+
+        // Fetch records for each city
+        const fetchPromises = cities.map(city => {
+            return fetch(`/getRecords/${city}?_=${new Date().getTime()}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Add records to the array
+                    allRecords.push(...data);
+                })
+                .catch(error => console.error(`Error fetching records for ${city}:`, error));
+        });
+
+        // After all fetches are complete, update the dropdown
+        Promise.all(fetchPromises)
+            .then(() => {
+                const findRecord = document.getElementById("findRecord");
+                findRecord.innerHTML = '<option value="default" selected>All Records</option>';
+
+                // Populate options with fetched data
+                allRecords.forEach(record => {
+                    const option = document.createElement("option");
+                    option.value = record.id;
+                    //console.log("the id is"+ option.value)
+                    option.textContent = `${record.Date}, ${record.Time}, ${record.Age}, ${record.Gender}`;
+                    findRecord.appendChild(option);
+                });
+            })
+            .catch(error => console.error("Error fetching records:", error));
     }
 
-    // Array to store all records
-    const allRecords = [];
+    // Attach the function to the change event of the "filterCity" dropdown
+    document.getElementById("filterCity").addEventListener("change", updateRecordOptions);
 
-    // Fetch records for each city
-    const fetchPromises = cities.map(city => {
-        return fetch(`/getRecords/${city}?_=${new Date().getTime()}`)
-            .then(response => response.json())
-            .then(data => {
-                // Add records to the array
-                allRecords.push(...data);
-            })
-            .catch(error => console.error(`Error fetching records for ${city}:`, error));
-    });
+    // Initial call to populate options on page load
+    updateRecordOptions();
+</script>
 
-    // After all fetches are complete, update the dropdown
-    Promise.all(fetchPromises)
-        .then(() => {
-            const findRecord = document.getElementById("findRecord");
-            findRecord.innerHTML = '<option value="default" selected>All Records</option>';
-
-            // Populate options with fetched data
-            allRecords.forEach(record => {
-                const option = document.createElement("option");
-                option.value = record.id;
-                //console.log("the id is"+ option.value)
-                option.textContent = `${record.Date}, ${record.Time}, ${record.Age}, ${record.Gender}`;
-                findRecord.appendChild(option);
-            });
-        })
-        .catch(error => console.error("Error fetching records:", error));
-}
-
-// Attach the function to the change event of the "filterCity" dropdown
-document.getElementById("filterCity").addEventListener("change", updateRecordOptions);
-
-// Initial call to populate options on page load
-updateRecordOptions();
-
-    </script>
-    
 </body>
 </html>
