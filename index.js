@@ -27,6 +27,10 @@ app.get("/", (req, res) => {
     res.render("index");
 })
 
+app.use((req, res) => {
+    res.status(404).render('error');
+});
+
 
 //Route that renders our survey sheet where a person can fill out the survey
 app.get("/surveyForm", (req, res) => {
