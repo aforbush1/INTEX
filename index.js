@@ -380,18 +380,19 @@ app.post("/editUsers/:id", (req, res) => {
             password: req.body.password
         })
         .then(() => {
-            // Fetch user data again after the update
-            return knex("loginInfo").where("id", id);
+            // Fetch all user data again after the update
+            return knex("loginInfo");
         })
-        .then(updatedUser => {
-            // Render the "viewUser" page with the updated user data
-            res.render("viewUser", { theLogin: updatedUser, id: id });
+        .then(allUsers => {
+            // Render the "viewUser" page with all user data
+            res.render("viewUser", { theLogin: allUsers, id: id });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json({ err });
         });
 });
+
 
 
 
