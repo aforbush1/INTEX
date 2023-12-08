@@ -340,4 +340,5 @@ app.get("/dashboard", (req, res) => {
 })
 
 
+//Checks to see if the server is running
 app.listen(port, () => console.log("Server is listening"));
