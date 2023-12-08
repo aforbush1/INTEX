@@ -355,7 +355,7 @@ app.get("/editUsers/:id", (req, res) => {
     .from("loginInfo")
     .where("id", parseInt(req.params.id))
     .then(loginInfo => {
-        res.render("editUsers", {theLogin: loginInfo});
+        res.render("editUsers", {theLogin: loginInfo,id:id});
     }).catch(err => {
         console.log(err);
         res.status(500).json({err});
@@ -364,7 +364,8 @@ app.get("/editUsers/:id", (req, res) => {
 
 
 //Submits data from the edit user page and updates the corresponding row in the database to match the changes. Then redirects to the viewUser page
-app.post("/editUsers", (req, res) => {
+app.post("/editUsers/:id", (req, res) => {
+    const id= req.params.id
     knex("loginInfo").where("id", parseInt(req.body.id)).update({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -372,7 +373,7 @@ app.post("/editUsers", (req, res) => {
         username: req.body.username,
         password: req.body.password
     }).then(theLogin => {
-        res.redirect("viewUser");
+        res.redirect("viewUser/:id");
     });
 });
 
