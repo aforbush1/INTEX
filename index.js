@@ -247,6 +247,20 @@ app.get("/viewData/:id", (req, res) => {
     });
 });
 
+app.get("/viewUser/:id", (req, res) => {
+    const id= req.params.id
+    
+    // Retrieve the user data using Knex.js
+    knex.select().from("loginInfo").then((loginInfo) => {
+        res.render("viewUser", { theLogin: loginInfo ,id:id}); // Pass 'theLogin' as an object property
+    }).catch((error) => {
+
+        // Handle errors if any while fetching data
+        console.error("Error fetching user data:", error);
+        res.status(500).send("Error fetching user data");
+    });
+});
+
 app.get("/viewUserData/:id", (req, res) => {
     const id = req.params.id;
     knex.select().from("plainsville").then( (plainsville) => {
