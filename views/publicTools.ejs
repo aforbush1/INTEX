@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public Tools</title>
+    <title>Get Motivated</title>
 
     <!-- Favicons -->
     <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="icon">
@@ -31,6 +31,11 @@
     <script>
         AOS.init();
     </script>
+    <!-- AOS CSS file -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+        <!-- AOS JavaScript file (at the end of the body) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <style>
         main section * {
@@ -150,7 +155,7 @@
                     <li><a  href="/">Home</a></li>
                     <li><a  href="/surveyForm">Survey</a></li>
                     <li><a href="dashboard">Dashboard</a></li>
-                    <li><a class="active " href="publicTools">Public Tools</a></li>
+                    <li><a class="active " href="publicTools">Get Motivated</a></li>
                     <li><a href="/login">Log In</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -162,7 +167,7 @@
     <br><br><br><br>
 
 <br><br><br><br><br>
-<form style="padding: 30px 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+<form style="padding: 30px 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;" data-aos="fade-up" data-aos-delay="500" data-aos-duration="2000">
     <section style="background-color: #e0e0e0; padding: 20px;">
         <h2>For Teenagers & Young Adults</h2>
         <p>Learn about how you can be more focused on social media here</p>
@@ -198,6 +203,8 @@
       window.open('https://www.churchofjesuschrist.org/study/manual/safeguards-for-using-technology/contents?lang=eng', '_blank');
     });
   </script>
-
+    <script>
+        AOS.init();
+      </script>
 </body>
 </html>
