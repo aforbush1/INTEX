@@ -134,12 +134,16 @@
                     <td><%= theLogin[iCount].password %></td>
                     <td style="text-align: center;">
                         <form action="/editUsers/<%= theLogin[iCount].id %>" method="GET">
-                            <button type="submit">Edit</button>
+                            <div class="button-container">
+                                <button type="submit">Edit</button>
+                            </div>
                         </form>
                     </td>
                     <td style="text-align: center;">
                         <form action="/deleteUser/<%= theLogin[iCount].id %>" method="POST">
-                            <button type="submit">Delete</button>
+                            <div class="button-container">
+                                <button type="submit" style="color: #ab1919;">Delete</button>
+                            </div>
                         </form>
                     </td>
                 </tr>
