@@ -101,7 +101,7 @@ app.post("/submitLogin", (req, res) => {
 
     if (username === sAdminUsername && password === sAdminPassword)    
         {
-        res.sendFile(path.join(__dirname, "views/adminIndex.html"))
+        res.render("adminIndex");
         }
     else {
         knex('loginInfo')
@@ -116,7 +116,7 @@ app.post("/submitLogin", (req, res) => {
                     res.render('userIndex', { firstName, id });
                 } else {
                     // res.render("invalidLogin");
-                    res.sendFile(path.join(__dirname, "views/invalidLogin.html"));
+                    res.render("invalidLogin");
                 }
             })
             .catch(error => {
@@ -188,13 +188,8 @@ app.get("/viewUser", (req, res) => {
 });
 
 app.get("/adminIndex", (req, res) => {
-    res.sendFile(path.join(__dirname, "views/adminIndex.html"))
+    res.render("adminIndex");
 })
-
-// ejs route
-// app.get("/adminIndex", (req, res) => {
-//     res.render("adminIndex");
-// })
 
 app.get("/viewData", (req, res) => {
     knex.select().from("plainsville").then( (plainsville) => {
