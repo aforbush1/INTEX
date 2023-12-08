@@ -121,10 +121,18 @@ app.post("/submitLogin", (req, res) => {
     const password = req.body.password
 
     //If they enter the admin username and password, it will render the admin index page
-    if (username === sAdminUsername && password === sAdminPassword)    
-        {
-        res.render("adminIndex");
-        }
+    if (username === sAdminUsername && password === sAdminPassword)  
+    {
+        knex('loginInfo')
+        .where('username', sAdminUsername)
+        .andWhere('password', sAdminPassword)
+        .select('id')
+        .first()
+        .then(adminResult => {
+            const id = adminResult.id
+            res.render("adminIndex",{ id: adminResult.id } );
+        })
+         }
     //Otherwise, it will search our login information database 
     else {
         knex('loginInfo')
@@ -171,8 +179,9 @@ app.post("/submitLogin", (req, res) => {
     
 
 //Renders the create user page (Only accessible from the admin index page)
-app.get("/createUser", (req, res) => {
-    res.render("createUser");
+app.get("/createUser/:id", (req, res) => {
+    const id=req.params.id
+    res.render("createUser",{id:id});
 })
 
 
@@ -217,11 +226,12 @@ app.post('/createUser', (req, res) => {
 
 
 //Retrieves the user information table from the database
-app.get("/viewUser", (req, res) => {
+app.get("/viewUser/:id", (req, res) => {
+    const id= req.params.id
     
     // Retrieve the user data using Knex.js
     knex.select().from("loginInfo").then((loginInfo) => {
-        res.render("viewUser", { theLogin: loginInfo }); // Pass 'theLogin' as an object property
+        res.render("viewUser", { theLogin: loginInfo ,id:id}); // Pass 'theLogin' as an object property
     }).catch((error) => {
 
         // Handle errors if any while fetching data
@@ -232,16 +242,18 @@ app.get("/viewUser", (req, res) => {
 
 
 //Renders the adminIndex page
-app.get("/adminIndex", (req, res) => {
-    res.render("adminIndex");
+app.get("/adminIndex/:id", (req, res) => {
+    const id = req.params.id
+
+    res.render("adminIndex",{ id: id });
 })
 
 
 //Retrieves the view data page that shows all data from plainsville and provo (even though it is called plainsville it contains all our data)
 app.get("/viewData/:id", (req, res) => {
-    const userId = req.params.id;
+    const id = req.params.id;
     knex.select().from("plainsville").then( (plainsville) => {
-        res.render("viewData", {theSurveys : plainsville,userID:userId});
+        res.render("viewData", {theSurveys : plainsville,id:id});
     });
 });
 
@@ -254,7 +266,8 @@ app.get("/viewUserData/:id", (req, res) => {
 
 
 //Submits the filter forms to bring up a particular user
-app.post("/filterData", (req, res) => {
+app.post("/filterData/:id", (req, res) => {
+    const id=req.params.id
     const selectedCity = req.body.filterCity;
     const selectedRecordId = req.body.findRecord;
 
@@ -277,7 +290,7 @@ app.post("/filterData", (req, res) => {
     query
         .then((filteredRecords) => {
             console.log("Filtered Records:", filteredRecords);
-            res.render("filterData", { theSurveys: filteredRecords });
+            res.render("filterData", { theSurveys: filteredRecords,id:id });
         })
         .catch((error) => {
             console.error("Error querying the database:", error);
@@ -285,7 +298,8 @@ app.post("/filterData", (req, res) => {
         });
 });
 
-app.post("/filterUserData", (req, res) => {
+app.post("/filterUserData/:id", (req, res) => {
+    const id=req.params.id
     const selectedCity = req.body.filterCity;
     const selectedRecordId = req.body.findRecord;
 
@@ -308,7 +322,7 @@ app.post("/filterUserData", (req, res) => {
     query
         .then((filteredRecords) => {
             console.log("Filtered Records:", filteredRecords);
-            res.render("filterUserData", { theSurveys: filteredRecords });
+            res.render("filterUserData", { theSurveys: filteredRecords,id:id });
         })
         .catch((error) => {
             console.error("Error querying the database:", error);

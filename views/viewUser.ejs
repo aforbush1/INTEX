@@ -92,15 +92,14 @@
     <header id="header" class="fixed-top" style="background-image: linear-gradient(to bottom, #001f4d, #00bfff);">
         <div class="container">
             <div class="logo">
-                <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
+                <a href="/adminIndex/<%=id%>"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
             </div>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="" href="adminIndex">Home</a></li>
-                    <li><a href="createUser">Create User</a></li>
-                    <li><a href="viewUser">View Users</a></li>
-                    <li><a href="viewData">View Data</a></li>
-                    
+                    <li><a class="" href="/adminIndex/<%=id%>">Home</a></li>
+                    <li><a href="/createUser/<%=id%>">Create User</a></li>
+                    <li><a href="/viewUser/<%=id%>">View Users</a></li>
+                    <li><a href="/viewData/<%=id%>">View Data</a></li>
                     <li><a href="/">Log Out</a></li>
                 </ul>
             </nav>
