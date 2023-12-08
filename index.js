@@ -196,7 +196,7 @@ app.post('/createUser/:id', (req, res) => {
         .first()
         .then(existingUser => {
             if (existingUser) {
-                res.render('usernameTaken', { username, id });
+                res.render('usernameTaken', { username, id:id });
             } else {
                 // Username doesn't exist, insert the new user
                 return knex('loginInfo')
