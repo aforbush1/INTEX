@@ -232,6 +232,7 @@ app.get("/viewUser/:id", (req, res) => {
     
     // Retrieve the user data using Knex.js
     knex.select().from("loginInfo").then((loginInfo) => {
+        console.log("Rendered viewUser with data:", { id: id });
         res.render("viewUser", { theLogin: loginInfo ,id:id}); // Pass 'theLogin' as an object property
     }).catch((error) => {
 
