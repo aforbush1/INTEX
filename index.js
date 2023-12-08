@@ -153,6 +153,13 @@ app.post("/submitLogin", (req, res) => {
     }
     });
 
+app.get("/userIndex", (req, res) => {
+    knex('loginInfo')
+    .select('firstName', 'id')
+    .then(result => {
+        res.render("userIndex", {firstName, id});
+    })
+})
 
 //Renders the create user page (Only accessible from the admin index page)
 app.get("/createUser", (req, res) => {
