@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invalid Login</title>
+  <title>404 Not Found</title>
   <!-- Favicons -->
   <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="icon">
   <link href="https://aforbush1.github.io/INTEX/views/assets/img/provoIcon.ico" rel="provo-icon">
@@ -27,10 +27,20 @@
       flex-direction: column;
       align-items: flex-start; /* Align text to the top left */
       justify-content: flex-start; /* Align text to the top left */
-      background: url('https://aforbush1.github.io/INTEX/views/assets/img/error.jpeg') center/cover no-repeat;
+      background: url('https://aforbush1.github.io/INTEX/views/assets/img/error.jpg') center/cover no-repeat;
       text-align: left;
       color: #555; /* Grey text color */
       padding: 20px; /* Add padding to the top and left */
+    }
+        .overlay h2 {
+      font-size: 60px;
+      margin-bottom: 10px;
+      margin-top: 15px; /* Adjust this value to move the text higher */
+    }
+
+    .overlay p {
+      font-size: 40px;
+      margin-bottom: 40px;
     }
 
     .content {
@@ -71,8 +81,8 @@
 
   <div class="overlay">
 
-    <h2 style="font-size: 60px; margin-bottom: 10px;">You've landed in the middle of nowhere.</h2>
-    <p style="font-size: 30px;">It's a great place to be, except in this case...</p>
+    <h2 style="font-size: 60px; margin-bottom:0px;">You've landed in the middle of nowhere.</h2>
+    <p style="font-size: 30px; margin-bottom: 40px;">It's a great place to be, except in this case...</p>
 
     <a href="/" class="try-again-button">Go Home</a>
 

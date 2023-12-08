@@ -27,9 +27,6 @@ app.get("/", (req, res) => {
     res.render("index");
 })
 
-// app.use((req, res) => {
-//     res.status(404).render('error');
-// });
 
 
 //Route that renders our survey sheet where a person can fill out the survey
@@ -455,3 +452,7 @@ app.get("/dashboard", (req, res) => {
 
 //Checks to see if the server is running
 app.listen(port, () => console.log("Server is listening"));
+
+app.use((req, res) => {
+    res.status(404).render('error');
+});
