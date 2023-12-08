@@ -29,24 +29,7 @@
 
     <style>
 
-        
-        header {
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        form {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
+
         
         label {
             display: block;
@@ -73,10 +56,6 @@
             cursor: pointer;
         }
 
-        header.fixed-top {
-            background-color: #7c7c7c;
-            color: #7c7c7c;
-        }
     </style>
 
 
@@ -91,7 +70,13 @@ flex-direction: column;
 align-items: center;">
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center" style="background-color: grey" >
+    <header id="header" class="fixed-top d-flex align-items-center" style="            color: grey;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;" >
         <div class="container d-flex justify-content-between align-items-center">
 
             <div class="logo">
@@ -117,7 +102,11 @@ align-items: center;">
     <!-- End Header -->
     <br><br><br><br>
 
-    <form action="/submitSurvey" method="post" style="width: 700px">
+    <form action="/submitSurvey" method="post" style="width: 700px; background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;">
         <label for="age">Age</label>
         <input placeholder="Enter your age" type="number" id="age" name="age" required>
 
