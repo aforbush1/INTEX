@@ -82,6 +82,11 @@
             box-sizing: border-box;
         }
 
+        .button-container {
+        display: flex;
+        justify-content: center;
+    }
+
         button {
             background: linear-gradient(-45deg, #1391a5, #274685);
             color: #fff;
@@ -126,14 +131,17 @@
     <!-- ======= Login Container ======= -->
     <div class="login-container">
         <form id="createUserForm" class="login-form" action="/submitLogin" method="post">
-            <h1>Provo Health Login</h1>
+            <h1 style="color: white;">Provo Health Login</h1>
             <br>
             <label for="username">Username:</label>
             <input placeholder="Enter Username..." type="text" id="username" name="username" required>
             <br>
             <label for="password">Password:</label>
             <input placeholder="Enter Password..." type="password" id="password" name="password" required>
-            <button type="submit">Log In</button>
+            <div class="button-container">
+                <button type="submit">Log in</button>
+            </div>
+            
         </form>
     </div>
     <!-- ======= Login Container ======= -->
