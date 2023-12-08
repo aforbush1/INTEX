@@ -345,9 +345,9 @@ app.post("/deleteUser/:id", (req, res) => {
 
 //Passes the user id into the user profile page which will only show the current user's information
 app.get("/userprofile/:id", (req, res) => {
-    const userId = req.params.id;
+    const id = req.params.id;
     // Retrieve user data based on userId using Knex.js
-    knex.select().from("loginInfo").where({ id: userId }).then((user) => {
+    knex.select().from("loginInfo").where({ id: id }).then((user) => {
         if (user.length === 0) {
             // If the user is not found, render the profile page with null value for theLogin
             res.render("userprofile", { theLogin: null });
