@@ -125,17 +125,17 @@
       <div class="container">
         <div class="row mb-5 align-items-end">
           <div class="col-md-6 mx-auto" data-aos="fade-up">
-            <h2>Create a User</h2>
-            <p class="mb-0">Please enter the information of the user you wish to create.</p>
+            <h2 style="color: white;">Create a User</h2>
+            <p class="mb-0" style="color: white;">Please enter the information of the user you wish to create.</p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 mx-auto" data-aos="fade-up">
+          <div class="col-md-6 mx-auto" data-aos-delay="500" data-aos="fade-up">
             <form action="/createUser/<%= id %>" method="POST" role="form" class="php-email-form" style="margin-top: -30px;">
                 <div class="row">
                     <div class="col-md-6 form-group">
                       <label for="firstName">First Name</label>
-                      <input placeholder="Enter first name..." type="text" name="firstName" class="form-control" id="firstName" required>
+                      <input placeholder="Enter first name..." type="text" name="firstName" class="form-control" id="firstName" autofocus required>
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
                       <label for="lastName">Last Name</label>

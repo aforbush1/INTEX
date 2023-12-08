@@ -39,8 +39,8 @@
         }
 
         .form-container {
-            background-color: #fff;
-            border-radius: 10px;
+            background-color: rgba(211, 211, 211, 0.7);
+            border-radius: 15px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             padding: 20px;
             width: 500px; /* Reduced width */
@@ -52,20 +52,22 @@
         }
 
         fieldset {
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            border: 1px solid rgba(211, 211, 211, 0.7);
+            border-radius: 15px;
             padding: 10px;
         }
 
         legend {
             font-size: 1.5em;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: -5px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 1px;
+            color: white;
+            text-align: left;
         }
 
         input {
@@ -84,7 +86,7 @@
         }
 
         button {
-            background-color: #6a9c59;
+            background-color:  #274685;
             color: #fff;
             padding: 10px 20px;
             border: none;
@@ -118,11 +120,12 @@
     </header>
 
     <div class="form-container">
-        <form class='user-form' action="/editUsers/<%=id%>" method="POST">
-            <fieldset>
-                <legend>Edit User:</legend>
+        <form class='user-form' action="/editUsers/<%=id%>" method="POST" >
+            <fieldset >
+                <legend style="color: white;">Edit User:</legend>
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" name="firstName" value="<%= theLogin[0].firstName %>">
+                <br><br>
                 <label for="lastName">Last Name:</label>
                 <input type="text" id="lastName" name="lastName" value="<%= theLogin[0].lastName %>">
                 <br><br>
