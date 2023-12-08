@@ -1,6 +1,7 @@
 // Author: Adam Forbush, Josh Thatcher, Chris Fowler, Ryan Hawkins
-// Description: Index.js File
+// Description: Index.js File, Defines our routes
 
+//Configurations, objects, etc. Defines our database information as well to connect to RDS
 const express = require("express");
 let app = express();
 let path = require("path");
@@ -20,19 +21,24 @@ const knex = require("knex")({
     }
 });
 
+
+//Default route to access our landing page (index.ejs)
 app.get("/", (req, res) => {
     res.render("index");
 })
 
-// app.get("/dashboard", (req, res) =>
-    // res.send("<div class='tableauPlaceholder' id='viz1701795084373' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17011425626370&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Book1_17011425626370&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17011425626370&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1701795084373');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1366px';vizElement.style.height='795px';} else { vizElement.style.width='100%';vizElement.style.height='1127px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"));
 
+//Route that renders our survey sheet where a person can fill out the survey
 app.get("/surveyForm", (req, res) => {
     res.render("surveyForm");
 });
 
+
+//This route submits the survey and adds it to our database
 app.post("/submitSurvey", (req, res) => {
     console.log(req.body);
+
+    //Defines constants for our affiliations and our platforms. They end up testing whether or not the submitted data contains a certain string.
     const occupation = req.body.affiliatedOrganizations || [];
     const isCompanySelected = occupation.includes("Company")
     const isPrivateSelected = occupation.includes("Private")
@@ -52,6 +58,8 @@ app.post("/submitSurvey", (req, res) => {
     const isTikTokSelected = socialMediaPlatforms.includes("TikTok");
     const isSnapchatSelected = socialMediaPlatforms.includes("Snapchat");
     const isOther_PlatformSelected = socialMediaPlatforms.includes("Other");
+
+    //Creates a time object and formats date and time to match our database
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString('en-US');
     const formattedTime = currentDate.toLocaleTimeString('en-US', {
@@ -60,6 +68,8 @@ app.post("/submitSurvey", (req, res) => {
         second: 'numeric',
         hour12: true
     });
+
+    //Inserts all the submitted data into our database with a default location value of Provo.
     knex("plainsville").insert({Date: formattedDate, Time: formattedTime, Age: req.body.age, Gender: req.body.gender, 
             Relationship_Status: req.body.relationshipStatus, Occupation_Status: req.body.occupationStatus, 
             Affiliation_Company: isCompanySelected ? "Yes" : "No", Affiliation_Private: isPrivateSelected ? "Yes" : "No",
@@ -77,8 +87,9 @@ app.post("/submitSurvey", (req, res) => {
             Followup_Comparison_Rating: req.body.followupCompare, Seek_Validation_Rating: req.body.seekValidationOnSocialMedia, 
             Depression_Rating: req.body.feelingsOfDepression, Interest_Fluctuation_Rating: req.body.fluctuationInInterest, 
             Sleep_Issue_Rating: req.body.sleepIssues, Location: "Provo"})
+
+        //Renders the Thank You page where they will then be redirected back to the landing page
         .then(() => {
-            // Handle success
             res.render("thankYou");
         })
         .catch(err => {
@@ -89,20 +100,28 @@ app.post("/submitSurvey", (req, res) => {
         });
 });
 
+
+//Renders the login page
 app.get("/login", (req, res) => {
     res.render("login");
 })
     
+
+//Submits the login form with a username and password
 app.post("/submitLogin", (req, res) => {
+
+    //Sets the admin username and password and compares it to the username and password entered in the form
     const sAdminUsername = 'Admin'
     const sAdminPassword = 'Intex2023'
     const username = req.body.username
     const password = req.body.password
 
+    //If they enter the admin username and password, it will render the admin index page
     if (username === sAdminUsername && password === sAdminPassword)    
         {
         res.render("adminIndex");
         }
+    //Otherwise, it will search our login information database 
     else {
         knex('loginInfo')
             .where('username', username)
@@ -110,10 +129,14 @@ app.post("/submitLogin", (req, res) => {
             .select('firstName', 'id')
             .first()
             .then(result => {
+
+                //If the username and password match the values of a row in the database, it will render the user index page and pass that user's id into the user index page
                 if (result) {
                     const firstName = result.firstName;
                     const id = result.id;
                     res.render('userIndex', { firstName, id });
+
+                //Otherwise if no match is found it redirects you to an invalid login page
                 } else {
                     // res.render("invalidLogin");
                     res.render("invalidLogin");
@@ -126,21 +149,17 @@ app.post("/submitLogin", (req, res) => {
     }
     });
 
-// app.post("/login", (req, res) => {
-//     const { username, password } = req.body;
 
-// app.post("/createUser", (req, res) => {
-    // knex("loginInfo").insert({firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username, password: req.body.password}).then((theSurveys) => {
-    //   res.render("viewUser", {theSurveys : loginInfo} );
-    // });
-// });
-
+//Renders the create user page (Only accessible from the admin index page)
 app.get("/createUser", (req, res) => {
     res.render("createUser");
 })
 
+
+//Submits a form containing information for a new account with a unique username
 app.post('/createUser', (req, res) => {
     const { firstName, lastName, email, username, password } = req.body;
+
     // Check if the username already exists
     knex('loginInfo')
         .where('username', username)
@@ -176,27 +195,37 @@ app.post('/createUser', (req, res) => {
         });
 });
 
+
+//Retrieves the user information table from the database
 app.get("/viewUser", (req, res) => {
+    
     // Retrieve the user data using Knex.js
     knex.select().from("loginInfo").then((loginInfo) => {
         res.render("viewUser", { theLogin: loginInfo }); // Pass 'theLogin' as an object property
     }).catch((error) => {
+
         // Handle errors if any while fetching data
         console.error("Error fetching user data:", error);
         res.status(500).send("Error fetching user data");
     });
 });
 
+
+//Renders the adminIndex page
 app.get("/adminIndex", (req, res) => {
     res.render("adminIndex");
 })
 
+
+//Retrieves the view data page that shows all data from plainsville and provo (even though it is called plainsville it contains all our data)
 app.get("/viewData", (req, res) => {
     knex.select().from("plainsville").then( (plainsville) => {
         res.render("viewData", {theSurveys : plainsville});
     });
 });
 
+
+//Submits the filter forms to bring up a particular user
 app.post("/filterData", (req, res) => {
     const selectedCity = req.body.filterCity;
     const selectedRecordId = req.body.findRecord;
@@ -229,9 +258,7 @@ app.post("/filterData", (req, res) => {
 });
 
 
-
-
-
+//Passes the city as a parameter and fetches the record requested
 app.get("/getRecords/:city", (req, res) => {
     const selectedCity = req.params.city;
     res.setHeader('Cache-Control', 'no-store');
@@ -249,9 +276,7 @@ app.get("/getRecords/:city", (req, res) => {
 });
 
 
-
-
-
+//From the view users page, this will select an individual record in the data table and pass the id of this record into the edit users page
 app.get("/editUsers/:id", (req, res) => {
     knex.select("firstName", "lastName", "email", "username", "password", "id")
     .from("loginInfo")
@@ -265,6 +290,7 @@ app.get("/editUsers/:id", (req, res) => {
 })
 
 
+//Submits data from the edit user page and updates the corresponding row in the database to match the changes. Then redirects to the viewUser page
 app.post("/editUsers", (req, res) => {
     knex("loginInfo").where("id", parseInt(req.body.id)).update({
         firstName: req.body.firstName,
@@ -277,6 +303,8 @@ app.post("/editUsers", (req, res) => {
     });
 });
 
+
+//From the view users page, there is a delete button by each record. This allows to select a row (by its id) and then delete it from the database. Then redirects back to view user
 app.post("/deleteUser/:id", (req, res) => {
     knex("loginInfo").where("id", parseInt(req.params.id)).del().then(theLogin => {
         res.redirect("/viewUser");
@@ -286,9 +314,11 @@ app.post("/deleteUser/:id", (req, res) => {
     });
 });
 
+
+//Passes the user id into the user profile page which will only show the current user's information
 app.get("/userprofile/:id", (req, res) => {
     const userId = req.params.id;
-    // Retrieve user data based on userId using Knex.js (this is just an example)
+    // Retrieve user data based on userId using Knex.js
     knex.select().from("loginInfo").where({ id: userId }).then((user) => {
         if (user.length === 0) {
             // If the user is not found, render the profile page with null value for theLogin
@@ -303,8 +333,11 @@ app.get("/userprofile/:id", (req, res) => {
     });
 });
 
+
+//Renders the dashboard page
 app.get("/dashboard", (req, res) => {
     res.render("dashboard");
 })
+
 
 app.listen(port, () => console.log("Server is listening"));
