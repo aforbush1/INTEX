@@ -156,6 +156,7 @@
                     <div class="col-md-12 form-group mt-3">
                       <label for="retypePassword">Retype Password</label>
                       <input placeholder="Retype password..." type="password" name="retypePassword" class="form-control" id="retypePassword" required>
+                      <p id="passwordError" style="color: red;"></p>
                     <div class="col-md-6 form-group">
                       <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
                     </div>
@@ -177,6 +178,50 @@
 
   <!-- Template Main JS File -->
   <script src="https://aforbush1.github.io/INTEX/views/assets/js/main.js"></script>
+
+  <!-- At the end of the body tag -->
+<!-- At the end of the body tag -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Get references to the form, password, retype password fields, and the error message
+      const form = document.querySelector('form');
+      const passwordInput = document.getElementById('password');
+      const retypePasswordInput = document.getElementById('retypePassword');
+      const passwordError = document.getElementById('passwordError');
+
+      // Add an event listener to the form for the submit event
+      form.addEventListener('submit', function (event) {
+          // Check if the passwords match
+          if (passwordInput.value !== retypePasswordInput.value) {
+              // Display an error message
+              passwordError.textContent = 'Passwords do not match';
+
+              // Prevent the form from being submitted
+              event.preventDefault();
+
+              // Show a popup alert
+              alert('Passwords do not match. Please try again.');
+          } else {
+              // Clear the error message
+              passwordError.textContent = '';
+          }
+      });
+
+      // Add an event listener to the retype password field for the input event
+      retypePasswordInput.addEventListener('input', function () {
+          // Check if the passwords match
+          if (passwordInput.value !== retypePasswordInput.value) {
+              // Display an error message
+              passwordError.textContent = 'Passwords do not match';
+          } else {
+              // Clear the error message
+              passwordError.textContent = '';
+          }
+      });
+  });
+</script>
+
+
 
 </body>
 
