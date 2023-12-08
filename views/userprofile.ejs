@@ -1,4 +1,3 @@
-<!-- Ryan -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,75 +25,150 @@
 
     <!-- Template Main CSS File -->
     <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
+
+    <style>
+        /* Header and Navigation Styles */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            max-width: 150px;
+        }
+
+        
+        /* Table Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        label {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        thead {
+            background-color: #333;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Records Styles */
+        tbody td {
+            font-size: 14px;
+        }
+
+        /* Button Styles */
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            background-color: #6a9c59;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4b7847;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Header with navigation -->
-    <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex justify-content-between align-items-center">
+    <header id="header">
+        <div class="container">
             <div class="logo">
-
-                <a href="/userIndex/<%= id %>"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid">
+                <a href="/userIndex/<%= id %>">
+                    <img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid">
                 </a>
             </div>
-
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="" href="/userIndex/<%= id %>">Home</a></li>
                     <li><a href="/userprofile/<%= id %>">View Profile</a></li>
                     <li><a href="/viewUserData/<%= id %>">View Data</a></li>
-                    
                     <li><a href="/">Log Out</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
-            <!-- .navbar -->
-
         </div>
     </header>
 
     <!-- Table section -->
-    <label><b>User Information:</b></label>
-    <br><br>
-    <table>
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Username</th>
-                <th>Password</th>
-                
-            </tr>
-        </thead>
-        <tbody style="font-family: Arial; font-size: 9pt;">
-            <!-- Use ejs with less than sign and percent sign // adding the = pulls data -->
-            <!-- Display single user data -->
-            <% if (theLogin) { %>
+    <div class="container">
+        <label><b>User Information:</b></label>
+        <table>
+            <thead>
                 <tr>
-                    <td><%= theLogin.firstName %></td>
-                    <td><%= theLogin.lastName %></td>
-                    <td><%= theLogin.email %></td>
-                    <td><%= theLogin.username %></td>
-                    <td><%= theLogin.password %></td>
-                    <!-- Modify the forms as needed -->
-                    
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Password</th>
                 </tr>
-            <% } else { %>
-                <tr>
-                    <td colspan="7">User not found</td>
-                </tr>
-            <% } %>
-            
-        </tbody>
-    </table>
-    <br><br>
-        <!-- Vendor JS Files -->
-        <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/aos/aos.js"></script>
-        <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/php-email-form/validate.js"></script>
-    
-        <!-- Template Main JS File -->
-        <script src="https://aforbush1.github.io/INTEX/views/assets/js/main.js"></script>
+            </thead>
+            <tbody>
+                <% if (theLogin) { %>
+                    <tr>
+                        <td><%= theLogin.firstName %></td>
+                        <td><%= theLogin.lastName %></td>
+                        <td><%= theLogin.email %></td>
+                        <td><%= theLogin.username %></td>
+                        <td><%= theLogin.password %></td>
+                    </tr>
+                <% } else { %>
+                    <tr>
+                        <td colspan="5">User not found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Vendor JS Files -->
+    <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/aos/aos.js"></script>
+    <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="https://aforbush1.github.io/INTEX/views/assets/js/main.js"></script>
 </body>
+
 </html>
