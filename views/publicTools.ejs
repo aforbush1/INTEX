@@ -93,14 +93,14 @@
         justify-content: center;
         }
     
-        button {
+        /* button {
             background: linear-gradient(-45deg, #1391a5, #274685);
             color: #fff;
             padding: 10px 30px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-        }
+        } */
 
         header.fixed-top {
             background-color: #7c7c7c;
@@ -109,6 +109,9 @@
         
         #age::placeholder {
             color: black;
+        }
+        ::placeholder {
+            font-style: italic;
         }
     </style>
 
@@ -145,17 +148,21 @@
 <br><br><br><br><br>
 <form style="padding: 30px 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
     <section style="background-color: #e0e0e0; padding: 20px;">
-        <h2>For Teenagers/Young Adults</h2>
+        <h2>For Teenagers & Young Adults</h2>
         <p>Learn about how you can be more focused on social media here</p>
         <p>The following video teaches about how we can use social media more wisely:</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/zexTwjsdMQY?si=nazVGk85-WpGlCp2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe width="400" height="315" src="https://www.youtube.com/embed/zexTwjsdMQY?si=nazVGk85-WpGlCp2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <br><br>
+        <p style="font-weight: 500; color: #333;">Provide us with your feedback. What are the hardest parts of using social media for you?</p>
+        <textarea id="feedbackText" rows="4" cols="50" placeholder="Provide us with your feedback"></textarea>
+        <button id="submitFeedback" style="background-color: black; color: white;">Submit</button>
     </section>
 
     <section style="background-color: #e0e0e0; padding: 20px;">
-        <h2>For parents</h2>
+        <h2>For parents or other adults</h2>
         <p>Learn more about how you can help your kids or those around you have good social media habits</p>
         <!-- Button to open a new web page in a new tab -->
-        <button id="myButton">Technology in the Family</button>
+        <button id="myButton"; style="background: linear-gradient(-45deg, #1391a5, #274685); color: #fff; padding: 10px 30px; border: none; border-radius: 4px; cursor: pointer;">Take Me To Learn More About Technology in the Family</button>
     </section>
 
     <section style="background-color: #e0e0e0; padding: 20px;">
@@ -174,6 +181,6 @@
       window.open('https://www.churchofjesuschrist.org/?lang=eng', '_blank');
     });
   </script>
-  
+
 </body>
 </html>
