@@ -186,8 +186,9 @@ app.get("/createUser/:id", (req, res) => {
 
 
 //Submits a form containing information for a new account with a unique username
-app.post('/createUser', (req, res) => {
+app.post('/createUser/:id', (req, res) => {
     const { firstName, lastName, email, username, password } = req.body;
+    const id = req.params.id;
 
     // Check if the username already exists
     knex('loginInfo')
@@ -195,7 +196,7 @@ app.post('/createUser', (req, res) => {
         .first()
         .then(existingUser => {
             if (existingUser) {
-                res.render('usernameTaken',{username});
+                res.render('usernameTaken', { username, id:id });
             } else {
                 // Username doesn't exist, insert the new user
                 return knex('loginInfo')
@@ -207,8 +208,12 @@ app.post('/createUser', (req, res) => {
                         password
                     })
                     .then(() => {
-                        // Redirect to the "/viewUser" page upon successful data insertion
-                        res.redirect('/viewUser');
+                        // Fetch user data again after the insertion
+                        return knex.select().from("loginInfo");
+                    })
+                    .then(loginInfo => {
+                        // Render the "viewUser" page with the updated user data
+                        res.render('viewUser', { theLogin: loginInfo, id: id });
                     })
                     .catch((error) => {
                         // Handle any errors that occurred during insertion
@@ -224,21 +229,6 @@ app.post('/createUser', (req, res) => {
         });
 });
 
-
-//Retrieves the user information table from the database
-app.get("/viewUser/:id", (req, res) => {
-    const id= req.params.id
-    
-    // Retrieve the user data using Knex.js
-    knex.select().from("loginInfo").then((loginInfo) => {
-        res.render("viewUser", { theLogin: loginInfo ,id:id}); // Pass 'theLogin' as an object property
-    }).catch((error) => {
-
-        // Handle errors if any while fetching data
-        console.error("Error fetching user data:", error);
-        res.status(500).send("Error fetching user data");
-    });
-});
 
 
 //Renders the adminIndex page
@@ -368,28 +358,55 @@ app.get("/editUsers/:id", (req, res) => {
 
 //Submits data from the edit user page and updates the corresponding row in the database to match the changes. Then redirects to the viewUser page
 app.post("/editUsers/:id", (req, res) => {
-    const id= req.params.id
-    knex("loginInfo").where("id", parseInt(req.body.id)).update({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        username: req.body.username,
-        password: req.body.password
-    }).then(theLogin => {
-        res.redirect("viewUser/:id");
-    });
+    const id = req.params.id;
+
+    knex("loginInfo")
+        .where("id", parseInt(req.body.id))
+        .update({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            username: req.body.username,
+            password: req.body.password
+        })
+        .then(() => {
+            // Fetch all user data again after the update
+            return knex("loginInfo");
+        })
+        .then(allUsers => {
+            // Render the "viewUser" page with all user data
+            res.render("viewUser", { theLogin: allUsers, id: id });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ err });
+        });
 });
+
+
 
 
 //From the view users page, there is a delete button by each record. This allows to select a row (by its id) and then delete it from the database. Then redirects back to view user
 app.post("/deleteUser/:id", (req, res) => {
-    knex("loginInfo").where("id", parseInt(req.params.id)).del().then(theLogin => {
-        res.redirect("/viewUser");
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json({err});
-    });
+    const id = req.params.id;
+
+    knex("loginInfo")
+        .where("id", parseInt(id))
+        .del()
+        .then(() => {
+            // Fetch user data again after deletion
+            return knex("loginInfo");
+        })
+        .then(updatedUsers => {
+            // Render the "viewUser" page with the updated user list
+            res.render("viewUser", { theLogin: updatedUsers, id: id });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ err });
+        });
 });
+
 
 
 //Passes the user id into the user profile page which will only show the current user's information
