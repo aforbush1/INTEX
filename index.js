@@ -238,9 +238,17 @@ app.get("/adminIndex", (req, res) => {
 
 
 //Retrieves the view data page that shows all data from plainsville and provo (even though it is called plainsville it contains all our data)
-app.get("/viewData", (req, res) => {
+app.get("/viewData/:id", (req, res) => {
+    const userId = req.params.id;
     knex.select().from("plainsville").then( (plainsville) => {
-        res.render("viewData", {theSurveys : plainsville});
+        res.render("viewData", {theSurveys : plainsville,userID:userId});
+    });
+});
+
+app.get("/viewUserData/:id", (req, res) => {
+    const userId = req.params.id;
+    knex.select().from("plainsville").then( (plainsville) => {
+        res.render("viewData", {theSurveys : plainsville,userID:userId});
     });
 });
 
