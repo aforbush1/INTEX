@@ -100,13 +100,13 @@
 <header id="header" class="fixed-top d-flex align-items-center" style="background: grey;">
     <div class="container d-flex justify-content-between align-items-center">
         <div class="logo">
-            <a href="/"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
+            <a href="/userIndex/<%= id %>"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
         </div>
         <!-- .navbar -->
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="" href="/userIndex/<%= id %>">Return Home</a></li>
-                <li><a href="userprofile/:id">View Profile</a></li>
+                <li><a href="/userprofile/<%= id %>">View Profile</a></li>
                 <li><a href="/viewUserData/<%= id %>">View Data</a></li>
                 <li><a href="/">Log Out</a></li>
             </ul>
@@ -116,7 +116,7 @@
 
 <br><br><br><br><br>
 <div class="login-container">
-    <form class='login-form' action="filterData" method="POST">
+    <form class='login-form' action="filterUserData" method="POST">
         <fieldset>
             <legend>Filter</legend>
             <label for="filterCity">City</label>

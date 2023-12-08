@@ -285,6 +285,37 @@ app.post("/filterData", (req, res) => {
         });
 });
 
+app.post("/filterUserData", (req, res) => {
+    const selectedCity = req.body.filterCity;
+    const selectedRecordId = req.body.findRecord;
+
+    // Initialize the query with the target table
+    let query = knex('plainsville');
+
+    // If a specific city is selected, add it to the query
+    if (selectedCity && selectedCity !== "Both") {
+        query = query.where('Location', selectedCity);
+    }
+
+    // If a specific record ID is provided (and not "All Records"), add a WHERE clause
+    if (selectedRecordId && selectedRecordId !== "default") {
+        query = query.where({ id: selectedRecordId });
+    }
+
+    console.log("SQL Query:", query.toString());
+    
+    // Execute the query
+    query
+        .then((filteredRecords) => {
+            console.log("Filtered Records:", filteredRecords);
+            res.render("filterUserData", { theSurveys: filteredRecords });
+        })
+        .catch((error) => {
+            console.error("Error querying the database:", error);
+            res.status(500).json({ error: "Error fetching filtered record", details: error.message });
+        });
+});
+
 
 //Passes the city as a parameter and fetches the record requested
 app.get("/getRecords/:city", (req, res) => {
@@ -350,11 +381,11 @@ app.get("/userprofile/:id", (req, res) => {
     knex.select().from("loginInfo").where({ id: id }).then((user) => {
         if (user.length === 0) {
             // If the user is not found, render the profile page with null value for theLogin
-            res.render("userprofile", { theLogin: null });
+            res.render("userprofile", { theLogin: null ,id });
             return;
         }
         // Render the profile page with retrieved user data in theLogin
-        res.render("userprofile", { theLogin: user[0] });
+        res.render("userprofile", { theLogin: user[0],id });
     }).catch((error) => {
         console.error("Error fetching user data:", error);
         res.status(500).send("Error fetching user data");
