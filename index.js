@@ -156,7 +156,7 @@ app.post("/submitLogin", (req, res) => {
     app.get("/userIndex/:id", (req, res) => {
         const id = req.params.id;
         knex('loginInfo')
-            .where('id', userId)
+            .where('id', id)
             .select('firstName', 'id')
             .then(result => {
                 const firstName = result[0].firstName; // Assuming you only expect one result
