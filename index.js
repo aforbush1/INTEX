@@ -213,7 +213,7 @@ app.post('/createUser/:id', (req, res) => {
                     })
                     .then(loginInfo => {
                         // Render the "viewUser" page with the updated user data
-                        res.render('viewUser', { theLogin: loginInfo, id: id });
+                        res.render('viewUser', { theLogin: loginInfo, id });
                     })
                     .catch((error) => {
                         // Handle any errors that occurred during insertion
