@@ -398,14 +398,25 @@ app.post("/editUsers/:id", (req, res) => {
 
 //From the view users page, there is a delete button by each record. This allows to select a row (by its id) and then delete it from the database. Then redirects back to view user
 app.post("/deleteUser/:id", (req, res) => {
-    const id= req.params.id
-    knex("loginInfo").where("id", parseInt(req.params.id)).del().then(theLogin => {
-        res.render("/viewUser",{id:id});
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json({err});
-    });
+    const id = req.params.id;
+
+    knex("loginInfo")
+        .where("id", parseInt(id))
+        .del()
+        .then(() => {
+            // Fetch user data again after deletion
+            return knex("loginInfo");
+        })
+        .then(updatedUsers => {
+            // Render the "viewUser" page with the updated user list
+            res.render("viewUser", { theLogin: updatedUsers, id: id });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ err });
+        });
 });
+
 
 
 //Passes the user id into the user profile page which will only show the current user's information
