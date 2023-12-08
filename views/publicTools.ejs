@@ -113,6 +113,22 @@
         ::placeholder {
             font-style: italic;
         }
+
+        .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        gap: 20px;
+    }
+
+        /* Additional styles for the sections */
+        .section-top {
+            grid-column: 1 / 3; /* Expand across both columns */
+        }
+
+        /* Ensure individual sections take full width of their column */
+        .form-grid > section {
+            width: 100%;
+        }
     </style>
 
 
