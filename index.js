@@ -191,11 +191,6 @@ app.get("/adminIndex", (req, res) => {
     res.render("adminIndex");
 })
 
-// ejs route
-// app.get("/adminIndex", (req, res) => {
-//     res.render("adminIndex");
-// })
-
 app.get("/viewData", (req, res) => {
     knex.select().from("plainsville").then( (plainsville) => {
         res.render("viewData", {theSurveys : plainsville});
