@@ -398,8 +398,9 @@ app.post("/editUsers/:id", (req, res) => {
 
 //From the view users page, there is a delete button by each record. This allows to select a row (by its id) and then delete it from the database. Then redirects back to view user
 app.post("/deleteUser/:id", (req, res) => {
+    const id= req.params.id
     knex("loginInfo").where("id", parseInt(req.params.id)).del().then(theLogin => {
-        res.redirect("/viewUser");
+        res.render("/viewUser",{id:id});
     }).catch(err => {
         console.log(err);
         res.status(500).json({err});
