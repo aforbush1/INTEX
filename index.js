@@ -246,9 +246,9 @@ app.get("/viewData/:id", (req, res) => {
 });
 
 app.get("/viewUserData/:id", (req, res) => {
-    const userId = req.params.id;
+    const id = req.params.id;
     knex.select().from("plainsville").then( (plainsville) => {
-        res.render("viewUserData", {theSurveys : plainsville,userID:userId});
+        res.render("viewUserData", {theSurveys : plainsville,id:id});
     });
 });
 
