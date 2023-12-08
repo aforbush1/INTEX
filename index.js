@@ -104,6 +104,11 @@ app.post("/submitSurvey", (req, res) => {
         });
 });
 
+//Renders the public tools page
+app.get("/publicTools", (req, res) => {
+    res.render("publicTools");
+})
+
 
 //Renders the login page
 app.get("/login", (req, res) => {
