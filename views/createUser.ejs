@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Create</title>
+  <title>Create User</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -26,46 +26,101 @@
   <!-- Template Main CSS File -->
   <link href="https://aforbush1.github.io/INTEX/views/assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: SoftLand
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    body {
+      background-color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, .9);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .button-container {
+      padding-left: 0px;
+    }
+
+    button {
+      background: linear-gradient(-45deg, #1391a5, #274685);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px; /* Adjust as needed */
+    }
+
+    header.fixed-top {
+      background-color: #7c7c7c;
+      color: #7c7c7c;
+    }
+
+    #age::placeholder {
+      color: black;
+    }
+
+    ::placeholder {
+      font-style: italic;
+    }
+  </style>
+
 </head>
 
-<body style="background-image: url('https://aforbush1.github.io/INTEX/views/assets/img/nature.jpg'); background-size: contain;">
+<body style="background-image: url('https://aforbush1.github.io/INTEX/views/assets/img/nature.jpg');">
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center" style="background-color: grey;">
+  <header id="header" class="fixed-top d-flex align-items-center" style="background-color: rgba(211, 211, 211, 0.7);" >
     <div class="container d-flex justify-content-between align-items-center">
-
-
       <div class="logo">
-        <a href="/adminIndex/<%=id%>"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid">
-        </a>
-    </div>
-
-    <nav id="navbar" class="navbar">
-      <ul>
-        <li><a class="" href="/adminIndex/<%=id%>">Home</a></li>
-        <li><a href="/createUser/<%=id%>">Create User</a></li>
-        <li><a href="/viewUser/<%=id%>">View Users</a></li>
-        <li><a href="/viewData/<%=id%>">View Data</a></li>
-        <li><a href="/">Log Out</a></li>
-      </ul>
-  </nav>
-
+        <a href="/adminIndex/<%=id%>"><img src="https://aforbush1.github.io/INTEX/views/assets/img/provoLogo.png" alt="" class="img-fluid"></a>
+      </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="" href="/adminIndex/<%=id%>">Home</a></li>
+          <li><a href="/createUser/<%=id%>">Create User</a></li>
+          <li><a href="/viewUser/<%=id%>">View Users</a></li>
+          <li><a href="/viewData/<%=id%>">View Data</a></li>
+          <li><a href="/">Log Out</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <main id="main">
-
-    <!-- <section class="hero-section inner-page">
-      
-    </section> -->
-
     <section class="section">
       <div class="container">
         <div class="row mb-5 align-items-end">
@@ -74,124 +129,48 @@
             <p class="mb-0">Please enter the information of the user you wish to create.</p>
           </div>
         </div>
-
-        <style>
-          /* Placeholder text in italics */
-          ::placeholder {
-              font-style: italic;
-          }
-      </style>
-
         <div class="row">
           <div class="col-md-6 mx-auto" data-aos="fade-up">
-            <form action="/createUser" method="POST" role="form" class="php-email-form">
-                <div class="row">
-                    <div class="col-md-6 form-group">
-                      <label for="firstName">First Name</label>
-                      <input placeholder="Enter first name..." type="text" name="firstName" class="form-control" id="firstName" required>
-                    </div>
-                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                      <label for="lastName">Last Name</label>
-                      <input placeholder="Enter last name..." type="text" class="form-control" name="lastName" id="lastName" required>
-                    </div>
-                    <div class="col-md-12 form-group mt-3">
-                      <label for="email">Email</label>
-                      <input placeholder="Enter email..." type="text" name="email" class="form-control" id="email" required>
-                    </div>
-                    <div class="col-md-12 form-group mt-3">
-                      <label for="username">UserName</label>
-                      <input placeholder="Enter desired userame..." type="text" name="username" class="form-control" id="username" required>
-                    </div>
-                    <div class="col-md-12 form-group mt-3">
-                      <label for="password">Password</label>
-                      <input placeholder="Enter password..." type="password" name="password" class="form-control" id="password" required>
-                    </div>
-                    <div class="col-md-12 form-group mt-3">
-                      <label for="retypePassword">Retype Password</label>
-                      <input placeholder="Retype password..." type="password" name="retypePassword" class="form-control" id="retypePassword" required>
-                    <div class="col-md-6 form-group">
-                      <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
-                    </div>
+            <form action="/createUser" method="POST" role="form" class="php-email-form" style="margin-top: -30px;">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="firstName">First Name</label>
+                  <input placeholder="Enter first name..." type="text" name="firstName" class="form-control" id="firstName" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <label for="lastName">Last Name</label>
+                  <input placeholder="Enter last name..." type="text" class="form-control" name="lastName" id="lastName" required>
+                </div>
+                <div class="col-md-12 form-group mt-3">
+                  <label for="email">Email</label>
+                  <input placeholder="Enter email..." type="text" name="email" class="form-control" id="email" required>
+                </div>
+                <div class="col-md-12 form-group mt-3">
+                  <label for="username">UserName</label>
+                  <input placeholder="Enter desired username..." type="text" name="username" class="form-control" id="username" required>
+                </div>
+                <div class="col-md-12 form-group mt-3">
+                  <label for="password">Password</label>
+                  <input placeholder="Enter password..." type="password" name="password" class="form-control" id="password" required>
+                </div>
+                <div class="col-md-12 form-group mt-3">
+                  <label for="retypePassword">Retype Password</label>
+                  <input placeholder="Retype password..." type="password" name="retypePassword" class="form-control" id="retypePassword" required><br>
+                  <div class="col-md-6 form-group">
+                  <div class="button-container">
+                    <input type="submit" class="btn btn-primary d-block w-100" value="Submit">
+                  </div>
+                  </div>
+                </div>
               </div>
             </form>
           </div>
         </div>
       </div>
     </section>
+  </main>
 
-    <!-- ======= CTA Section =======
-    <section class="section cta-section">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 me-auto text-center text-md-start mb-5 mb-md-0">
-            <h2>Starts Publishing Your Apps</h2>
-          </div>
-          <div class="col-md-5 text-center text-md-end">
-            <p><a href="#" class="btn d-inline-flex align-items-center"><i class="bx bxl-apple"></i><span>App store</span></a> <a href="#" class="btn d-inline-flex align-items-center"><i class="bx bxl-play-store"></i><span>Google play</span></a></p>
-          </div>
-        </div>
-      </div>
-    </section>End CTA Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer =======
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-4 mb-md-0">
-          <h3>About SoftLand</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ea delectus pariatur, numquam aperiam
-            dolore nam optio dolorem facilis itaque voluptatum recusandae deleniti minus animi.</p>
-          <p class="social">
-            <a href="#"><span class="bi bi-twitter"></span></a>
-            <a href="#"><span class="bi bi-facebook"></span></a>
-            <a href="#"><span class="bi bi-instagram"></span></a>
-            <a href="#"><span class="bi bi-linkedin"></span></a>
-          </p>
-        </div> -->
-        <!-- <div class="col-md-7 ms-auto">
-          <div class="row site-section pt-0">
-            <div class="col-md-4 mb-4 mb-md-0">
-              <h3>Navigation</h3>
-              <ul class="list-unstyled">
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
-            <div class="col-md-4 mb-4 mb-md-0">
-              <h3>Services</h3>
-              <ul class="list-unstyled">
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Collaboration</a></li>
-                <li><a href="#">Todos</a></li>
-                <li><a href="#">Events</a></li>
-              </ul>
-            </div>
-            <div class="col-md-4 mb-4 mb-md-0">
-              <h3>Downloads</h3>
-              <ul class="list-unstyled">
-                <li><a href="#">Get from the App Store</a></li>
-                <li><a href="#">Get from the Play Store</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row justify-content-center text-center">
-        <div class="col-md-7">
-          <p class="copyright">&copy; Copyright SoftLand. All Rights Reserved</p>
-          <div class="credits">
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="https://aforbush1.github.io/INTEX/views/assets/vendor/aos/aos.js"></script>
